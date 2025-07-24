@@ -62,7 +62,7 @@ const Contact = () => {
           </button>
         </form>
         <div className="mt-10 text-center text-sm text-gray-300">
-          Or email us directly at <a href="mailto:invest@pawfectplug.com" className="underline hover:text-white">invest@ourstartup.com</a>
+          Or email us directly at <a href="mailto:invest@pawfectplug.com" className="underline hover:text-white">invest@challegoinvest.com</a>
         </div>
         <div className="mt-4 text-center">
           <a
