@@ -18,13 +18,13 @@ const Contact = () => {
   };
 
   return (
-    <section className="min-h-screen bg-[#39393ccb] py-20 px-4 flex items-center justify-center">
+    <section className="min-h-screen bg-[#6b7396de] py-20 px-4 flex items-center justify-center">
       <div className="max-w-3xl w-full bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-10 text-white">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-8 text-center text-white">
           Investor Contact
         </h1>
         <p className="text-lg text-center mb-10 text-gray-200">
-          Interested in investing in <span className="font-semibold text-white">Our Start Ups</span>? We'd love to hear from you.
+          Interested in investing in <span className="font-semibold text-white">Challego LLC Start Up</span>? We'd love to hear from you.
         </p>
         <form onSubmit={handleSubmit} className="space-y-6">
           <input
