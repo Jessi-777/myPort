@@ -18,7 +18,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="min-h-screen bg-[#6b7396de] py-20 px-4 flex items-center justify-center">
+    <section className="min-h-screen bg-[#92b0cede] py-20 px-4 flex items-center justify-center">
       <div className="max-w-3xl w-full bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-10 text-white">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-8 text-center text-white">
           Investor Contact

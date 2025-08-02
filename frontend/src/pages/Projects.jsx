@@ -7,13 +7,13 @@ const Projects = () => {
       id: 1,
       title: 'Pawfect Plug ',
       // description: ' A personalized SaaS platform delivering eco-friendly pet essentials through smart subscription plans. 
-       description:'I led full-stack development, UI/UX design, and built a custom dynamic pricing engine. Focused on sustainability, personalization, and scalable architecture.',
+       description:'Led full-stack development, UI/UX design, and built a custom dynamic pricing engine. Focused on sustainability, personalization, and scalable architecture.',
       image: '../pawfect_plug.png',
     },
     {
       id: 2,
       title: 'Challego',
-      description: 'I led full-stack development, UI/UX design, and engineered a custom dynamic pricing engine to support personalized, budget-aware shopping. The platform emphasizes environmental impact, user transparency, and scalable architecture to grow with both small vendors and mindful buyers.',
+      description: 'Led full-stack development, UI/UX design, and engineered a custom dynamic pricing engine to support personalized, budget-aware shopping. The platform emphasizes environmental impact, user transparency, and scalable architecture to grow with both small vendors and mindful buyers.',
       // image: '/images/project2.jpg',
       image: '../challego1.png'
     },
@@ -26,10 +26,10 @@ const Projects = () => {
     },
     {
         id: 4,
-        title: 'Rent a Space App',
+        title: 'Frequency Sounds App',
         description: 'A full-stack application with React, TailwindCSS, and Python.',
         // image: '/images/project1.jpg',
-        image: '../se.jpg'
+        image: '../frequency.jpeg'
       },
       {
         id: 5,

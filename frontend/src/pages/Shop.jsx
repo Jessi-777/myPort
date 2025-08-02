@@ -127,3 +127,77 @@ const Shop = () => {
 
 export default Shop;
 
+
+
+
+// when ready to connect to backend 
+// import React, { useEffect, useState } from 'react';
+// import { handleCheckout } from '../stripe';
+
+// const Shop = () => {
+//   const [products, setProducts] = useState([]);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     fetch('/api/products') // Proxy or full URL to your backend
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setProducts(data);
+//         setLoading(false);
+//       })
+//       .catch((err) => {
+//         console.error('Error fetching products:', err);
+//         setLoading(false);
+//       });
+//   }, []);
+
+//   if (loading) {
+//     return <div className="text-white text-center py-20">Loading products...</div>;
+//   }
+
+//   return (
+//     <section className="min-h-screen bg-[#1f2227] flex flex-col">
+//       {/* Hero omitted for brevity */}
+
+//       <div className="max-w-7xl w-full mx-auto px-6 py-20 text-center flex-1">
+//         <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+//           {products.map((product, index) => (
+//             <div
+//               key={index}
+//               className="relative p-6 bg-[#0e0f10] object-cover mb-4
+//               h-full w-full bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-80 border border-gray-900
+//               rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+//             >
+//               <img
+//                 src={product.image}
+//                 alt={product.name}
+//                 className="w-full h-52 object-cover rounded-2xl"
+//               />
+//               <div className="p-4">
+//                 <h3 className="text-xl font-bold text-[#173767] dark:text-white">{product.name}</h3>
+//                 <p className="mt-1 text-sm text-gray-400">{product.description}</p>
+//                 <p className="mt-2 text-white">{product.price ? `$${product.price}` : 'Donate'}</p>
+//                 <br />
+//                 <button
+//                   onClick={() => handleCheckout(product.stripePriceId)}
+//                   className="px-6 py-4 text-white font-semibold rounded-lg shadow-[0_0_1px_rgba(255,255,255,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] bg-cover bg-center transition duration-300 transform hover:scale-105"
+//                   style={{ backgroundImage: "url('space.jpg')" }}
+//                 >
+//                   Buy Now
+//                 </button>
+//                 <button
+//                   className="absolute bottom-17 right-16 text-white text-xl hover:scale-110 transition"
+//                   aria-label="Favorite"
+//                 >
+//                   ❤️
+//                 </button>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Shop;
