@@ -5,6 +5,9 @@ const mongoose = require("mongoose");
 
 dotenv.config();
 
+// const url ="https://ticas-boutique.onrender.com"
+
+
 const stripeWebhook = require("./webhook/stripeWebhook");
 const checkoutRoutes = require("./routes/checkout");
 const downloadRoutes = require("./routes/downloads");
@@ -25,7 +28,8 @@ app.use(
 );
 
 /* ================================
-   🌍 CORS
+   🌍 CORS 
+   "http://localhost:5173" "https://ticas-boutique.onrender.com"// local dev
 ================================ */
 app.use(
   cors({
