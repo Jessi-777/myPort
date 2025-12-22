@@ -4,6 +4,9 @@ import { handleCheckout } from "../stripe";
 
 const API = import.meta.env.VITE_API_URL;
 
+// const url ="https://ticas-boutique.onrender.com"
+
+
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
