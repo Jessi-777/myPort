@@ -12,6 +12,11 @@ import InvestorInfo from './components/InvestorInfo';
 import Shop from './pages/Shop';
 import Contact from './pages/Contact';
 import 'animate.css';
+import Success from './pages/Success';
+import Cancel from './pages/Cancel';
+import Admin from './pages/Admin';
+
+// inside <Routes>
 
 const App = () => {
   return (
@@ -29,6 +34,10 @@ const App = () => {
           <Route path="/shop" element={<Shop />} /> {/* Shop Page */}
           <Route path="/investors" element={<InvestorInfo />} /> {/* Investors Page */}
           <Route path="/contact" element={<Contact />} /> {/* Contact Page */}
+          <Route path="/success" element={<Success />} />
+          <Route path="/cancel" element={<Cancel />} />
+          <Route path="/admin" element={<Admin />} />
+
         </Routes>
         </main>
         

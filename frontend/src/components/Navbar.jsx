@@ -10,7 +10,8 @@ const Navbar = () => {
         {/* <Link to="/" className="text-2xl font-bold">TIC/\</Link> */}
         <Link to="/" className="flex items-center space-x-2 text-2xl font-bold">
           {/* <img src="/" alt="Logo" className="h-8 w-8 object-contain" /> */}
-            <span>Jessi aka TICA</span>
+            {/* <span>Jessi a.k.a Tica</span> */}
+             <span>Jessica Chavez  Softw/\re Developer </span>
         </Link>
 
         <div className="space-x-6">

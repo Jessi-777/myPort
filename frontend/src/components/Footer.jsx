@@ -19,24 +19,25 @@ const Footer = () => {
 
         {/* Links */}
         <div className="flex flex-wrap justify-center space-x-6">
-          <a href="https://www.linkedin.com/in/jessi-chavez-aka-tica-rey-33270231/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
+          <a href="https://pawfectplug.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
             Pawfect Plug
           </a>
-          <a href="https://www.linkedin.com/in/jessi-chavez-aka-tica-rey-33270231/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
+          <a href="https://challego.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
             Challego Online Marketplace platform
           </a>
-          <a href="https://www.linkedin.com/in/jessi-chavez-aka-tica-rey-33270231/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
-            Farm App
+          <a href="https://jessisoftwareengineer.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
+            HNA Human Nature Atheltica
           </a>
-          <a href="https://www.linkedin.com/in/jessi-chavez-aka-tica-rey-33270231/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
-            Expense Tracker App 
+           <a href="https://jessisoftwareengineer.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
+            Farm App
           </a>
           <a href="https://www.ticarey.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
             Tica Rey Music
           </a>
-          <Link to="/contact" className="hover:text-gray-300 text-sm">
+          
+          {/* <Link to="/contact" className="hover:text-gray-300 text-sm">
             Contact
-          </Link>
+          </Link> */}
         </div>
       </div>
 

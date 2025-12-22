@@ -12,7 +12,14 @@ module.exports = {
     },
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        fredoka: ['Fredoka One', 'cursive'],
+        header: ['Bebas Neue', 'cursive'],
+        body: ['Montserrat', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };

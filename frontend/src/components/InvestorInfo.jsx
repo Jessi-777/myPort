@@ -10,7 +10,7 @@ const InvestorInfo = () => {
         <div
           className="relative h-[400px] w-full bg-cover bg-center flex items-center justify-center rounded-xl overflow-hidden"
           style={{
-            backgroundImage: "url('/phone.jpg')",
+            backgroundImage: "url('/phone.png')",
           }}
         ></div>
 
@@ -60,7 +60,7 @@ const InvestorInfo = () => {
           </p>
           <a
             href="mailto:founder@pawfectplug.com"
-            className="inline-block bg-[#5a729d] hover:bg-[#4e6992] text-white font-semibold py-3 px-6 rounded-xl transition"
+            className="inline-block bg-[#161a22] hover:bg-[#383e48] text-white font-semibold py-3 px-6 rounded-xl transition"
           >
             Contact Tica
           </a>
@@ -71,5 +71,4 @@ const InvestorInfo = () => {
 };
 
 export default InvestorInfo;
-
 

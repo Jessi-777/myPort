@@ -12,25 +12,25 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'Challego',
+      title: 'Challego online Market',
       description: 'Led full-stack development, UI/UX design, and engineered a custom dynamic pricing engine to support personalized, budget-aware shopping. The platform emphasizes environmental impact, user transparency, and scalable architecture to grow with both small vendors and mindful buyers.',
       // image: '/images/project2.jpg',
       image: '../challego1.png'
     },
-    {
-      id: 3,
-      title: 'Farm App',
-      description: 'A full-stack farm growing food application with React, TailwindCSS, and Python.',
-      // image: '/images/project3.jpg',
-      image: '../farm_app.jpg'
-    },
-    {
-        id: 4,
-        title: 'Frequency Sounds App',
-        description: 'A full-stack application with React, TailwindCSS, and Python.',
-        // image: '/images/project1.jpg',
-        image: '../frequency.jpeg'
-      },
+    // {
+    //   id: 3,
+    //   title: 'Farm App',
+    //   description: 'A full-stack farm growing food application with React, TailwindCSS, and Python.',
+    //   // image: '/images/project3.jpg',
+    //   image: '../farm_app.jpg'
+    // },
+    // {
+    //     id: 4,
+    //     title: 'Frequency Sounds App',
+    //     description: 'A full-stack application with React, TailwindCSS, and Python.',
+    //     // image: '/images/project1.jpg',
+    //     image: '../frequency.jpeg'
+    //   },
       {
         id: 5,
         title: 'Life Social Media App',
