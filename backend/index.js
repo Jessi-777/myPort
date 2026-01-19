@@ -12,8 +12,10 @@ const stripeWebhook = require("./webhook/stripeWebhook");
 const checkoutRoutes = require("./routes/checkout");
 const downloadRoutes = require("./routes/downloads");
 const adminRoutes = require("./routes/admin");
+const adminProductsRoutes = require("./routes/adminProducts");
 const productsPublic = require("./routes/productsPublic");
 const usersRoutes = require("./routes/users.Routes");
+const printifyRoutes = require("./routes/printify");
 
 const app = express();
 
@@ -51,8 +53,10 @@ app.use(express.json());
 app.use("/api/checkout", checkoutRoutes);
 app.use("/api/downloads", downloadRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/admin/products", adminProductsRoutes);
 app.use("/api/products", productsPublic);
 app.use("/api/users", usersRoutes);
+app.use("/api/printify", printifyRoutes);
 
 /* ================================
    🗄️ DATABASE + SERVER

@@ -16,9 +16,17 @@ router.post("/login", (req, res) => {
     return res.status(400).json({ error: "Password required" });
   }
 
-  // simple secure compare
-  const valid =
-    Buffer.from(password).equals(Buffer.from(process.env.ADMIN_PASSWORD));
+  // Get the admin password from env, trim any whitespace
+  const adminPassword = (process.env.ADMIN_PASSWORD || "").trim();
+  const inputPassword = (password || "").trim();
+
+  // Debug logging
+  console.log("Login attempt with password:", inputPassword);
+  console.log("Expected password:", adminPassword);
+  console.log("Match:", inputPassword === adminPassword);
+
+  // Simple string comparison (after trimming)
+  const valid = inputPassword === adminPassword;
 
   if (!valid) {
     return res.status(401).json({ error: "Invalid credentials" });
@@ -31,6 +39,7 @@ router.post("/login", (req, res) => {
     { expiresIn: "12h" }
   );
 
+  console.log("✓ Admin login successful");
   return res.json({ token });
 });
 

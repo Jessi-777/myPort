@@ -14,9 +14,39 @@ const ProductSchema = new mongoose.Schema(
       trim: true,
     },
 
+    // Option 1: Digital products with Stripe
     priceId: { 
-      type: String, // Stripe price ID
-      required: true 
+      type: String, // Stripe price ID (for digital products)
+      default: null
+    },
+
+    fileKey: { 
+      type: String,  // S3 key for digital product file
+      default: null
+    },
+
+    // Option 2: Physical products from Printify
+    printifyProductId: {
+      type: String,
+      default: null
+    },
+
+    printifyShopId: {
+      type: String,
+      default: null
+    },
+
+    // Product type: 'digital' or 'physical'
+    productType: {
+      type: String,
+      enum: ['digital', 'physical'],
+      default: 'digital'
+    },
+
+    // Pricing (both digital and physical can use this)
+    price: {
+      type: Number, // in cents (e.g., 1999 = $19.99)
+      required: true
     },
 
     imageUrl: { 
@@ -24,20 +54,31 @@ const ProductSchema = new mongoose.Schema(
       default: "" 
     },
 
-    fileKey: { 
-      type: String,  // S3 key or secure storage key
-      required: true 
-    },
-
     visible: { 
       type: Boolean, 
       default: true 
     },
 
-    // Optional:
-    // tags: [String],
-    // category: String,
-    // free: Boolean, 
+    // Printify-specific metadata
+    printifyData: {
+      variants: [
+        {
+          variantId: String,
+          title: String,
+          price: Number,
+          available: Boolean,
+        }
+      ],
+      images: [
+        {
+          src: String,
+          position: Number,
+        }
+      ]
+    },
+
+    tags: [String],
+    category: String,
   },
   { timestamps: true }
 );
