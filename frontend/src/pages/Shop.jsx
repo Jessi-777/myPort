@@ -4,12 +4,10 @@ import { handleCheckout } from "../stripe";
 
 const API = import.meta.env.VITE_API_URL;
 
-// const url ="https://ticas-boutique.onrender.com"
-
-
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState("all"); // all, digital, physical
 
   // Fetch public products from backend
   const loadProducts = async () => {
@@ -27,6 +25,45 @@ const Shop = () => {
     loadProducts();
   }, []);
 
+  // Filter products based on selection
+  const filteredProducts = products.filter((product) => {
+    if (filter === "digital") return product.productType === "digital" || !product.productType;
+    if (filter === "physical") return product.productType === "physical";
+    return true;
+  });
+
+  /**
+   * Handle checkout based on product type
+   */
+  const handleProductCheckout = async (product) => {
+    if (product.productType === "physical" || product.printifyProductId) {
+      // Physical product - send to Printify checkout
+      try {
+        const response = await axios.post(
+          `${API}/api/checkout/printify`,
+          {
+            items: [
+              {
+                productId: product._id,
+                variantId: product.printifyData?.variants[0]?.variantId,
+                quantity: 1,
+              },
+            ],
+          }
+        );
+        window.location.href = response.data.url;
+      } catch (error) {
+        console.error("Checkout error:", error);
+        alert("Failed to start checkout");
+      }
+    } else if (product.priceId) {
+      // Digital product - use Stripe priceId
+      handleCheckout(product.priceId);
+    } else {
+      alert("Product not available for purchase");
+    }
+  };
+
   return (
     <section className="min-h-screen bg-[#1f2227] flex flex-col">
       {/* HERO */}
@@ -41,7 +78,7 @@ const Shop = () => {
 
         <div className="relative z-10 text-center px-4 py-16">
           <h1 className="text-5xl md:text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)] animate-pulse">
-            🛒 Tica's Shop
+            🛒 Welcome to The Shop
           </h1>
 
           <p className="text-lg md:text-2xl max-w-2xl mx-auto text-white drop-shadow-md">
@@ -54,6 +91,40 @@ const Shop = () => {
 
       {/* PRODUCTS GRID */}
       <div className="max-w-7xl w-full mx-auto px-6 py-20 flex-1">
+        {/* Filter Tabs */}
+        <div className="flex justify-center gap-4 mb-10">
+          <button
+            onClick={() => setFilter("all")}
+            className={`px-6 py-2 rounded-lg font-semibold transition-all ${
+              filter === "all"
+                ? "bg-[#a9d0de] text-black"
+                : "bg-gray-700 text-white hover:bg-gray-600"
+            }`}
+          >
+            All Products
+          </button>
+          <button
+            onClick={() => setFilter("digital")}
+            className={`px-6 py-2 rounded-lg font-semibold transition-all ${
+              filter === "digital"
+                ? "bg-[#a9d0de] text-black"
+                : "bg-gray-700 text-white hover:bg-gray-600"
+            }`}
+          >
+            Digital
+          </button>
+          <button
+            onClick={() => setFilter("physical")}
+            className={`px-6 py-2 rounded-lg font-semibold transition-all ${
+              filter === "physical"
+                ? "bg-[#a9d0de] text-black"
+                : "bg-gray-700 text-white hover:bg-gray-600"
+            }`}
+          >
+            Physical
+          </button>
+        </div>
+
         {/* Loading State */}
         {loading && (
           <div className="text-center text-white text-xl animate-pulse">
@@ -62,15 +133,15 @@ const Shop = () => {
         )}
 
         {/* Empty State */}
-        {!loading && products.length === 0 && (
+        {!loading && filteredProducts.length === 0 && (
           <div className="text-center text-white text-xl">
-            No products available yet. Check back soon!
+            No products available in this category. Check back soon!
           </div>
         )}
 
         {/* Product Cards */}
         <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <div
               key={product._id}
               className="relative p-6 bg-[#0e0f10] object-cover mb-4 h-full w-full
@@ -78,6 +149,11 @@ const Shop = () => {
                          border border-gray-900 rounded-2xl shadow-lg 
                          hover:scale-105 transition-transform duration-300"
             >
+              {/* Product Badge */}
+              <div className="absolute top-4 right-4 bg-[#a9d0de] text-black px-3 py-1 rounded-full text-xs font-bold">
+                {product.productType === "physical" ? "🛍️ Physical" : "📥 Digital"}
+              </div>
+
               <img
                 src={product.imageUrl || "/placeholder.png"}
                 alt={product.title}
@@ -91,13 +167,16 @@ const Shop = () => {
 
                 <p className="mt-1 text-sm text-gray-400">{product.description}</p>
 
-                <p className="mt-2 text-white dark:text-white">${product.priceId ? "" : ""}</p>
+                {/* Price Display */}
+                <p className="mt-2 text-white dark:text-white font-semibold">
+                  ${(product.price / 100).toFixed(2)}
+                </p>
 
                 <br />
 
                 <button
-                  onClick={() => handleCheckout(product.priceId)}
-                  className="px-6 py-4 text-white font-semibold rounded-lg shadow-[0_0_1px_rgba(255,255,255,0.3)] 
+                  onClick={() => handleProductCheckout(product)}
+                  className="px-6 py-4 w-full text-white font-semibold rounded-lg shadow-[0_0_1px_rgba(255,255,255,0.3)] 
                              hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] bg-cover bg-center 
                              transition duration-300 transform hover:scale-105"
                   style={{
