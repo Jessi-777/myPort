@@ -6,7 +6,14 @@ const { fulfillOrder } = require("./printifyFulfillment");
 
 const router = express.Router(); 
 
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+// Initialize Stripe only when environment is ready
+let stripe;
+function getStripe() {
+  if (!stripe) {
+    stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+  }
+  return stripe;
+}
 
 // RAW BODY REQUIRED
 router.post(
@@ -17,7 +24,7 @@ router.post(
 
     let event;
     try {
-      event = stripe.webhooks.constructEvent(
+      event = getStripe().webhooks.constructEvent(
         req.body,
         signature,
         process.env.STRIPE_WEBHOOK_SECRET

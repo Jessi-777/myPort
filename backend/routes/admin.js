@@ -2,7 +2,7 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const Product = require("../models/Product");
 const adminAuth = require("../middleware/adminAuth");
-const { getPresignedPutUrl } = require("../utils/presignUpload");
+const cloudinary = require("../utils/cloudinary");
 
 const router = express.Router();
 
@@ -44,106 +44,73 @@ router.post("/login", (req, res) => {
 });
 
 /* ---------------------------------------
-   PRESIGNED URL FOR S3 UPLOADS
+   CLOUDINARY IMAGE UPLOAD
 ---------------------------------------- */
-router.post("/uploads/presign", adminAuth, async (req, res) => {
+router.post("/upload-image", adminAuth, async (req, res) => {
   try {
-    const { key, contentType } = req.body;
+    console.log("📸 IMAGE UPLOAD - Request received");
+    const { image, folder = 'products' } = req.body;
 
-    if (!key || !contentType) {
-      return res.status(400).json({ error: "Missing key or contentType" });
+    if (!image) {
+      console.log("❌ No image data in request");
+      return res.status(400).json({ error: "Missing image data" });
     }
 
-    const url = await getPresignedPutUrl({ key, contentType });
+    console.log("📤 Uploading to Cloudinary...");
+    console.log("   Folder:", `tica-shop/${folder}`);
+    console.log("   Image size:", image.length, "bytes (base64)");
 
-    return res.json({ url, key });
-  } catch (err) {
-    console.error("Presign error:", err);
-    return res.status(500).json({ error: "Failed to generate upload URL" });
-  }
-});
-
-/* ---------------------------------------
-   GET ALL PRODUCTS (Admin dashboard)
----------------------------------------- */
-router.get("/products", adminAuth, async (_req, res) => {
-  try {
-    const products = await Product.find().sort({ createdAt: -1 });
-    return res.json({ products });
-  } catch (err) {
-    console.error("Fetch admin products error:", err);
-    return res.status(500).json({ error: "Failed to fetch products" });
-  }
-});
-
-/* ---------------------------------------
-   CREATE PRODUCT
----------------------------------------- */
-router.post("/products", adminAuth, async (req, res) => {
-  try {
-    const { title, description, priceId, imageUrl, fileKey, visible } = req.body;
-
-    if (!title || !priceId || !fileKey) {
-      return res.status(400).json({
-        error: "Missing required fields: title, priceId, fileKey",
-      });
-    }
-
-    const product = await Product.create({
-      title,
-      description,
-      priceId,
-      imageUrl,
-      fileKey,
-      visible,
+    // Upload to Cloudinary
+    const result = await cloudinary.uploader.upload(image, {
+      folder: `tica-shop/${folder}`,
+      resource_type: 'image',
+      transformation: [
+        { width: 1000, height: 1000, crop: 'limit' },
+        { quality: 'auto' }
+      ]
     });
 
-    return res.json({ product });
+    console.log("✅ Image uploaded successfully");
+    console.log("   URL:", result.secure_url);
+    console.log("   Size:", result.bytes, "bytes");
+
+    return res.json({ 
+      url: result.secure_url,
+      publicId: result.public_id
+    });
   } catch (err) {
-    console.error("Create product error:", err);
-    return res.status(500).json({ error: "Failed to create product" });
+    console.error("❌ Cloudinary upload error:", err.message);
+    console.error("   Full error:", err);
+    return res.status(500).json({ error: "Failed to upload image: " + err.message });
   }
 });
 
 /* ---------------------------------------
-   UPDATE PRODUCT
+   CLOUDINARY FILE UPLOAD (Music, Digital Files)
 ---------------------------------------- */
-router.put("/products/:id", adminAuth, async (req, res) => {
+router.post("/upload-file", adminAuth, async (req, res) => {
   try {
-    const { id } = req.params;
+    const { file, folder = 'digital-files' } = req.body;
 
-    const updated = await Product.findByIdAndUpdate(id, req.body, {
-      new: true,
+    if (!file) {
+      return res.status(400).json({ error: "Missing file data" });
+    }
+
+    // Upload to Cloudinary (supports any file type)
+    const result = await cloudinary.uploader.upload(file, {
+      folder: `tica-shop/${folder}`,
+      resource_type: 'auto', // Allows any file type (audio, video, zip, etc.)
     });
 
-    if (!updated) {
-      return res.status(404).json({ error: "Product not found" });
-    }
-
-    return res.json({ product: updated });
+    return res.json({ 
+      url: result.secure_url,
+      publicId: result.public_id,
+      format: result.format,
+      bytes: result.bytes
+    });
   } catch (err) {
-    console.error("Update product error:", err);
-    return res.status(500).json({ error: "Failed to update product" });
-  }
-});
-
-/* ---------------------------------------
-   DELETE PRODUCT
----------------------------------------- */
-router.delete("/products/:id", adminAuth, async (req, res) => {
-  try {
-    const { id } = req.params;
-
-    const deleted = await Product.findByIdAndDelete(id);
-
-    if (!deleted) {
-      return res.status(404).json({ error: "Product not found" });
-    }
-
-    return res.json({ success: true });
-  } catch (err) {
-    console.error("Delete product error:", err);
-    return res.status(500).json({ error: "Failed to delete product" });
+    console.error("Cloudinary file upload error:", err);
+    return res.status(500).json({ error: "Failed to upload file" });
   }
 });
 

@@ -49,6 +49,12 @@ const ProductSchema = new mongoose.Schema(
       required: true
     },
 
+    // Free download flag
+    isFree: {
+      type: Boolean,
+      default: false
+    },
+
     imageUrl: { 
       type: String, 
       default: "" 

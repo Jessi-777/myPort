@@ -6,10 +6,16 @@ const Order = require("../models/Order");
 
 const router = express.Router();
 
-// Stripe server SDK with SECRET key
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: "2024-06-20",
-});
+// Stripe server SDK with SECRET key - lazy init
+let stripe;
+function getStripe() {
+  if (!stripe) {
+    stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: "2024-06-20",
+    });
+  }
+  return stripe;
+}
 
 /**
  * POST /api/checkout
@@ -23,7 +29,7 @@ router.post("/", async (req, res) => {
       return res.status(400).json({ error: "Missing priceId" });
     }
 
-    const session = await stripe.checkout.sessions.create({
+    const session = await getStripe().checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
       line_items: [
@@ -91,7 +97,7 @@ router.post("/printify", async (req, res) => {
     }
 
     // Create Stripe session
-    const session = await stripe.checkout.sessions.create({
+    const session = await getStripe().checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
       line_items: lineItems,
@@ -134,7 +140,7 @@ router.post("/printify", async (req, res) => {
  */
 router.get("/session/:sessionId", async (req, res) => {
   try {
-    const session = await stripe.checkout.sessions.retrieve(req.params.sessionId);
+    const session = await getStripe().checkout.sessions.retrieve(req.params.sessionId);
     res.json(session);
   } catch (err) {
     console.error("❌ Session retrieval error:", err);

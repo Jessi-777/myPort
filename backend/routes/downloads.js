@@ -2,16 +2,22 @@ const express = require("express");
 const router = express.Router();
 
 const Stripe = require("stripe");
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+let stripe;
+function getStripe() {
+  if (!stripe) {
+    stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+  }
+  return stripe;
+}
 const generateSignedUrl = require("../utils/s3");
 
 router.get("/", async (req, res) => {
   const sessionId = req.query.session_id;
 
   try {
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    const session = await getStripe().checkout.sessions.retrieve(sessionId);
 
-    const lineItems = await stripe.checkout.sessions.listLineItems(sessionId);
+    const lineItems = await getStripe().checkout.sessions.listLineItems(sessionId);
 
     const priceToFile = {
       "price_fullmoon": "fullmoon.zip",

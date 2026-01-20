@@ -52,10 +52,22 @@ router.post("/", async (req, res) => {
       tags,
     } = req.body;
 
+    console.log("🎯 CREATE PRODUCT - Received data:");
+    console.log("  imageUrl:", imageUrl);
+    console.log("  fileKey:", fileKey);
+    console.log("  title:", title);
+    console.log("  Full body:", JSON.stringify(req.body, null, 2));
+
     // Validation
     if (!title || !productType || !price) {
       return res.status(400).json({
         error: "Missing required fields: title, productType, price",
+      });
+    }
+
+    if (!category) {
+      return res.status(400).json({
+        error: "Category is required",
       });
     }
 
@@ -65,10 +77,10 @@ router.post("/", async (req, res) => {
       });
     }
 
-    // For digital products, fileKey is required
+    // For digital products, at least one of fileKey or priceId should exist
     if (productType === "digital" && !fileKey && !priceId) {
       return res.status(400).json({
-        error: "Digital products need either fileKey (S3) or priceId (Stripe)",
+        error: "Digital products require a file upload! Click '📤 Upload File (MP3, ZIP, etc.)' button to upload your music file, or provide a Stripe Price ID.",
       });
     }
 
@@ -85,6 +97,11 @@ router.post("/", async (req, res) => {
       tags: tags || [],
     });
 
+    console.log("✅ Product created in DB:");
+    console.log("  _id:", newProduct._id);
+    console.log("  imageUrl:", newProduct.imageUrl);
+    console.log("  fileKey:", newProduct.fileKey);
+
     res.status(201).json({
       message: "✓ Product created successfully",
       product: newProduct,
@@ -96,6 +113,31 @@ router.post("/", async (req, res) => {
 });
 
 /**
+ * GET /api/admin/products/stats
+ * Get product statistics
+ * IMPORTANT: Must be before /:id routes to avoid matching "stats" as an ID
+ */
+router.get("/stats", async (req, res) => {
+  try {
+    const total = await Product.countDocuments();
+    const digital = await Product.countDocuments({ productType: "digital" });
+    const physical = await Product.countDocuments({ productType: "physical" });
+    const visible = await Product.countDocuments({ visible: true });
+
+    res.json({
+      total,
+      digital,
+      physical,
+      visible,
+      hidden: total - visible,
+    });
+  } catch (error) {
+    console.error("Error getting stats:", error);
+    res.status(500).json({ error: "Failed to get stats" });
+  }
+});
+
+/**
  * PUT /api/admin/products/:id
  * Update a product
  */
@@ -103,6 +145,11 @@ router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const updates = req.body;
+
+    console.log("🎯 UPDATE PRODUCT - Received data for ID:", id);
+    console.log("  imageUrl:", updates.imageUrl);
+    console.log("  fileKey:", updates.fileKey);
+    console.log("  Full updates:", JSON.stringify(updates, null, 2));
 
     // Don't allow changing productType
     delete updates.productType;
@@ -120,6 +167,10 @@ router.put("/:id", async (req, res) => {
     if (!product) {
       return res.status(404).json({ error: "Product not found" });
     }
+
+    console.log("✅ Product updated in DB:");
+    console.log("  imageUrl:", product.imageUrl);
+    console.log("  fileKey:", product.fileKey);
 
     res.json({
       message: "✓ Product updated successfully",
@@ -177,30 +228,6 @@ router.delete("/:id", async (req, res) => {
   } catch (error) {
     console.error("Error deleting product:", error);
     res.status(500).json({ error: "Failed to delete product" });
-  }
-});
-
-/**
- * GET /api/admin/products/stats
- * Get product statistics
- */
-router.get("/stats", async (req, res) => {
-  try {
-    const total = await Product.countDocuments();
-    const digital = await Product.countDocuments({ productType: "digital" });
-    const physical = await Product.countDocuments({ productType: "physical" });
-    const visible = await Product.countDocuments({ visible: true });
-
-    res.json({
-      total,
-      digital,
-      physical,
-      visible,
-      hidden: total - visible,
-    });
-  } catch (error) {
-    console.error("Error getting stats:", error);
-    res.status(500).json({ error: "Failed to get stats" });
   }
 });
 
