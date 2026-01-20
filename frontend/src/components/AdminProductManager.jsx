@@ -10,6 +10,7 @@ const AdminProductManager = () => {
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [stats, setStats] = useState(null);
+  const [uploading, setUploading] = useState(false);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -34,13 +35,27 @@ const AdminProductManager = () => {
 
   const loadProducts = async () => {
     try {
+      console.log("Loading products from:", `${API}/api/admin/products`);
+      const token = localStorage.getItem("adminToken");
+      if (!token) {
+        throw new Error("No admin token found. Please log in again.");
+      }
       const { data } = await axios.get(`${API}/api/admin/products`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${token}` },
       });
-      setProducts(data);
+      console.log("Products loaded:", data);
+      setProducts(Array.isArray(data) ? data : []);
     } catch (err) {
-      setError("Failed to load products");
-      console.error(err);
+      console.error("Failed to load products:", err);
+      // If token is invalid, clear it and redirect to login
+      if (err.response?.status === 401) {
+        localStorage.removeItem("adminToken");
+        setError("Session expired. Please log in again.");
+        setTimeout(() => window.location.reload(), 2000);
+      } else {
+        setError("Failed to load products: " + (err.response?.data?.error || err.message));
+      }
+      setProducts([]);
     } finally {
       setLoading(false);
     }
@@ -48,12 +63,20 @@ const AdminProductManager = () => {
 
   const loadStats = async () => {
     try {
+      console.log("Loading stats from:", `${API}/api/admin/products/stats`);
+      const token = localStorage.getItem("adminToken");
+      if (!token) return;
       const { data } = await axios.get(`${API}/api/admin/products/stats`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${token}` },
       });
-      setStats(data);
+      console.log("Stats loaded:", data);
+      setStats(data || { total: 0, digital: 0, physical: 0, visible: 0 });
     } catch (err) {
       console.error("Failed to load stats:", err);
+      if (err.response?.status === 401) {
+        localStorage.removeItem("adminToken");
+      }
+      setStats({ total: 0, digital: 0, physical: 0, visible: 0 });
     }
   };
 
@@ -74,14 +97,149 @@ const AdminProductManager = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
+    
+    // If changing price, clear priceId to avoid confusion
+    if (name === 'price') {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value,
+        priceId: '', // Clear priceId when price changes
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
+  };
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      setError('Please select an image file');
+      return;
+    }
+
+    // Validate file size (5MB max)
+    if (file.size > 5 * 1024 * 1024) {
+      setError('Image must be less than 5MB');
+      return;
+    }
+
+    setUploading(true);
+    setError('');
+
+    try {
+      // Convert file to base64
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      
+      reader.onload = async () => {
+        try {
+          // Upload to Cloudinary via backend
+          const { data } = await axios.post(
+            `${API}/api/admin/upload-image`,
+            {
+              image: reader.result,
+              folder: 'products',
+            },
+            {
+              headers: { Authorization: `Bearer ${localStorage.getItem("adminToken")}` },
+            }
+          );
+
+          // Update form with Cloudinary URL
+          setFormData(prev => ({
+            ...prev,
+            imageUrl: data.url,
+          }));
+
+          setMessage('✓ Image uploaded successfully');
+          setTimeout(() => setMessage(''), 3000);
+        } catch (err) {
+          console.error('Image upload error:', err);
+          setError(err.response?.data?.error || 'Failed to upload image');
+        } finally {
+          setUploading(false);
+        }
+      };
+
+      reader.onerror = () => {
+        setError('Failed to read file');
+        setUploading(false);
+      };
+    } catch (err) {
+      console.error('File read error:', err);
+      setError('Failed to process image');
+      setUploading(false);
+    }
+  };
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // Validate file size (50MB max for digital files)
+    if (file.size > 50 * 1024 * 1024) {
+      setError('File must be less than 50MB');
+      return;
+    }
+
+    setUploading(true);
+    setError('');
+
+    try {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      
+      reader.onload = async () => {
+        try {
+          const { data } = await axios.post(
+            `${API}/api/admin/upload-file`,
+            {
+              file: reader.result,
+              folder: 'digital-files',
+            },
+            {
+              headers: { Authorization: `Bearer ${localStorage.getItem("adminToken")}` },
+            }
+          );
+
+          // Update form with Cloudinary URL
+          setFormData(prev => ({
+            ...prev,
+            fileKey: data.url,
+          }));
+
+          setMessage(`✓ File uploaded (${(data.bytes / 1024 / 1024).toFixed(2)} MB)`);
+          setTimeout(() => setMessage(''), 3000);
+        } catch (err) {
+          console.error('File upload error:', err);
+          setError(err.response?.data?.error || 'Failed to upload file');
+        } finally {
+          setUploading(false);
+        }
+      };
+
+      reader.onerror = () => {
+        setError('Failed to read file');
+        setUploading(false);
+      };
+    } catch (err) {
+      console.error('File read error:', err);
+      setError('Failed to process file');
+      setUploading(false);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("🚀 Form submitted!");
+    console.log("Form data:", formData);
+    
     setMessage("");
     setError("");
 
@@ -93,27 +251,36 @@ const AdminProductManager = () => {
         visible: true,
       };
 
+      console.log("📦 Submit data prepared:", submitData);
+      console.log("API URL:", API);
+      console.log("Token:", localStorage.getItem("adminToken") ? "exists" : "missing");
+
       let response;
       if (editingId) {
+        console.log(`✏️ Updating product ${editingId}`);
         response = await axios.put(
           `${API}/api/admin/products/${editingId}`,
           submitData,
-          { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+          { headers: { Authorization: `Bearer ${localStorage.getItem("adminToken")}` } }
         );
       } else {
+        console.log("➕ Creating new product");
         response = await axios.post(`${API}/api/admin/products`, submitData, {
-          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+          headers: { Authorization: `Bearer ${localStorage.getItem("adminToken")}` },
         });
       }
 
+      console.log("✅ Response:", response.data);
       setMessage(response.data.message);
       resetForm();
       setShowForm(false);
       loadProducts();
       loadStats();
     } catch (err) {
+      console.error("❌ Submit error:", err);
+      console.error("Error response:", err.response?.data);
+      console.error("Error status:", err.response?.status);
       setError(err.response?.data?.error || "Failed to save product");
-      console.error(err);
     }
   };
 
@@ -122,7 +289,7 @@ const AdminProductManager = () => {
 
     try {
       await axios.delete(`${API}/api/admin/products/${id}`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("adminToken")}` },
       });
       setMessage("✓ Product deleted");
       loadProducts();
@@ -135,7 +302,7 @@ const AdminProductManager = () => {
   const handleToggleVisibility = async (id, currentVisible) => {
     try {
       await axios.patch(`${API}/api/admin/products/${id}/toggle-visibility`, {}, {
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("adminToken")}` },
       });
       setMessage(`✓ Product ${!currentVisible ? "shown" : "hidden"}`);
       loadProducts();
@@ -161,7 +328,14 @@ const AdminProductManager = () => {
   };
 
   if (loading) {
-    return <div className="text-white text-center p-8">Loading products...</div>;
+    return (
+      <div className="min-h-screen bg-[#1f2227] flex items-center justify-center">
+        <div className="text-white text-center p-8">
+          <div className="text-4xl mb-4">⏳</div>
+          <div className="text-xl">Loading products...</div>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -217,7 +391,7 @@ const AdminProductManager = () => {
 
         {/* Form */}
         {showForm && (
-          <div className="bg-[#0e0f10] border border-gray-700 rounded-lg p-6 mb-8">
+          <div className="bg-[#0e0f10] border border-gray-800 rounded-lg p-6 mb-8">
             <h2 className="text-2xl font-bold text-white mb-6">
               {editingId ? "Edit Product" : "Add New Product"}
             </h2>
@@ -252,8 +426,8 @@ const AdminProductManager = () => {
                     disabled={editingId}
                     className="w-full bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded"
                   >
-                    <option value="digital">📥 Digital (Music, Art, Files)</option>
-                    <option value="physical">🛍️ Physical (Originals, Apparel)</option>
+                    <option value="digital">📥 Digital (Music, Art Files, Downloads)</option>
+                    <option value="physical">🛍️ Physical (Custom Items, Originals)</option>
                   </select>
                 </div>
 
@@ -277,16 +451,23 @@ const AdminProductManager = () => {
                 {/* Category */}
                 <div>
                   <label className="block text-white text-sm font-semibold mb-2">
-                    Category
+                    Category *
                   </label>
-                  <input
-                    type="text"
+                  <select
                     name="category"
                     value={formData.category}
                     onChange={handleInputChange}
-                    placeholder="e.g., Music, Art, Fashion"
+                    required
                     className="w-full bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded"
-                  />
+                  >
+                    <option value="">Select category...</option>
+                    <option value="Music">🎵 Music</option>
+                    <option value="Art">🎨 Art</option>
+                    <option value="Film">🎬 Film</option>
+                    <option value="Fashion">👕 Fashion</option>
+                    <option value="Original">⭐ Original Piece</option>
+                    <option value="Other">📦 Other</option>
+                  </select>
                 </div>
               </div>
 
@@ -305,50 +486,131 @@ const AdminProductManager = () => {
                 />
               </div>
 
-              {/* Image URL */}
+              {/* Image Upload */}
               <div>
                 <label className="block text-white text-sm font-semibold mb-2">
-                  Image URL
+                  Product Image
                 </label>
-                <input
-                  type="url"
-                  name="imageUrl"
-                  value={formData.imageUrl}
-                  onChange={handleInputChange}
-                  placeholder="https://..."
-                  className="w-full bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded"
-                />
+                <div className="space-y-3">
+                  {/* Image Preview */}
+                  {formData.imageUrl && (
+                    <div className="relative w-full h-48 bg-gray-800 rounded border border-gray-600 overflow-hidden">
+                      <img 
+                        src={formData.imageUrl} 
+                        alt="Preview" 
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          e.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+                        }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setFormData(prev => ({ ...prev, imageUrl: '' }))}
+                        className="absolute top-2 right-2 bg-red-700 hover:bg-red-800 text-white px-3 py-1 rounded text-sm"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Upload Button */}
+                  <div className="flex gap-3">
+                    <label className="flex-1 cursor-pointer">
+                      <div className="bg-gray-800 hover:bg-gray-700 border border-gray-600 text-white px-4 py-2 rounded text-center font-semibold">
+                        {uploading ? '⏳ Uploading...' : '📤 Upload Image'}
+                      </div>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        disabled={uploading}
+                        className="hidden"
+                      />
+                    </label>
+                    
+                    {/* Or paste URL */}
+                    <input
+                      type="url"
+                      name="imageUrl"
+                      value={formData.imageUrl}
+                      onChange={handleInputChange}
+                      placeholder="Or paste image URL"
+                      className="flex-1 bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded"
+                    />
+                  </div>
+                  <p className="text-gray-400 text-xs">Max 5MB • JPG, PNG, GIF, WebP</p>
+                </div>
               </div>
 
               {/* Digital-specific fields */}
               {formData.productType === "digital" && (
-                <div className="grid grid-cols-2 gap-4 bg-blue-500/10 border border-blue-500/30 p-4 rounded">
+                <div className="bg-blue-500/10 border border-blue-500/30 p-4 rounded space-y-4">
+                  <div className="flex items-center gap-2 text-blue-400 font-semibold">
+                    <span>📥</span>
+                    <span>Upload Digital File (Music, Art, etc.)</span>
+                  </div>
+                  
+                  {/* File Preview/Upload */}
+                  {formData.fileKey && (
+                    <div className="bg-gray-800 p-3 rounded border border-gray-600">
+                      <p className="text-white text-sm mb-1">✓ File uploaded:</p>
+                      <p className="text-gray-400 text-xs break-all mb-3">{formData.fileKey}</p>
+                      
+                      {/* Audio Preview */}
+                      {formData.fileKey.match(/\.(mp3|wav|m4a|ogg)$/i) && (
+                        <div className="mb-3">
+                          <p className="text-white text-xs mb-2">🎵 Preview:</p>
+                          <audio 
+                            controls 
+                            className="w-full max-w-md"
+                            src={formData.fileKey}
+                          >
+                            Your browser does not support audio playback.
+                          </audio>
+                        </div>
+                      )}
+                      
+                      <button
+                        type="button"
+                        onClick={() => setFormData(prev => ({ ...prev, fileKey: '' }))}
+                        className="mt-2 bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm"
+                      >
+                        Remove File
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Upload Button */}
+                  <div>
+                    <label className="cursor-pointer block">
+                      <div className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded text-center font-semibold">
+                        {uploading ? '⏳ Uploading...' : formData.fileKey ? '🔄 Replace File' : '📤 Upload File (MP3, ZIP, etc.)'}
+                      </div>
+                      <input
+                        type="file"
+                        accept=".mp3,.wav,.zip,.pdf,.mp4"
+                        onChange={handleFileUpload}
+                        disabled={uploading}
+                        className="hidden"
+                      />
+                    </label>
+                    <p className="text-gray-400 text-xs mt-2">Max 50MB • MP3, WAV, ZIP, PDF, MP4</p>
+                  </div>
+
+                  {/* Stripe Price ID (Optional) */}
                   <div>
                     <label className="block text-white text-sm font-semibold mb-2">
-                      Stripe Price ID
+                      Stripe Price ID (Optional)
                     </label>
                     <input
                       type="text"
                       name="priceId"
                       value={formData.priceId}
                       onChange={handleInputChange}
-                      placeholder="price_xxx"
+                      placeholder="price_xxxxx (leave empty to auto-create)"
                       className="w-full bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded"
                     />
-                  </div>
-
-                  <div>
-                    <label className="block text-white text-sm font-semibold mb-2">
-                      S3 File Key
-                    </label>
-                    <input
-                      type="text"
-                      name="fileKey"
-                      value={formData.fileKey}
-                      onChange={handleInputChange}
-                      placeholder="path/to/file.zip"
-                      className="w-full bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded"
-                    />
+                    <p className="text-gray-400 text-xs mt-1">Stripe will auto-create one if left empty</p>
                   </div>
                 </div>
               )}
@@ -371,7 +633,7 @@ const AdminProductManager = () => {
               {/* Submit */}
               <button
                 type="submit"
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded"
+                className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-3 rounded"
               >
                 {editingId ? "Update Product" : "Create Product"}
               </button>
@@ -386,20 +648,42 @@ const AdminProductManager = () => {
               No products yet. Create one to get started!
             </div>
           ) : (
-            products.map((product) => (
+            products.map((product) => {
+              console.log(`Product ${product.title} imageUrl:`, product.imageUrl);
+              return (
               <div
                 key={product._id}
                 className="bg-[#0e0f10] border border-gray-700 rounded-lg p-6 hover:border-gray-600 transition"
               >
                 <div className="flex gap-6">
                   {/* Image */}
-                  {product.imageUrl && (
-                    <img
-                      src={product.imageUrl}
-                      alt={product.title}
-                      className="w-32 h-32 object-cover rounded"
-                    />
-                  )}
+                  <div className="flex-shrink-0">
+                    {product.imageUrl && (
+                      <img
+                        src={product.imageUrl}
+                        alt={product.title}
+                        className="w-32 h-32 object-cover rounded"
+                        onError={(e) => {
+                          console.error(`Failed to load image for ${product.title}:`, e.target.src);
+                        }}
+                      />
+                    )}
+                    
+                    {/* Audio Preview for Digital Products */}
+                    {product.productType === 'digital' && product.fileKey && (
+                      <div className="mt-3">
+                        <p className="text-xs text-gray-400 mb-1">🎵 Preview:</p>
+                        <audio 
+                          controls 
+                          className="w-32 h-8"
+                          style={{ maxWidth: '128px' }}
+                        >
+                          <source src={product.fileKey} type="audio/mpeg" />
+                          Your browser does not support audio playback.
+                        </audio>
+                      </div>
+                    )}
+                  </div>
 
                   {/* Details */}
                   <div className="flex-1">
@@ -444,7 +728,7 @@ const AdminProductManager = () => {
                     <div className="flex gap-2 mt-4">
                       <button
                         onClick={() => handleEdit(product)}
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm font-semibold"
+                        className="bg-[#607b93] hover:bg-[#52789a] text-white px-4 py-2 rounded text-sm font-semibold"
                       >
                         ✏️ Edit
                       </button>
@@ -455,8 +739,8 @@ const AdminProductManager = () => {
                         }
                         className={`px-4 py-2 rounded text-sm font-semibold ${
                           product.visible
-                            ? "bg-yellow-600 hover:bg-yellow-700 text-white"
-                            : "bg-gray-600 hover:bg-gray-700 text-white"
+                            ? "bg-[#607b93] hover:bg-[#52789a] text-white"
+                            : "bg-[#600] hover:bg-[#efefef] text-white"
                         }`}
                       >
                         {product.visible ? "👁️ Hide" : "👁️ Show"}
@@ -464,7 +748,7 @@ const AdminProductManager = () => {
 
                       <button
                         onClick={() => handleDelete(product._id)}
-                        className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-semibold ml-auto"
+                        className="bg-red-800 hover:bg-red-900 text-white px-4 py-2 rounded text-sm font-semibold ml-auto"
                       >
                         🗑️ Delete
                       </button>
@@ -472,7 +756,8 @@ const AdminProductManager = () => {
                   </div>
                 </div>
               </div>
-            ))
+            );
+            })
           )}
         </div>
       </div>

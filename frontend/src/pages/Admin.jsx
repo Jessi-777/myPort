@@ -10,6 +10,13 @@ export default function Admin() {
   const [token, setToken] = useState(localStorage.getItem("adminToken") || "");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    console.log("🔍 Admin component loaded");
+    console.log("🌐 VITE_API_URL from env:", import.meta.env.VITE_API_URL);
+    console.log("🔗 API constant value:", API);
+    console.log("📍 Full login URL will be:", `${API}/api/admin/login`);
+  }, []);
+
   const authed = useMemo(() => {
     if (!token) return false;
     try {
@@ -23,12 +30,24 @@ export default function Admin() {
   async function login(e) {
     e.preventDefault();
     try {
-      const { data } = await axios.post(`${API}/api/admin/login`, { password });
+      console.log("Attempting login with password:", password);
+      console.log("API URL:", API);
+      console.log("Full URL:", `${API}/api/admin/login`);
+      const { data } = await axios.post(`${API}/api/admin/login`, { password }, {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true
+      });
+      console.log("✓ Login successful, received token:", data.token);
       localStorage.setItem("adminToken", data.token);
       setToken(data.token);
       setPassword("");
     } catch (e) {
-      alert(e.response?.data?.error || "Login failed");
+      console.error("❌ Login error:", e);
+      console.error("Error message:", e.message);
+      console.error("Response status:", e.response?.status);
+      console.error("Response data:", e.response?.data);
+      console.error("Request config:", e.config);
+      alert(e.response?.data?.error || e.message || "Login failed");
     }
   }
 
@@ -39,12 +58,15 @@ export default function Admin() {
           <h1 className="text-2xl font-bold">Admin Login</h1>
           <input
             type="password"
+            id="admin-password"
+            name="password"
             className="w-full p-3 rounded bg-gray-800"
             placeholder="Admin password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
           />
-          <button className="w-full p-3 bg-blue-600 rounded hover:bg-blue-700">Login</button>
+          <button className="w-full p-3 bg-[#3c4664] rounded hover:bg-[#373f63]">Login</button>
         </form>
       </section>
     );

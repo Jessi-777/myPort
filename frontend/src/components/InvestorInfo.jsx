@@ -1,74 +1,160 @@
 import React from 'react';
+import { FaShoppingCart, FaSeedling, FaPaw, FaEnvelope, FaCalendar, FaRocket, FaChartLine, FaUsers } from 'react-icons/fa';
 
 const InvestorInfo = () => {
   return (
-    <div className="min-h-screen bg-[#1f2227] text-white">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <h1 className="text-4xl font-bold text-center mb-8">Investor Information</h1>
+    <section
+      className="relative min-h-screen bg-center bg-cover bg-no-repeat py-20"
+      style={{ backgroundImage: "url('phone.png')" }}
+    >
+      {/* Dark gradient overlay - reduced opacity to show background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#1a1d23]/70 to-[#2e333a]/60 z-0"></div>
 
-        {/* Background Image */}
-        <div
-          className="relative h-[400px] w-full bg-cover bg-center flex items-center justify-center rounded-xl overflow-hidden"
-          style={{
-            backgroundImage: "url('/phone.png')",
-          }}
-        ></div>
-
-        {/* About Investment Opportunities */}
-        <section className="mb-12 mt-12">
-          <h2 className="text-2xl font-semibold mb-2">Explore Investment Opportunities</h2>
-          <p className="text-gray-300">
-            We are offering unique opportunities to invest in three innovative businesses that are set to make a significant impact. These businesses span across e-commerce, agriculture, and pet care industries, providing diverse options for investors looking to diversify their portfolio.
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <div className="inline-block px-4 py-2 bg-[#96b9c6]/20 backdrop-blur-sm rounded-full mb-4 border border-[#96b9c6]/30">
+            <span className="text-[#96b9c6] text-sm font-semibold">💼 Investment Opportunities</span>
+          </div>
+          
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            Build the <span className="bg-gradient-to-r from-[#96b9c6] to-[#335099] bg-clip-text text-transparent">Future</span> With Us
+          </h1>
+          
+          <p className="text-xl text-[#d9dae2] max-w-3xl mx-auto leading-relaxed">
+            Explore unique opportunities to invest in three innovative businesses spanning 
+            <span className="text-[#96b9c6]"> e-commerce</span>, 
+            <span className="text-[#96b9c6]"> agriculture</span>, and 
+            <span className="text-[#96b9c6]"> pet care</span> industries.
           </p>
-        </section>
+        </div>
 
-        {/* 3 Investment Opportunities */}
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {/* Stats Section */}
+        <div className="grid grid-cols-3 gap-6 mb-16">
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 text-center">
+            <FaRocket className="text-4xl text-[#96b9c6] mx-auto mb-3" />
+            <div className="text-3xl font-bold text-white">3</div>
+            <div className="text-sm text-[#d9dae2]">Active Ventures</div>
+          </div>
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 text-center">
+            <FaChartLine className="text-4xl text-[#96b9c6] mx-auto mb-3" />
+            <div className="text-3xl font-bold text-white">$1M</div>
+            <div className="text-sm text-[#d9dae2]">Total Goal</div>
+          </div>
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 text-center">
+            <FaUsers className="text-4xl text-[#96b9c6] mx-auto mb-3" />
+            <div className="text-3xl font-bold text-white">∞</div>
+            <div className="text-sm text-[#d9dae2]">Impact Potential</div>
+          </div>
+        </div>
+
+        {/* Investment Opportunities */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
           {/* Challego Online Market */}
-          <div className="bg-white shadow rounded-2xl p-6 border text-black">
-            <h3 className="font-semibold text-lg mb-2">Challego Online Market</h3>
-            <p className="text-gray-600">
-              Challego is a growing online marketplace that connects local artisans and small businesses with a wider audience. With an innovative platform and a focus on supporting local economies, Challego aims to disrupt the traditional e-commerce model.
+          <div className="group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:transform hover:scale-105">
+            <div className="relative">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#96b9c6] to-[#335099] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <FaShoppingCart className="text-3xl text-white" />
+              </div>
+              <div className="absolute top-0 right-0 bg-[#335099]/20 text-[#96b9c6] text-xs font-bold px-3 py-1 rounded-full">
+                E-Commerce
+              </div>
+            </div>
+            
+            <h3 className="text-2xl font-bold text-white mb-3">Challego Online Market</h3>
+            <p className="text-[#d9dae2] mb-6 leading-relaxed">
+              A growing marketplace connecting local artisans and small businesses with wider audiences. 
+              Disrupting traditional e-commerce while supporting local economies.
             </p>
-            <p className="text-gray-400 mt-4">Investment Goal: $500,000</p>
+            
+            <div className="border-t border-white/10 pt-4">
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-[#d9dae2]">Investment Goal</span>
+                <span className="text-2xl font-bold text-[#96b9c6]">$500K</span>
+              </div>
+            </div>
           </div>
 
           {/* Farm App */}
-          <div className="bg-white shadow rounded-2xl p-6 border text-black">
-            <h3 className="font-semibold text-lg mb-2">Farm App</h3>
-            <p className="text-gray-600">
-              Farm App is designed to empower local communities & farmers with the tools they need to grow their crops efficiently. By connecting farmers with technology like plant disease detection, water management, and community support, Farm App has the potential to revolutionize agriculture in local communities.
+          <div className="group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:transform hover:scale-105">
+            <div className="relative">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#96b9c6] to-[#335099] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <FaSeedling className="text-3xl text-white" />
+              </div>
+              <div className="absolute top-0 right-0 bg-[#335099]/20 text-[#96b9c6] text-xs font-bold px-3 py-1 rounded-full">
+                AgriTech
+              </div>
+            </div>
+            
+            <h3 className="text-2xl font-bold text-white mb-3">Farm App</h3>
+            <p className="text-[#d9dae2] mb-6 leading-relaxed">
+              Empowering farmers with tools for efficient garden beds to large crop growth. Plant disease detection, 
+              water management, grow guidance, soil health, and community support revolutionizing local agriculture.
             </p>
-            <p className="text-gray-400 mt-4">Investment Goal: $350,000</p>
+            
+            <div className="border-t border-white/10 pt-4">
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-[#d9dae2]">Investment Goal</span>
+                <span className="text-2xl font-bold text-[#96b9c6]">$350K</span>
+              </div>
+            </div>
           </div>
 
-          {/* PawfectPlug */}
-          <div className="bg-white shadow rounded-2xl p-6 border text-black">
-            <h3 className="font-semibold text-lg mb-2">Pawfect Plug</h3>
-            <p className="text-gray-600">
-              Pawfect Plug is a platform revolutionizing pet care by offering personalized subscription services that include eco-friendly products, food, and healthcare for pets. We aim to build an integrated system that connects pet owners with local stores while providing data-driven product recommendations.
+          {/* Pawfect Plug */}
+          <div className="group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:transform hover:scale-105">
+            <div className="relative">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#96b9c6] to-[#335099] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <FaPaw className="text-3xl text-white" />
+              </div>
+              <div className="absolute top-0 right-0 bg-[#335099]/20 text-[#96b9c6] text-xs font-bold px-3 py-1 rounded-full">
+                Pet Care
+              </div>
+            </div>
+            
+            <h3 className="text-2xl font-bold text-white mb-3">Pawfect Plug</h3>
+            <p className="text-[#d9dae2] mb-6 leading-relaxed">
+              Revolutionizing pet care with personalized eco-friendly subscriptions. 
+              Integrated platform connecting pet owners with local stores and data-driven recommendations.
             </p>
-            <p className="text-gray-400 mt-4">Investment Goal: $150,000</p>
+            
+            <div className="border-t border-white/10 pt-4">
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-[#d9dae2]">Investment Goal</span>
+                <span className="text-2xl font-bold text-[#96b9c6]">$150K</span>
+              </div>
+            </div>
           </div>
-        </section>
+        </div>
 
         {/* Call to Action */}
-        <section className="text-center mt-12">
-          <h2 className="text-2xl font-bold mb-2">Interested in Investing?</h2>
-          <p className="text-gray-300 mb-4">
-            If any of these investment opportunities resonate with you, let’s connect. Schedule a call or request a pitch deck for more detailed information.
+        <div className="bg-gradient-to-r from-[#335099]/20 to-[#96b9c6]/10 backdrop-blur-sm rounded-2xl p-12 border border-[#96b9c6]/30 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Ready to Make an <span className="text-[#96b9c6]">Impact</span>?
+          </h2>
+          <p className="text-xl text-[#d9dae2] mb-8 max-w-2xl mx-auto">
+            Let's connect to discuss these opportunities. Schedule a call or request a pitch deck for detailed information.
           </p>
-          <a
-            href="mailto:founder@pawfectplug.com"
-            className="inline-block bg-[#161a22] hover:bg-[#383e48] text-white font-semibold py-3 px-6 rounded-xl transition"
-          >
-            Contact Tica
-          </a>
-        </section>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://calendly.com/jessisoftwareengineer/meeting-with-jessi-aka-tica"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#96b9c6] to-[#335099] text-white font-semibold rounded-lg shadow-lg hover:shadow-[#96b9c6]/50 hover:scale-105 transition-all duration-300"
+            >
+              <FaCalendar /> Schedule a Meeting
+            </a>
+            <a
+              href="mailto:pawfectplug@gmail.com"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-semibold rounded-lg border-2 border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
+            >
+              <FaEnvelope /> Contact Tica
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
 export default InvestorInfo;
-

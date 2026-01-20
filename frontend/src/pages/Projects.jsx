@@ -6,84 +6,79 @@ const Projects = () => {
     {
       id: 1,
       title: 'Pawfect Plug ',
-      // description: ' A personalized SaaS platform delivering eco-friendly pet essentials through smart subscription plans. 
-       description:'Led full-stack development, UI/UX design, and built a custom dynamic pricing engine. Focused on sustainability, personalization, and scalable architecture.',
+      description:'Led full-stack development, UI/UX design, and built a custom dynamic pricing engine. Focused on sustainability, personalization, and scalable architecture.',
       image: '../pawfect_plug.png',
     },
     {
       id: 2,
       title: 'Challego online Market',
       description: 'Led full-stack development, UI/UX design, and engineered a custom dynamic pricing engine to support personalized, budget-aware shopping. The platform emphasizes environmental impact, user transparency, and scalable architecture to grow with both small vendors and mindful buyers.',
-      // image: '/images/project2.jpg',
       image: '../challego1.png'
     },
-    // {
-    //   id: 3,
-    //   title: 'Farm App',
-    //   description: 'A full-stack farm growing food application with React, TailwindCSS, and Python.',
-    //   // image: '/images/project3.jpg',
-    //   image: '../farm_app.jpg'
-    // },
-    // {
-    //     id: 4,
-    //     title: 'Frequency Sounds App',
-    //     description: 'A full-stack application with React, TailwindCSS, and Python.',
-    //     // image: '/images/project1.jpg',
-    //     image: '../frequency.jpeg'
-    //   },
-      {
-        id: 5,
-        title: 'Life Social Media App',
-        description: 'A social media platform built with MERN, TailwindCSS and Redux.',
-        // image: '/images/project].jpg',
-        image: '../life.jpg'
-      },
-      {
-        id: 6,
-        title: 'My Expense Tracker',
-        description: 'An expense tracker platform built with MERN, TailwindCSS and Redux.',
-        // image: '/images/project3.jpg',
-        image: '../expense_tracker.jpg'
-      },
+    {
+      id: 3,
+      title: 'Stay Fly Tech Store',
+      description: ' A fast, modern tech shop built with HTML, CSS, and JavaScript, featuring a clean UI and instant checkout for seamless, frictionless purchases.',
+      image: '../stayfly.png'
+    },
+    {
+      id: 4,
+      title: 'Farm App',
+      description: 'Farm App is a fast, modern farm management platform built with React and Django, featuring a clean, intuitive interface and real time tools for tracking crops, inventory, and farm operations designed for seamless, efficient farm management anywhere.',
+      image: '../farm-app.png'
+    },
+    {
+      id: 5,
+      title: 'Life Social Media App',
+      description: 'A social media platform built with MERN, TailwindCSS and Redux.',
+      image: '../life.jpg'
+    },
+    {
+      id: 6,
+      title: 'HNA Human Nature Athletica',
+      description: 'HNA is a modern eCommerce platform built with the MERN stack, TailwindCSS, and Redux, delivering a fast, responsive shopping experience with seamless state management and a clean, scalable UI.',
+      image: '../hna.png'
+    },
+    
   ];
 
   return (
-    <section className="min-h-screen flex flex-col bg-white dark:bg-[#1f2227]">
-      <div
-  className="relative h-[400px] w-full bg-cover bg-center flex items-center justify-center"
-  style={{
-    backgroundImage: "url('/se.jpg')",
-  }}
->
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/30" />
+    <section className="relative min-h-screen bg-center bg-cover bg-no-repeat overflow-hidden"
+      style={{ backgroundImage: "url('/se.jpg')" }}
+    >
+      {/* Dark gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#1a1d23]/95 to-[#2e333a]/90 z-0"></div>
 
-  {/* Text Content */}
-  <div className="relative z-10 text-center text-white px-4">
-    <h1 className="text-4xl md:text-5xl font-extrabold mb-4"> My Projects 💡 </h1>
-    <p className="text-base md:text-lg max-w-xl mx-auto">
-      Explore Fullstack Development and Designs by Tica aka Jessi.
-    </p>
-  </div>
-</div>
-<br/>
-{/* background_shop.jpg */}
-      <div className="max-w-7xl mx-auto px-6 text-center ">
-      {/* <h1 className="text-5xl font-bold text-[#173767] dark:text-white mb-4">💡 My Projects</h1> */}
-      {/* <p className="text-lg text-gray-700 dark:text-gray-300 mb-12">
-          Explore Fullstack Engineer Projects by Tica aka Jessi.
-        </p> */}
-        <br/>
-        <br/>
-        
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+      {/* Animated Background Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute w-96 h-96 bg-[#a9d0de]/10 rounded-full blur-3xl top-20 left-10 animate-pulse"></div>
+        <div className="absolute w-96 h-96 bg-[#08184e]/10 rounded-full blur-3xl bottom-20 right-10 animate-pulse" style={{ animationDelay: '1s' }}></div>
+      </div>
+
+      {/* Hero Section */}
+      <div className="relative z-10 py-20 px-6">
+        <div className="max-w-7xl mx-auto text-center mb-16">
+          <div className="inline-block px-4 py-2 bg-[#a9d0de]/20 backdrop-blur-sm rounded-full mb-6 border border-[#a9d0de]/30">
+            <span className="text-[#a9d0de] text-sm font-semibold">💡 Portfolio Showcase</span>
+          </div>
+          
+          <h1 className="text-6xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white via-[#6078a7] to-[#08184e] bg-clip-text text-transparent drop-shadow-2xl">
+            My Projects
+          </h1>
+
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-300 leading-relaxed">
+            Built <span className="text-[#a9d0de] font-bold">full-stack SaaS platforms</span> designed to scale, connect APIs seamlessly, and deliver smooth, intuitive user experiences. Crafted with precision, creativity, and performance in mind.
+          </p>
         </div>
-        <br/>
-        <br/>
-        <br/>
+
+        {/* Projects Grid */}
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,48 +1,101 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaCode, FaPalette, FaRocket, FaDownload } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const About = () => {
   return (
-    // [#96b9c6]
-    // [#494b54]
     <section
-      className="relative py-20 bg-center bg-cover bg-no-repeat bg-gradient-to-r from-[#2e333a] to-[#7e8f9d]"
-      style={{ backgroundImage: "url('/black.jpg')" }} // replace with your actual image path
+      className="relative py-20 bg-center bg-cover bg-no-repeat"
+      style={{ backgroundImage: "url('/black.jpg')" }}
     >
-    {/* <section className="relative py-20 bg-gradient-to-r from-[#2d2d2f] to-[#808a9c]">
-      {/* Background gradient */}
-      {/* <div className="absolute inset-0 bg-gradient-to-r from-[#576c85] to-[#758fb6] opacity-10 z-0"></div> */} 
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#1a1d23]/95 to-[#2e333a]/90 z-0"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center">
-        {/* Image Left */}
-        <div className="flex-1 mb-10 md:mb-0 md:mr-10">
-          <img
-            src="/tica1.jpg"
-            alt="Tica working"
-            className="w-full max-w-sm mx-auto md:mx-0 rounded-2xl shadow-2xl"
-          />
-        </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Main Content */}
+        <div className="flex flex-col md:flex-row items-center gap-12 mb-16">
+          {/* Image Left with hover effect */}
+          <div className="flex-1 mb-10 md:mb-0">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#96b9c6] to-[#335099] rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+              <img
+                src="/tica1.jpg"
+                alt="Tica working"
+                className="relative w-full max-w-sm mx-auto md:mx-0 rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
+              />
+            </div>
+          </div>
 
-        {/* Text Right */}
-        <div className="flex-1 text-center md:text-left">
-          <h1 className="text-5xl font-bold text-white mb-6 animate__animated animate__fadeIn">
-            About Me
-          </h1>
-          <h3 className="text-2xl font-semibold text-white mb-6">
-            Full Stack Software Engineer | Developer | UI/UX Designer
-          </h3>
-          <p className="text-lg text-[#d9dae2] leading-relaxed mb-6 animate__animated animate__fadeIn animate__delay-1s">
-I'm a builder at heart, an engineer who designs with intention and creates with purpose. With a foundation in full stack development, UI/UX design, and visual storytelling, I craft digital experiences that are as functional as they are beautiful. My work lives in code and creativity. I don’t just develop features, I design journeys. From scalable backend architecture to pixel-perfect interfaces, I make sure every layer of a product feels seamless and user-focused. I'm not afraid to take on complex challenges, explore bold ideas, or build from scratch. Whether it's launching full-scale applications, improving user flows, or shaping product direction, I bring both the technical depth and design sensibility to move fast and build smart. I'm always learning, tuning, and evolving, because innovation demands it. If you're looking for someone who can think like a developer, design like an artist, and execute like a founder, I'm ready to bring that vision to life. I'm a builder at heart, an engineer who designs with intention and creates with purpose.
-          </p>
+          {/* Text Right */}
+          <div className="flex-1 text-center md:text-left">
+            {/* <div className="inline-block px-2 py-2 bg-[#96b9c6]/20 rounded-full mb-4">
+              <span className="text-[#96b9c6] text-sm font-semibold">✨ Open to Opportunities</span>
+            </div> */}
+            
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+              Tica aka Jessi
+            </h1>
+            
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#96b9c6] mb-6">
+              Full Stack Engineer | Designer | Creator
+            </h2>
 
-          {/* Social Icons & Calendly */}
-          <div className="flex flex-col md:flex-row md:items-center md:space-x-6 space-y-4 md:space-y-0 mt-8">
-            <div className="flex justify-center md:justify-start space-x-6">
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-4 mb-8 py-6 border-y border-[#96b9c6]/20">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white">7+</div>
+                <div className="text-sm text-[#d9dae2]">Years Experience</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white">5+</div>
+                <div className="text-sm text-[#d9dae2]">Projects Built</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white">∞</div>
+                <div className="text-sm text-[#d9dae2]">Ideas Created</div>
+              </div>
+            </div>
+
+            <div className="space-y-4 text-lg text-[#d9dae2] leading-relaxed mb-8">
+              <p>
+                <span className="text-white font-semibold">I'm a builder at heart</span>, an engineer who designs with intention and creates with purpose. I craft digital experiences that are as functional as they are beautiful.
+              </p>
+              <p>
+                From <span className="text-[#96b9c6]">scalable backend architecture</span> to <span className="text-[#96b9c6]">pixel perfect interfaces</span>, I make sure every layer feels seamless and user focused. I don't just develop features, I design journeys.
+              </p>
+              <p>
+                Whether launching full scale applications or shaping product direction, I bring both <span className="text-white font-semibold">technical depth</span> and <span className="text-white font-semibold">design sensibility</span> to move fast and build smart.
+              </p>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <a
+                href="https://calendly.com/jessisoftwareengineer/meeting-with-jessi-aka-tica"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#32353b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#96b9c6] hover:scale-105 transition-all duration-300"
+              >
+                📅 Schedule a Meeting
+              </a>
+              <a
+                href="/jessi-resume-2026.pdf"
+                download="Jessi-Chavez-Resume-2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-white/10 text-white font-semibold rounded-lg border-2 border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
+              >
+                <FaDownload /> Download Resume
+              </a>
+            </div>
+
+            {/* Social Icons */}
+            <div className="flex justify-center md:justify-start gap-4">
               <a
                 href="https://github.com/Jessi-777"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#23272d] hover:text-[#96b9c6] text-2xl transition"
+                className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-[#96b9c6] hover:scale-110 transition-all duration-300 text-xl"
               >
                 <FaGithub />
               </a>
@@ -50,7 +103,7 @@ I'm a builder at heart, an engineer who designs with intention and creates with 
                 href="https://www.linkedin.com/in/jessi-chavez-aka-tica-rey-33270231/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#23272d] hover:text-[#96b9c6] text-2xl transition"
+                className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-[#96b9c6] hover:scale-110 transition-all duration-300 text-xl"
               >
                 <FaLinkedin />
               </a>
@@ -58,21 +111,38 @@ I'm a builder at heart, an engineer who designs with intention and creates with 
                 href="https://x.com/IamTicaRey"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#23272d] hover:text-[#96b9c6] text-2xl transition"
+                className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-[#96b9c6] hover:scale-110 transition-all duration-300 text-xl"
               >
-                <FaTwitter />
+                <FaXTwitter />
               </a>
             </div>
+          </div>
+        </div>
 
-            {/* Calendly Button */}
-            <a
-              href="https://calendly.com/jessisoftwareengineer/meeting-with-jessi-aka-tica"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-6 py-2 mt-4 md:mt-0 bg-[#23272d] text-white font-semibold rounded-lg shadow-md hover:bg-[#2b2c31] transition duration-300"
-            >
-              📅 Schedule a Meeting
-            </a>
+        {/* Skills Section */}
+        <div className="grid md:grid-cols-3 gap-6 mt-16">
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:transform hover:scale-105">
+            <div className="w-12 h-12 bg-[#335099]/20 rounded-lg flex items-center justify-center mb-4">
+              <FaCode className="text-2xl text-[#96b9c6]" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">Full Stack Development</h3>
+            <p className="text-[#d9dae2]">React, Node.js, MongoDB, Express, REST APIs, GraphQL</p>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:transform hover:scale-105">
+            <div className="w-12 h-12 bg-[#335099]/20 rounded-lg flex items-center justify-center mb-4">
+              <FaPalette className="text-2xl text-[#96b9c6]" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">UI/UX Design</h3>
+            <p className="text-[#d9dae2]">Figma, Adobe Suite, Responsive Design, User Research</p>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:transform hover:scale-105">
+            <div className="w-12 h-12 bg-[#335099]/20 rounded-lg flex items-center justify-center mb-4">
+              <FaRocket className="text-2xl text-[#96b9c6]" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">Product Thinking</h3>
+            <p className="text-[#d9dae2]">MVP Strategy, Agile, User Stories, Growth Mindset</p>
           </div>
         </div>
       </div>
@@ -81,6 +151,3 @@ I'm a builder at heart, an engineer who designs with intention and creates with 
 };
 
 export default About;
-
-
-

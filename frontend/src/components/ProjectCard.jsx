@@ -24,32 +24,26 @@ const ProjectCard = ({ project }) => {
       h-full w-full bg-clip-padding bg-opacity-80 
       rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
       {/* Project Image */}
-      <img src={image} alt={title} className="w-full h-48 object-cover rounded-2xl mb-4" />
+      <img src={image} alt={title} className="w-full h-48 object-contain rounded-2xl mb-4" />
       
       {/* Project Title */}
-      <h3 className="text-xl font-semibold text-[#e4e7ee] mb-2">{title}</h3>
+      <h3 className="text-xl font-semibold text-[#e4e7ee] mb-2 text-center">{title}</h3>
       
       {/* Project Description */}
-      <p className="text-gray-400 mb-7">{description}</p>
+      <p className="text-gray-400 mb-7 text-center">{description}</p>
 
       {/* View Project Button */}
+      <div className="flex justify-center">
+        <Link
+          to={`/projects/${id}`}
+          className="px-6 py-3 text-white font-semibold rounded-lg shadow-[0_0_px_rgba(255,255,255,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] bg-cover bg-center transition duration-300 transform hover:scale-105"
+          style={{
+          backgroundImage: "url('space.jpg')"
+        }}>
+          View Project
+        </Link>
+      </div>
 
-      <Link
-        to={`/projects/${id}`}
-        className="px-6 py-3 text-white font-semibold rounded-lg shadow-[0_0_px_rgba(255,255,255,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] bg-cover bg-center transition duration-300 transform hover:scale-105"
-        style={{
-        backgroundImage: "url('space.jpg')"
-      }}>
-        View Project
-      </Link>
-
-
-      {/* <Link
-        to={`/projects/${id}`} // Dynamically link to the specific project page
-        className="px-6 py-3 bg-[#405f92] text-white font-semibold rounded-lg shadow-lg hover:bg-[#1f3a5a] transition duration-300 transform hover:scale-105"
-      >
-        View Project
-      </Link> */}
       <br/>
       <br/>
     </div>
