@@ -37,13 +37,13 @@ const About = () => {
             </h1>
             
             <h2 className="text-2xl md:text-3xl font-semibold text-[#96b9c6] mb-6">
-              Full Stack Engineer | Designer | Creator
+              Software Engineer • Developer • Designer • Founder 
             </h2>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 mb-8 py-6 border-y border-[#96b9c6]/20">
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">7+</div>
+                <div className="text-3xl font-bold text-white">5+</div>
                 <div className="text-sm text-[#d9dae2]">Years Experience</div>
               </div>
               <div className="text-center">
@@ -55,18 +55,25 @@ const About = () => {
                 <div className="text-sm text-[#d9dae2]">Ideas Created</div>
               </div>
             </div>
+{/* I design and build systems so they feel inevitable—clear, intentional, and easy to trust. */}
+           <div className="space-y-4 text-lg text-[#d9dae2] leading-relaxed mb-8">
+            <p>
+              <span className="text-white font-semibold">I build platforms with intention</span>, focusing on clarity, usability, and long-term reliability.
+              My work is rooted in thoughtful engineering designing systems that are easy to understand, operate, and trust.
+            </p>
+            <p>
+              I approach each project by aligning strategy, architecture, and interface designs for the best UX/UI user experience.
+              This allows me to build scalable full stack systems and refined interfaces that feel effortless from the inside out.
+            </p>
+            <p>
+              Whether developing full scale applications or ecommerce platforms, I bring a balanced perspective combining
+              <span className="text-white font-semibold"> technical depth</span>,
+              <span className="text-white font-semibold"> design sensibility</span>, and
+              <span className="text-white font-semibold"> strategic thinking</span> to create platforms built to last.
+            </p>
+          </div>
 
-            <div className="space-y-4 text-lg text-[#d9dae2] leading-relaxed mb-8">
-              <p>
-                <span className="text-white font-semibold">I'm a builder at heart</span>, an engineer who designs with intention and creates with purpose. I craft digital experiences that are as functional as they are beautiful.
-              </p>
-              <p>
-                From <span className="text-[#96b9c6]">scalable backend architecture</span> to <span className="text-[#96b9c6]">pixel perfect interfaces</span>, I make sure every layer feels seamless and user focused. I don't just develop features, I design journeys.
-              </p>
-              <p>
-                Whether launching full scale applications or shaping product direction, I bring both <span className="text-white font-semibold">technical depth</span> and <span className="text-white font-semibold">design sensibility</span> to move fast and build smart.
-              </p>
-            </div>
+
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -126,7 +133,7 @@ const About = () => {
               <FaCode className="text-2xl text-[#96b9c6]" />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">Full Stack Development</h3>
-            <p className="text-[#d9dae2]">React, Node.js, MongoDB, Express, REST APIs, GraphQL</p>
+            <p className="text-[#d9dae2]">React, Node.js, MongoDB, Express, REST APIs, GraphQL, Python, Django , PostgreSQL</p>
           </div>
 
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:transform hover:scale-105">

@@ -5,7 +5,7 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Pawfect Plug ',
+      title: 'Pawfect Plug SaaS Platform',
       description:'Led full-stack development, UI/UX design, and built a custom dynamic pricing engine. Focused on sustainability, personalization, and scalable architecture.',
       image: '../pawfect_plug.png',
     },

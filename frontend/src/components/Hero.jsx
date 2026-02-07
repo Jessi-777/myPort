@@ -145,7 +145,7 @@ export default function Hero() {
             Contact Us
           </a>
           <a
-            href="#invest-now"
+            href="/investors"
             // hover:bg-[#FFBB33]
             className="px-6 py-3 border-2 border-[#96b9c6] text-black rounded-lg hover:text-[#96b9c6] transition duration-300"
           >

@@ -4,9 +4,10 @@ import { FaShoppingCart, FaSeedling, FaPaw, FaEnvelope, FaCalendar, FaRocket, Fa
 const InvestorInfo = () => {
   return (
     <section
-      className="relative min-h-screen bg-center bg-cover bg-no-repeat py-20"
-      style={{ backgroundImage: "url('phone.png')" }}
+      className="relative min-h-screen w-full bg-center bg-contain bg-no-repeat py-20 overflow-hidden"
+  style={{ backgroundImage: "url('i.png')" }}
     >
+      
       {/* Dark gradient overlay - reduced opacity to show background */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#1a1d23]/70 to-[#2e333a]/60 z-0"></div>
 
@@ -22,7 +23,7 @@ const InvestorInfo = () => {
           </h1>
           
           <p className="text-xl text-[#d9dae2] max-w-3xl mx-auto leading-relaxed">
-            Explore unique opportunities to invest in three innovative businesses spanning 
+            Explore unique opportunities to invest in four innovative businesses spanning 
             <span className="text-[#96b9c6]"> e-commerce</span>, 
             <span className="text-[#96b9c6]"> agriculture</span>, and 
             <span className="text-[#96b9c6]"> pet care</span> industries.
@@ -33,7 +34,7 @@ const InvestorInfo = () => {
         <div className="grid grid-cols-3 gap-6 mb-16">
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 text-center">
             <FaRocket className="text-4xl text-[#96b9c6] mx-auto mb-3" />
-            <div className="text-3xl font-bold text-white">3</div>
+            <div className="text-3xl font-bold text-white">4</div>
             <div className="text-sm text-[#d9dae2]">Active Ventures</div>
           </div>
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 text-center">
@@ -50,37 +51,80 @@ const InvestorInfo = () => {
 
         {/* Investment Opportunities */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {/* Challego Online Market */}
+
+          {/* Pawfect PLug*/}
           <div className="group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:transform hover:scale-105">
             <div className="relative">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#96b9c6] to-[#335099] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <FaShoppingCart className="text-3xl text-white" />
-              </div>
+
+              <div className="w-16 h-16 bg-gradient-to-br from-[#96b9c6] to-[#335099] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+              <img 
+                src="/pawfect_plug_white.png" 
+                alt="Pawfect Plug Logo" 
+                className="w-20 h-20 object-contain"
+              />
+            </div>
+              
               <div className="absolute top-0 right-0 bg-[#335099]/20 text-[#96b9c6] text-xs font-bold px-3 py-1 rounded-full">
-                E-Commerce
+                Pet Care 
               </div>
             </div>
-            
-            <h3 className="text-2xl font-bold text-white mb-3">Challego Online Market</h3>
+
+             <h3 className="text-2xl font-bold text-white mb-3">Pawfect Plug</h3>
             <p className="text-[#d9dae2] mb-6 leading-relaxed">
-              A growing marketplace connecting local artisans and small businesses with wider audiences. 
-              Disrupting traditional e-commerce while supporting local economies.
+              Revolutionizing pet care with personalized eco-friendly subscriptions. 
+              Integrated platform connecting pet owners with local stores and data-driven recommendations.
             </p>
             
             <div className="border-t border-white/10 pt-4">
               <div className="flex justify-between items-center">
                 <span className="text-sm text-[#d9dae2]">Investment Goal</span>
-                <span className="text-2xl font-bold text-[#96b9c6]">$500K</span>
+                <span className="text-2xl font-bold text-[#96b9c6]">$327K</span>
               </div>
             </div>
           </div>
 
-          {/* Farm App */}
+
+           {/* HNA App */}
           <div className="group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:transform hover:scale-105">
             <div className="relative">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#96b9c6] to-[#335099] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <FaSeedling className="text-3xl text-white" />
+
+              <div className="w-16 h-16 bg-gradient-to-br from-[#96b9c6] to-[#335099] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+              <img 
+                src="/hna-logo3 copy.png" 
+                alt="HAN Logo" 
+                className="w-30 h-30 object-contain"
+              />
+            </div>
+
+              <div className="absolute top-0 right-0 bg-[#335099]/20 text-[#96b9c6] text-xs font-bold px-3 py-1 rounded-full">
+                Athletic Clothing
               </div>
+            </div>
+            
+            <h3 className="text-2xl font-bold text-white mb-3">HNA App</h3>
+            <p className="text-[#d9dae2] mb-6 leading-relaxed">
+           HNA blends performance wear, sustainability, and minimal luxury positioned to lead the next generation of conscious global brands.
+            </p>
+            
+            <div className="border-t border-white/10 pt-4">
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-[#d9dae2]">Investment Goal</span>
+                <span className="text-2xl font-bold text-[#96b9c6]">$320K</span>
+              </div>
+            </div>
+          </div>
+
+
+           {/* Farm App */}
+          <div className="group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:transform hover:scale-105">
+            <div className="relative">
+               <div className="w-16 h-16 bg-gradient-to-br from-[#96b9c6] to-[#335099] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+              <img 
+                src="/farm-app.png" 
+                alt="HAN Logo" 
+                className="w-20 h-20 object-contain"
+              />
+            </div>
               <div className="absolute top-0 right-0 bg-[#335099]/20 text-[#96b9c6] text-xs font-bold px-3 py-1 rounded-full">
                 AgriTech
               </div>
@@ -95,32 +139,37 @@ const InvestorInfo = () => {
             <div className="border-t border-white/10 pt-4">
               <div className="flex justify-between items-center">
                 <span className="text-sm text-[#d9dae2]">Investment Goal</span>
-                <span className="text-2xl font-bold text-[#96b9c6]">$350K</span>
+                <span className="text-2xl font-bold text-[#96b9c6]">$725K</span>
               </div>
             </div>
           </div>
 
-          {/* Pawfect Plug */}
+          {/* Challego */}
           <div className="group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:transform hover:scale-105">
             <div className="relative">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#96b9c6] to-[#335099] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <FaPaw className="text-3xl text-white" />
-              </div>
+
+               <div className="w-16 h-16 bg-gradient-to-br from-[#96b9c6] to-[#335099] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+              <img 
+                src="/challego_logo.png" 
+                alt="HNA Logo" 
+                className="w-13 h-13 object-contain"
+              />
+            </div>
               <div className="absolute top-0 right-0 bg-[#335099]/20 text-[#96b9c6] text-xs font-bold px-3 py-1 rounded-full">
-                Pet Care
+                Ecommerce
               </div>
             </div>
-            
-            <h3 className="text-2xl font-bold text-white mb-3">Pawfect Plug</h3>
+
+             <h3 className="text-2xl font-bold text-white mb-3">Challego Online Market</h3>
             <p className="text-[#d9dae2] mb-6 leading-relaxed">
-              Revolutionizing pet care with personalized eco-friendly subscriptions. 
-              Integrated platform connecting pet owners with local stores and data-driven recommendations.
+              A growing marketplace connecting local artisans and small businesses with wider audiences. 
+              Disrupting traditional e-commerce while supporting local economies.
             </p>
             
             <div className="border-t border-white/10 pt-4">
               <div className="flex justify-between items-center">
                 <span className="text-sm text-[#d9dae2]">Investment Goal</span>
-                <span className="text-2xl font-bold text-[#96b9c6]">$150K</span>
+                <span className="text-2xl font-bold text-[#96b9c6]">$450K</span>
               </div>
             </div>
           </div>
@@ -151,6 +200,15 @@ const InvestorInfo = () => {
               <FaEnvelope /> Contact Tica
             </a>
           </div>
+           {/* Download Pitch Deck */}
+            {/* <a
+              href="/pitch-deck.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-lg border-2 border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
+            >
+              <FaDownload /> Download Pitch Deck
+            </a> */}
         </div>
       </div>
     </section>

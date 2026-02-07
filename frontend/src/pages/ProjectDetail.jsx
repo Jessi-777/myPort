@@ -5,7 +5,7 @@ import { FaArrowLeft, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 const projects = [
   {
     id: '1',
-    title: 'Pawfect Plug',
+    title: 'Pawfect Plug SaaS Platform',
     description: 'Led full-stack development, UI/UX design, and built a custom dynamic pricing engine. Focused on sustainability, personalization, and scalable architecture.',
     image: '../pawfect_plug.png',
     tech: ['React', 'Node.js', 'MongoDB', 'Stripe', 'TailwindCSS'],
@@ -26,7 +26,7 @@ const projects = [
     title: 'Stay Fly Tech Store',
     description: 'Led full-stack development and UI/UX design, building a scalable platform with a custom dynamic pricing engine that enables personalized, eco-conscious shopping with transparency at its core.',
     image: '../stayfly.png',
-    tech: ['React', 'Express', 'MongoDB', 'Redux', 'TailwindCSS'],
+    tech: ['Stripe', 'JavaScript', 'HTML', 'CSS'],
     github: '#',
     demo: 'https://stayfly.vercel.app/'
   },
@@ -35,7 +35,7 @@ const projects = [
     title: 'Farm App',
     description: 'A full-stack Farm Management Application built using React for the frontend and Django (REST Framework) for the backend. Features include real-time farm data tracking, secure authentication, role-based access control, and scalable API architecture designed for modern agricultural workflows.',
     image: '../farm-app.png',
-    tech: ['React', 'Express', 'MongoDB', 'Redux', 'TailwindCSS'],
+    tech: ['React', 'Python, Django', 'POSTGRESQL', 'Redux', 'TailwindCSS'],
     github: '#',
     demo: ''
   },

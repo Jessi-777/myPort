@@ -37,7 +37,7 @@ const AboutSection = () => {
             </h2>
 
             <h3 className="text-xl lg:text-2xl font-semibold text-[#96b9c6] mb-6">
-              Software Engineer • Developer • Designer • Founder
+              Software Engineer • Developer • Designer • Founder 
             </h3>
 
             {/* Stats Grid */}
@@ -47,7 +47,7 @@ const AboutSection = () => {
                 <div className="text-sm text-[#d9dae2]">Years Exp</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">3+</div>
+                <div className="text-3xl font-bold text-white">5+</div>
                 <div className="text-sm text-[#d9dae2]">Projects</div>
               </div>
               <div className="text-center">
