@@ -6,7 +6,7 @@ const path = require("path");
 
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
-// const url ="https://ticas-boutique.onrender.com"
+const url ="https://myport-7kfa.onrender.com"
 
 
 const stripeWebhook = require("./webhook/stripeWebhook");
@@ -30,10 +30,10 @@ app.use(
   stripeWebhook
 );
 
-/* ================================
-   🌍 CORS 
-   "http://localhost:5173" "https://ticas-boutique.onrender.com"// local dev
-================================ */
+// ================================
+  //  🌍 CORS 
+   "http://localhost:5173" ; "https://myport-7kfa.onrender.com"// local dev
+// ================================
 const corsOptions = {
   origin: [
     "http://localhost:5173",
