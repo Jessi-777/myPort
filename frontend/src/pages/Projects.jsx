@@ -18,14 +18,14 @@ const Projects = () => {
     {
       id: 3,
       title: 'Stay Fly Tech Store',
-      description: ' A fast, modern tech shop built with HTML, CSS, and JavaScript, featuring a clean UI and instant checkout for seamless, frictionless purchases.',
+      description: 'A fast, modern tech shop built with HTML, CSS, and JavaScript, featuring a clean UI and instant checkout for seamless, frictionless purchases.',
       image: '../stayfly.png'
     },
     {
       id: 4,
-      title: 'Farm App',
-      description: 'Farm App is a fast, modern farm management platform built with React and Django, featuring a clean, intuitive interface and real time tools for tracking crops, inventory, and farm operations designed for seamless, efficient farm management anywhere.',
-      image: '../farm-app.png'
+      title: 'Sonic Healing App',
+      description: 'Sonic Healing App is a transformative platform built with React and Django, featuring a clean, intuitive interface and real-time tools for immersive sound experiences, designed for seamless, mindful healing anywhere.',
+      image: '../sonic-healer.png'
     },
     {
       id: 5,

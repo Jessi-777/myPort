@@ -15,6 +15,7 @@ import 'animate.css';
 import Success from './pages/Success';
 import Cancel from './pages/Cancel';
 import Admin from './pages/Admin';
+import MusicPlayer from './pages/MusicPlayer';
 
 // inside <Routes>
 
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/success" element={<Success />} />
           <Route path="/cancel" element={<Cancel />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/music" element={<MusicPlayer />} /> {/* Music Player Page */}
 
         </Routes>
         </main>
