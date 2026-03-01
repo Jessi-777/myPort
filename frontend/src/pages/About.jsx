@@ -85,7 +85,7 @@ const About = () => {
               >
                 📅 Schedule a Meeting
               </a>
-              <a
+              {/* <a
                 href="/jessi-resume-2026.pdf"
                 download="Jessi-Chavez-Resume-2026.pdf"
                 target="_blank"
@@ -93,7 +93,7 @@ const About = () => {
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-white/10 text-white font-semibold rounded-lg border-2 border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
               >
                 <FaDownload /> Download Resume
-              </a>
+              </a> */}
             </div>
 
             {/* Social Icons */}

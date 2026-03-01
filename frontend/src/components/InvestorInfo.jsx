@@ -5,7 +5,7 @@ const InvestorInfo = () => {
   return (
     <section
       className="relative min-h-screen w-full bg-center bg-contain bg-no-repeat py-20 overflow-hidden"
-  style={{ backgroundImage: "url('i.png')" }}
+  style={{ backgroundImage: "url('phone.png')" }}
     >
       
       {/* Dark gradient overlay - reduced opacity to show background */}

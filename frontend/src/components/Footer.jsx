@@ -43,7 +43,7 @@ const Footer = () => {
 
       {/* Bottom copyright */}
       <div className="relative z-10 mt-6 text-center text-xs text-gray-300 border-t border-white/20 pt-4">
-        &copy; 2025 Jessisoftwareengineer. All rights reserved. Built with ❤️ using MERN & Tailwind CSS.
+        &copy; {new Date().getFullYear()}  All rights reserved. Built by TICA Systems with ❤️ using MERN & Tailwind CSS.
       </div>
     </footer>
   );

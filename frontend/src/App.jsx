@@ -19,6 +19,9 @@ import MusicPlayer from './pages/MusicPlayer';
 
 // inside <Routes>
 
+
+
+
 const App = () => {
   return (
     <Router>

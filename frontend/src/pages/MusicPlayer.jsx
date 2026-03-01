@@ -2,15 +2,15 @@ import React, { useRef, useState } from 'react';
 
 const tracks = [
   {
-    title: 'I said',
+    title: 'I Said',
     artist: 'Tica Rey',
     src: '/assets/music/I_said_Master_Tica_Rey.mp3',
-    cover: '/assets/music/cover_tica1.jpg',
+    cover: '/assets/music/cover_tica2.jpg',
   },
   {
-    title: 'We are the revolution',
+    title: 'Dale',
     artist: 'Tica Rey',
-    src: '/assets/music/Hunnypot_Revolution1.mp3',
+    src: '/assets/music/Dale.mp3',
     cover: '/assets/music/cover_tica2.jpg',
   },
 ];

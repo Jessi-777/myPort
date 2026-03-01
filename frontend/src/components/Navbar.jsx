@@ -10,7 +10,7 @@ const Navbar = () => {
         {/* <Link to="/" className="text-2xl font-bold">TIC/\</Link> */}
         <Link to="/" className="flex items-center space-x-2 text-2xl font-bold">
           <img src="/crown.png" alt="Logo" className="h-16 w-16 object-contain" />
-            <span>Tica aka Jessi Studio</span>
+            <span>TICA Systems</span>
             {/* <span>Tech.Design.Music.Film</span> */}
              {/* <span>Full Stack Softw/\re Developer | Design | Music & Film</span> */}
               {/* <span>Tech.Tunes.Film</span> */}

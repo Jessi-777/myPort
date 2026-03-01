@@ -24,20 +24,19 @@ const projects = [
   {
     id: '3',
     title: 'Stay Fly Tech Store',
-    description: 'A fast, modern tech shop built with HTML, CSS, and JavaScript, featuring a clean UI and instant checkout for seamless, frictionless purchases.',
+    description: 'Led full-stack development and UI/UX design, building a scalable platform with a custom dynamic pricing engine that enables personalized, eco-conscious shopping with transparency at its core.',
     image: '../stayfly.png',
-    tech: ['HTML', 'CSS', 'JavaScript'],
+    tech: ['Stripe', 'JavaScript', 'HTML', 'CSS'],
     github: '#',
     demo: 'https://stayfly.vercel.app/'
-
   },
-  {
+   {
     id: '4',
-    title: 'Sonic Healing App',
-    description: 'A web app for deep relaxation and healing through sound. Features a sound healing player with native flute, Tibetan bowls, nature woods, and lake under the stars, as well as frequency healing tones (528 Hz, 432 Hz, 396 Hz), a session timer, and beautiful nature backgrounds. Built for mindfulness, accessibility, and immersive audio experiences.',
-    image: '../sonic-healer.png',
-    tech: ['React', 'TailwindCSS', 'Cloudinary', 'Howler.js', 'HTML5 Audio', 'Vite'],
-    // github: '#',
+    title: 'Pura Vida Flow App',
+    description: 'A modern sound healing and meditation platform built with the MERN stack and TailwindCSS. Users can play relaxing nature sounds, healing frequencies, and set meditation timers in a beautiful, interactive UI. Designed to promote relaxation, mindfulness, and well-being through immersive audio experiences.',
+    image: '../pura_vida_flow.png',
+    tech: ['MongoDB', 'Express', 'React', 'Node.js', 'TailwindCSS'],
+    github: '#',
     demo: 'https://sonichealingapp.vercel.app/'
   },
   {
@@ -55,9 +54,18 @@ const projects = [
     description: 'An ecommerce platform built with MERN, TailwindCSS and Redux.',
     image: '../hna.png',
     tech: ['React', 'Node.js', 'MongoDB', 'Redux', 'TailwindCSS'],
-    // github: '#',
-    demo: 'https://business-app-template1.vercel.app/'
+    github: '#',
+    demo: '#'
   },
+  //   {
+  //   id: '7',
+  //   title: 'Farm App',
+  //   description: 'A full-stack Farm Management Application built using React for the frontend and Django (REST Framework) for the backend. Features include real-time farm data tracking, secure authentication, role-based access control, and scalable API architecture designed for modern agricultural workflows.',
+  //   image: '../farm-app.png',
+  //   tech: ['React', 'Python, Django', 'POSTGRESQL', 'Redux', 'TailwindCSS'],
+  //   github: '#',
+  //   demo: ''
+  // },
 ];
 
 const ProjectDetail = () => {
@@ -171,23 +179,19 @@ const ProjectDetail = () => {
               <ul className="space-y-3 text-[#d9dae2]">
                 <li className="flex items-start gap-2">
                   <span className="text-[#96b9c6] mt-1">✓</span>
-                  <span>Sound healing player with multiple ambient tracks</span>
+                  <span>Full-stack development with modern technologies</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#96b9c6] mt-1">✓</span>
-                  <span>Frequency healing tones: 528 Hz, 432 Hz, 396 Hz</span>
+                  <span>Responsive design for all devices</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#96b9c6] mt-1">✓</span>
-                  <span>Session timer with gentle gong sound</span>
+                  <span>Scalable architecture and clean code</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#96b9c6] mt-1">✓</span>
-                  <span>Beautiful, selectable nature backgrounds</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#96b9c6] mt-1">✓</span>
-                  <span>Accessible, mobile-friendly, and calming UI</span>
+                  <span>User-focused UI/UX design</span>
                 </li>
               </ul>
             </div>

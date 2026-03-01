@@ -92,9 +92,17 @@ export default function Hero() {
     <section
       id="hero"
       className="w-full h-screen relative bg-cover bg-center overflow-hidden flex flex-col justify-center items-center text-white"
+      // Original background image:
+      // style={{
+      //   backgroundImage:
+      //     "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80')",
+      // }}
+      // Suggested alternative: Calming forest with mist and soft light
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80')",
+          // "url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1950&q=80')",
+          "url('https://res.cloudinary.com/ninjagrvl/image/upload/v1770699492/jh4qmpefsevkiftotewa.jpg')"
+          // "url('https://res.cloudinary.com/ninjagrvl/image/upload/v1772263768/a1pbrvr6kfqzqgsovfdb.jpg')",
       }}
     >
       {/* Ambient River Sound */}
@@ -128,16 +136,17 @@ export default function Hero() {
       {/* Hero Content */}
       <div className="hero-container text-center px-6 z-10">
         <h1 className="text-5xl md:text-6xl font-bold font-megrim text-[#313137] drop-shadow-lg">
-          Invest in the Future of Pet Wellness
+          “I create what I believe in.
+           Some of it becomes companies.”
         </h1>
         <p className="mt-6 text-lg md:text-xl font-poppins text-[#d7e5e9]">
           <span className="typewriter text-3xl md:text-4xl font-bold text-center text-[#173767]">
-            Smarter Pet Care. Greener Choices. Real Savings.
+            Software Engineer, Development and Designer of Digital Ventures. 
           </span>
         </p>
 
         {/* CTA */}
-        <div className="mt-10 flex gap-6 justify-center flex-wrap">
+        {/* <div className="mt-10 flex gap-6 justify-center flex-wrap">
           <a
             href="/contact"
             className="px-6 py-3 bg-[#96b9c6] text-[#080809] font-semibold rounded-lg shadow hover:bg-[#b3bcbf] transition duration-300"
@@ -151,7 +160,7 @@ export default function Hero() {
           >
             Invest Now
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

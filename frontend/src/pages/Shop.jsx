@@ -2,8 +2,10 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { handleCheckout } from "../stripe";
 import { FaMusic, FaShoppingBag, FaDownload, FaHeart, FaPlay, FaPause } from "react-icons/fa";
+// import { API } from '../config';
 
 const API = import.meta.env.VITE_API_URL;
+
 const TARGET_VOL = 0.3;
 const FADE_MS = 2000;
 const STEP_MS = 50;
@@ -191,7 +193,7 @@ const Shop = () => {
           </div>
           
           <h1 className="text-6xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white via-[#769eb5] to-blue-500 bg-clip-text text-transparent drop-shadow-2xl">
-            The Shop
+            Collections
           </h1>
 
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-300 leading-relaxed">
@@ -320,7 +322,6 @@ const Shop = () => {
                     Buy Now
                   </button>
                 )}
-
                 <button
                   className="absolute bottom-5 right-5 text-white text-xl hover:scale-110 transition"
                   aria-label="Favorite"
