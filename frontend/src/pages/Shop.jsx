@@ -181,7 +181,8 @@ const Shop = () => {
         <div 
           className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-[#1f2227]"
           style={{
-            backgroundImage: "url('/shop.png')",
+            // backgroundImage: "url('/red.jpg')",
+            //  backgroundImage: "url('/shop2.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -193,13 +194,13 @@ const Shop = () => {
           </div>
           
           <h1 className="text-6xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white via-[#769eb5] to-blue-500 bg-clip-text text-transparent drop-shadow-2xl">
-            Collections
+            Essential Collections
           </h1>
 
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-300 leading-relaxed">
             Curated <span className="text-[#a9d0de] font-bold">sound packs</span>, 
             <span className="text-purple-300 font-bold"> visual art</span>, and 
-            <span className="text-[#a9d0de] font-bold"> limited editions</span> crafted by Tica Rey
+            <span className="text-[#a9d0de] font-bold"> limited editions</span> crafted by our Brands. 
           </p>
         </div>
       </div>

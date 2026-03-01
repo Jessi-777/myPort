@@ -13,15 +13,18 @@ const AboutSection = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Main Content */}
-        <div className="flex flex-col md:flex-row items-center gap-12 mb-16">
+        <div className="flex flex-col md:flex-row items-center gap-25 mb-16">
           {/* Image Section with Gradient Border */}
           <div className="flex-1 mb-10 md:mb-0">
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#96b9c6] to-[#335099] rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+              <div className="absolute -left-4 top-0 bottom-0 w-[110%] 
+                bg-gradient-to-r from-[#96b9c6] to-[#335099] 
+                rounded-2xl blur-xl opacity-25 
+                group-hover:opacity-50 transition duration-500"></div>
               <img
-                src="/tica1.jpg"
+                src="/red.png"
                 alt="Tica working"
-                className="relative w-full max-w-sm mx-auto md:mx-0 rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
+                className="relative max-w-lg w-full mx-auto md:mx-0 rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
               />
             </div>
           </div>

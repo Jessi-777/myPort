@@ -24,7 +24,7 @@ const Navbar = () => {
           <Link to="/investors" className="hover:text-[#F1F1F1]">Investor Info</Link>
           {/* className="bg-[#173767] text-white px-4 py-2 rounded hover:bg-[#1e4a92] transition">Investor Info</a> */}
           <Link to="/contact" className="hover:text-[#F1F1F1]">Contact</Link>
-           <Link to="/music" className="hover:text-[#F1F1F1]">Music</Link>
+           {/* <Link to="/music" className="hover:text-[#F1F1F1]">Music</Link> */}
         </div>
      
       </div>

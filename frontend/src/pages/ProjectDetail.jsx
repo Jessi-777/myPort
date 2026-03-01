@@ -34,7 +34,7 @@ const projects = [
     id: '4',
     title: 'Pura Vida Flow App',
     description: 'A modern sound healing and meditation platform built with the MERN stack and TailwindCSS. Users can play relaxing nature sounds, healing frequencies, and set meditation timers in a beautiful, interactive UI. Designed to promote relaxation, mindfulness, and well-being through immersive audio experiences.',
-    image: '../pura_vida_flow.png',
+    image: '../flow.png',
     tech: ['MongoDB', 'Express', 'React', 'Node.js', 'TailwindCSS'],
     github: '#',
     demo: 'https://sonichealingapp.vercel.app/'

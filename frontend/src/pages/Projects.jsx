@@ -23,9 +23,9 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: 'Sonic Healing App',
-      description: 'Sonic Healing App is a transformative platform built with React and Django, featuring a clean, intuitive interface and real-time tools for immersive sound experiences, designed for seamless, mindful healing anywhere.',
-      image: '../sonic-healer.png'
+      title: 'Pura Vida Flow App',
+      description: 'A modern sound healing and meditation platform built with the MERN stack and TailwindCSS. Users can play relaxing nature sounds, healing frequencies, and set meditation timers in a beautiful, interactive UI. Designed to promote relaxation, mindfulness, and well-being through immersive audio experiences.',
+      image: '../flow.png'
     },
     {
       id: 5,

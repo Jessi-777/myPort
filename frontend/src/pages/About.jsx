@@ -21,7 +21,7 @@ const About = () => {
               <img
                 src="/tica1.jpg"
                 alt="Tica working"
-                className="relative w-full max-w-sm mx-auto md:mx-0 rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
+                className="relative w-full max-w-lg mx-auto md:mx-0 rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
               />
             </div>
           </div>
