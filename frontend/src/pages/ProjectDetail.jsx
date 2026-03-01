@@ -55,7 +55,7 @@ const projects = [
     image: '../hna.png',
     tech: ['React', 'Node.js', 'MongoDB', 'Redux', 'TailwindCSS'],
     github: '#',
-    demo: '#'
+    demo: 'https://business-app-template1.vercel.app/'
   },
   //   {
   //   id: '7',

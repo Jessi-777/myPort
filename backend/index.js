@@ -89,6 +89,8 @@ app.use("/api/products", productsPublic);
 app.use("/api/users", usersRoutes);
 app.use("/api/printify", printifyRoutes);
 
+app.use("/api/email-capture", require("./routes/emailCapture"));
+
 /* ================================
    🗄️ DATABASE + SERVER
 ================================ */

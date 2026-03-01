@@ -134,7 +134,7 @@ export default function Hero() {
       </div>
 
       {/* Hero Content */}
-      <div className="hero-container text-center px-6 z-10">
+      <div className="hero-container bottom-35 text-center px-6 z-10">
         <h1 className="text-5xl md:text-6xl font-bold font-megrim text-[#313137] drop-shadow-lg">
           “I create what I believe in.
            Some of it becomes companies.”
