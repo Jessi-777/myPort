@@ -22,7 +22,7 @@ const AboutSection = () => {
                 rounded-2xl blur-xl opacity-25 
                 group-hover:opacity-50 transition duration-500"></div>
               <img
-                src="/red.png"
+                src="https://res.cloudinary.com/ninjagrvl/image/upload/v1772473919/wro0wxli3up5ac4kiuuj.png"
                 alt="Tica working"
                 className="relative max-w-lg w-full mx-auto md:mx-0 rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
               />
