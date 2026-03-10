@@ -124,26 +124,34 @@ const Shop = () => {
   });
 
   const handleProductCheckout = async (product) => {
-    if (product.productType === "physical" || product.printifyProductId) {
-      try {
-        const response = await axios.post(`${API}/api/checkout/printify`, {
-          items: [{
-            productId: product._id,
-            variantId: product.printifyData?.variants[0]?.variantId,
-            quantity: 1,
-          }],
-        });
-        window.location.href = response.data.url;
-      } catch (error) {
-        console.error("Checkout error:", error);
-        alert("Failed to start checkout");
-      }
-    } else if (product.priceId) {
-      handleCheckout(product.priceId);
-    } else {
-      alert("Product not available for purchase");
-    }
-  };
+  if (product.priceId) {
+    handleCheckout(product.priceId);
+  } else {
+    alert("Product not available for purchase");
+  }
+};
+  
+  // const handleProductCheckout = async (product) => {
+  //   if (product.productType === "physical" || product.printifyProductId) {
+  //     try {
+  //       const response = await axios.post(`${API}/api/checkout/printify`, {
+  //         items: [{
+  //           productId: product._id,
+  //           variantId: product.printifyData?.variants[0]?.variantId,
+  //           quantity: 1,
+  //         }],
+  //       });
+  //       window.location.href = response.data.url;
+  //     } catch (error) {
+  //       console.error("Checkout error:", error);
+  //       alert("Failed to start checkout");
+  //     }
+  //   } else if (product.priceId) {
+  //     handleCheckout(product.priceId);
+  //   } else {
+  //     alert("Product not available for purchase");
+  //   }
+  // };
 
   const toggleFavorite = (productId) => {
     setFavorites(prev => 
@@ -275,7 +283,7 @@ const Shop = () => {
               </div>
 
               <img
-                src={product.imageUrl || "/placeholder.png"}
+                src={product.imageUrl || "/full_redmoon.jpg"}
                 alt={product.title}
                 className="w-full h-52 object-cover rounded-2xl"
               />
