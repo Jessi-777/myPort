@@ -194,7 +194,7 @@ const Shop = () => {
           </div>
           
           <h1 className="text-6xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white via-[#769eb5] to-blue-500 bg-clip-text text-transparent drop-shadow-2xl">
-            Essential Collections
+            Founder Collections
           </h1>
 
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-300 leading-relaxed">
