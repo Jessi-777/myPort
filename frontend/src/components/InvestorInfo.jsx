@@ -101,7 +101,7 @@ const InvestorInfo = () => {
               </div>
             </div>
             
-            <h3 className="text-2xl font-bold text-white mb-3">HNA App</h3>
+            <h3 className="text-2xl font-bold text-white mb-3">Human Nature Athletica</h3>
             <p className="text-[#d9dae2] mb-6 leading-relaxed">
            HNA blends performance wear, sustainability, and minimal luxury positioned to lead the next generation of conscious global brands.
             </p>
