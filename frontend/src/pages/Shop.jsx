@@ -197,32 +197,32 @@ const Shop = () => {
         />
         
         <div className="relative z-10 text-center px-4 py-16">
-        <div className="inline-block mb-6 px-6 py-2 bg-[#a9d0de]/20 backdrop-blur-sm rounded-full border border-[#a9d0de]/30">
-          <span className="text-[#a9d0de] font-semibold text-sm">✨ Exclusive Digital Marketplace</span>
-        </div>
+          <div className="inline-block mb-6 px-6 py-2 bg-[#a9d0de]/20 backdrop-blur-sm rounded-full border border-[#a9d0de]/30">
+            <span className="text-[#a9d0de]  font-semibold text-sm">✨ Exclusive Digital Marketplace</span>
+          </div>
+          
+          <h1 className="text-6xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white via-[#769eb5] to-blue-500 bg-clip-text text-transparent drop-shadow-2xl">
+            Founder Collections
+          </h1>
 
-        <h1 className="text-6xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white via-[#769eb5] to-blue-500 bg-clip-text text-transparent drop-shadow-2xl">
-          Founder Collections
-        </h1>
-
-        <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-300 leading-relaxed">
-          Curated <span className="text-[#a9d0de] font-bold">sound packs</span>,
-          <span className="text-purple-300 font-bold"> visual art</span>, and
-          <span className="text-[#a9d0de] font-bold"> limited editions</span> crafted by our Brands.
-        </p>
-
-        {/* Coming Soon Banner */}
-        <div className="mt-10 inline-flex items-center gap-3 px-6 py-3 rounded-2xl border border-amber-400/30 bg-amber-400/10 backdrop-blur-sm shadow-lg shadow-amber-900/20">
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400"></span>
-          </span>
-          <p className="text-amber-300 text-sm font-medium tracking-wide">
-            Products are currently in production available soon
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-300 leading-relaxed">
+            Curated <span className="text-[#a9d0de] font-bold">sound packs</span>, 
+            <span className="text-purple-300 font-bold"> visual art</span>, and 
+            <span className="text-[#a9d0de] font-bold"> limited editions</span> crafted by our Brands. 
           </p>
+      
+          {/* Coming Soon Banner */}
+            <div className="mt-10 inline-flex items-center gap-3 px-6 py-3 rounded-2xl border border-amber-400/30 bg-amber-400/10 backdrop-blur-sm shadow-lg shadow-amber-900/20">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400"></span>
+              </span>
+              <p className="text-amber-300 text-sm font-medium tracking-wide">
+                Products are currently in production available soon
+              </p>
         </div>
       </div>
-      </div>
+       </div>
 
       {/* PRODUCTS GRID */}
       <div className="max-w-7xl w-full mx-auto px-6 py-20 flex-1 relative z-10">
