@@ -210,6 +210,16 @@ const Shop = () => {
             <span className="text-purple-300 font-bold"> visual art</span>, and 
             <span className="text-[#a9d0de] font-bold"> limited editions</span> crafted by our Brands. 
           </p>
+      
+          {/* Coming Soon Banner */}
+            <div className="mt-10 inline-flex items-center gap-3 px-6 py-3 rounded-2xl border border-amber-400/30 bg-amber-400/10 backdrop-blur-sm shadow-lg shadow-amber-900/20">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400"></span>
+              </span>
+              <p className="text-amber-300 text-sm font-medium tracking-wide">
+                Products are currently in production available soon
+              </p>
         </div>
       </div>
 
@@ -283,7 +293,7 @@ const Shop = () => {
               </div>
 
               <img
-                src={product.imageUrl || "/full_redmoon.jpg"}
+                src={product.imageUrl || "/placeholder.png"}
                 alt={product.title}
                 className="w-full h-52 object-cover rounded-2xl"
               />
