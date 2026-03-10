@@ -55,6 +55,8 @@ const allowedOrigins = [
   "http://127.0.0.1:5174",
   "http://127.0.0.1:5175",
   "http://127.0.0.1:5176",
+  // "https://my-port-phi-lake.vercel.app",
+  // "https://my-port-8bj98t7cw-jessi777s-projects.vercel.app",
   clientUrl
 ].filter(Boolean);
 
