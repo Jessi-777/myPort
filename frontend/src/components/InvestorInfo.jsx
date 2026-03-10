@@ -194,7 +194,7 @@ const InvestorInfo = () => {
               <FaCalendar /> Schedule a Meeting
             </a>
             <a
-              href="mailto:pawfectplug@gmail.com"
+              href="mailto:jcsoftwareengineer369@gmail.com"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-semibold rounded-lg border-2 border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
             >
               <FaEnvelope /> Contact Tica
