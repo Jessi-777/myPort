@@ -55,6 +55,10 @@ const allowedOrigins = [
   "http://127.0.0.1:5174",
   "http://127.0.0.1:5175",
   "http://127.0.0.1:5176",
+  'http://localhost:5173',
+  'https://my-port-quejf6t9u-jessi777s-projects.vercel.app',
+  'https://jcsoftwareengineer.com',      // ADD THIS
+  'https://www.jcsoftwareengineer.com', 
   // "https://my-port-phi-lake.vercel.app",
   // "https://my-port-8bj98t7cw-jessi777s-projects.vercel.app",
   clientUrl
