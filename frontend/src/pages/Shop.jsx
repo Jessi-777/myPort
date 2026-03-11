@@ -264,7 +264,7 @@ const Shop = () => {
         {/* Empty State */}
         {!loading && filteredProducts.length === 0 && (
           <div className="text-center text-white text-xl">
-            No products available in this category. Check back soon!
+            {/* No products available in this category. Check back soon! */}
           </div>
         )}
 
