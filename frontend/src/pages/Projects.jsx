@@ -7,37 +7,37 @@ const Projects = () => {
       id: 1,
       title: 'Pawfect Plug SaaS Platform',
       description:'Led full-stack development, UI/UX design, and built a custom dynamic pricing engine. Focused on sustainability, personalization, and scalable architecture.',
-      image: '../pawfect_plug.png',
+      image: '/pawfect_plug.png',
     },
     {
       id: 2,
       title: 'Challego online Market',
       description: 'Led full-stack development, UI/UX design, and engineered a custom dynamic pricing engine to support personalized, budget-aware shopping. The platform emphasizes environmental impact, user transparency, and scalable architecture to grow with both small vendors and mindful buyers.',
-      image: '../challego1.png'
+      image: '/challego1.png'
     },
     {
       id: 3,
       title: 'Stay Fly Tech Store',
       description: 'A fast, modern tech shop built with HTML, CSS, and JavaScript, featuring a clean UI and instant checkout for seamless, frictionless purchases.',
-      image: '../stayfly.png'
+      image: '/stayfly.png'
     },
     {
       id: 4,
       title: 'Pura Vida Flow App',
       description: 'A modern sound healing and meditation platform built with the MERN stack and TailwindCSS. Users can play relaxing nature sounds, healing frequencies, and set meditation timers in a beautiful, interactive UI. Designed to promote relaxation, mindfulness, and well-being through immersive audio experiences.',
-      image: '../pura-vida-flow.png'
+      image: '/pura-vida-flow.png'
     },
     {
       id: 5,
       title: 'Life Social Media App',
       description: 'A social media platform built with MERN, TailwindCSS and Redux.',
-      image: '../life.jpg'
+      image: '/life.jpg'
     },
     {
       id: 6,
       title: 'HNA Human Nature Athletica',
       description: 'HNA is a modern eCommerce platform built with the MERN stack, TailwindCSS, and Redux, delivering a fast, responsive shopping experience with seamless state management and a clean, scalable UI.',
-      image: '../hna.png'
+      image: '/hna.png'
     },
     
   ];

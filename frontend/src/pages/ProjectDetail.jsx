@@ -7,7 +7,7 @@ const projects = [
     id: '1',
     title: 'Pawfect Plug SaaS Platform',
     description: 'Led full-stack development, UI/UX design, and built a custom dynamic pricing engine. Focused on sustainability, personalization, and scalable architecture.',
-    image: '../pawfect_plug.png',
+    image: '/pawfect_plug.png',
     tech: ['React', 'Node.js', 'MongoDB', 'Stripe', 'TailwindCSS'],
     github: '#',
     demo: 'https://pawfectplug.com'
@@ -16,7 +16,7 @@ const projects = [
     id: '2',
     title: 'Challego',
     description: 'Led full-stack development, UI/UX design, and engineered a custom dynamic pricing engine to support personalized, eco shopping. The platform emphasizes environmental impact, user transparency, and scalable architecture to grow with both small vendors and mindful buyers.',
-    image: '../challego1.png',
+    image: '/challego1.png',
     tech: ['React', 'Express', 'MongoDB', 'Redux', 'TailwindCSS'],
     github: '#',
     demo: 'https://challego.com/'
@@ -25,7 +25,7 @@ const projects = [
     id: '3',
     title: 'Stay Fly Tech Store',
     description: 'Led full-stack development and UI/UX design, building a scalable platform with a custom dynamic pricing engine that enables personalized, eco-conscious shopping with transparency at its core.',
-    image: '../stayfly.png',
+    image: '/stayfly.png',
     tech: ['Stripe', 'JavaScript', 'HTML', 'CSS'],
     github: '#',
     demo: 'https://stayfly.vercel.app/'
@@ -34,7 +34,7 @@ const projects = [
     id: '4',
     title: 'Pura Vida Flow App',
     description: 'A modern sound healing and meditation platform built with the MERN stack and TailwindCSS. Users can play relaxing nature sounds, healing frequencies, and set meditation timers in a beautiful, interactive UI. Designed to promote relaxation, mindfulness, and well-being through immersive audio experiences.',
-    image: '../pura-vida-flow.png',
+    image: '/pura-vida-flow.png',
     tech: ['MongoDB', 'Express', 'React', 'Node.js', 'TailwindCSS'],
     github: '#',
     demo: 'https://sonichealingapp.vercel.app/'
@@ -43,7 +43,7 @@ const projects = [
     id: '5',
     title: 'Life Social Media App',
     description: 'A social media platform built with MERN, TailwindCSS and Redux.',
-    image: '../life.jpg',
+    image: '/life.jpg',
     tech: ['React', 'Node.js', 'MongoDB', 'Redux', 'TailwindCSS'],
     github: '#',
     demo: 'https://life-platform.netlify.app/login'
@@ -52,7 +52,7 @@ const projects = [
     id: '6',
     title: 'HNA Human Nature Athletica',
     description: 'An ecommerce platform built with MERN, TailwindCSS and Redux.',
-    image: '../hna.png',
+    image: '/hna.png',
     tech: ['React', 'Node.js', 'MongoDB', 'Redux', 'TailwindCSS'],
     github: '#',
     demo: 'https://business-app-template1.vercel.app/'
