@@ -37,7 +37,7 @@ const Projects = () => {
       id: 6,
       title: 'HNA Human Nature Athletica',
       description: 'HNA is a modern eCommerce platform built with the MERN stack, TailwindCSS, and Redux, delivering a fast, responsive shopping experience with seamless state management and a clean, scalable UI.',
-      image: '/hna.png'
+      image: '/hna-nature-bkground-.png'
     },
     
   ];

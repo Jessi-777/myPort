@@ -52,7 +52,11 @@ const projects = [
     id: '6',
     title: 'HNA Human Nature Athletica',
     description: 'An ecommerce platform built with MERN, TailwindCSS and Redux.',
+<<<<<<< HEAD:frontend/src/pages/ProjectDetail.jsx
     image: '/hna.png',
+=======
+    image: '/hna-nature-bkground-.png',
+>>>>>>> 4e8daef (updated HNA images):src/pages/ProjectDetail.jsx
     tech: ['React', 'Node.js', 'MongoDB', 'Redux', 'TailwindCSS'],
     github: '#',
     demo: 'https://business-app-template1.vercel.app/'
