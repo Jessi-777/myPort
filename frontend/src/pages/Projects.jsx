@@ -4,37 +4,37 @@ import ProjectCard from '../components/ProjectCard';
 const Projects = () => {
   const projects = [
     {
-      id: 1,
+      id: '1',
       title: 'Pawfect Plug SaaS Platform',
       description:'Led full-stack development, UI/UX design, and built a custom dynamic pricing engine. Focused on sustainability, personalization, and scalable architecture.',
       image: '/pawfect_plug.png',
     },
     {
-      id: 2,
+      id: '2',
       title: 'Challego online Market',
       description: 'Led full-stack development, UI/UX design, and engineered a custom dynamic pricing engine to support personalized, budget-aware shopping. The platform emphasizes environmental impact, user transparency, and scalable architecture to grow with both small vendors and mindful buyers.',
       image: '/challego1.png'
     },
     {
-      id: 3,
+      id: '3',
       title: 'Stay Fly Tech Store',
       description: 'A fast, modern tech shop built with HTML, CSS, and JavaScript, featuring a clean UI and instant checkout for seamless, frictionless purchases.',
       image: '/stayfly.png'
     },
     {
-      id: 4,
+      id: '4',
       title: 'Pura Vida Flow App',
       description: 'A modern sound healing and meditation platform built with the MERN stack and TailwindCSS. Users can play relaxing nature sounds, healing frequencies, and set meditation timers in a beautiful, interactive UI. Designed to promote relaxation, mindfulness, and well-being through immersive audio experiences.',
       image: '/flow.png'
     },
     {
-      id: 5,
+      id: '5',
       title: 'Life Social Media App',
       description: 'A social media platform built with MERN, TailwindCSS and Redux.',
       image: '/life.jpg'
     },
     {
-      id: 6,
+      id: '6',
       title: 'HNA Human Nature Athletica',
       description: 'HNA is a modern eCommerce platform built with the MERN stack, TailwindCSS, and Redux, delivering a fast, responsive shopping experience with seamless state management and a clean, scalable UI.',
       image: '/hna-natureBundle.png'
