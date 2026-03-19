@@ -62,7 +62,7 @@ const Shop = () => {
   const loadProducts = async () => {
     try {
       const { data } = await axios.get(`${API}/api/products`);
-      setProducts(data);
+      setProducts(Array.isArray(data) ? data : data.products || []);
     } catch (error) {
       console.error("Failed to load products:", error);
     } finally {
