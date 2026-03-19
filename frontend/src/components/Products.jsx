@@ -17,7 +17,8 @@ export default function Products() {
   const loadProducts = async () => {
     try {
       const { data } = await axios.get(`${API}/api/products`);
-      setProducts(data.filter(p => p.visible));
+      // setProducts(data.filter(p => p.visible));
+      setProducts((Array.isArray(data) ? data : data.products || []).filter(p => p.visible));
       setLoading(false);
     } catch (error) {
       console.error('Error loading products:', error);
@@ -29,7 +30,7 @@ export default function Products() {
 
   const filteredProducts = selectedCategory === 'all' 
     ? products 
-    : products.filter(p => p.category === selectedCategory);
+    : products.filter(p => (p.category || '').toLowerCase() === selectedCategory.toLowerCase());
 
   return (
     <section id="shop" className="py-20 bg-white dark:bg-gray-900">

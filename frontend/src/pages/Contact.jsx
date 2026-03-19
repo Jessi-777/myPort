@@ -61,7 +61,7 @@ const Contact = () => {
             </h1>
 
             <p className="text-xl text-[#d9dae2] mb-8 leading-relaxed">
-              Interested in investing in <span className="text-[#96b9c6] font-semibold">Challego LLC Start Up</span>? 
+              Interested in investing in <span className="text-[#96b9c6] font-semibold"> Start Ups</span>? 
               Have a project in mind? Let's talk about how we can work together.
             </p>
 
