@@ -25,7 +25,7 @@ const Projects = () => {
       id: 4,
       title: 'Pura Vida Flow App',
       description: 'A modern sound healing and meditation platform built with the MERN stack and TailwindCSS. Users can play relaxing nature sounds, healing frequencies, and set meditation timers in a beautiful, interactive UI. Designed to promote relaxation, mindfulness, and well-being through immersive audio experiences.',
-      image: '/pura-vida-flow.png'
+      image: '/flow.png'
     },
     {
       id: 5,
@@ -37,7 +37,7 @@ const Projects = () => {
       id: 6,
       title: 'HNA Human Nature Athletica',
       description: 'HNA is a modern eCommerce platform built with the MERN stack, TailwindCSS, and Redux, delivering a fast, responsive shopping experience with seamless state management and a clean, scalable UI.',
-      image: '/hna-nature-bkground-.png'
+      image: '/hna-natureBundle.png'
     },
     
   ];

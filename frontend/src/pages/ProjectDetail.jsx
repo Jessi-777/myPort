@@ -34,7 +34,7 @@ const projects = [
     id: '4',
     title: 'Pura Vida Flow App',
     description: 'A modern sound healing and meditation platform built with the MERN stack and TailwindCSS. Users can play relaxing nature sounds, healing frequencies, and set meditation timers in a beautiful, interactive UI. Designed to promote relaxation, mindfulness, and well-being through immersive audio experiences.',
-    image: '/pura-vida-flow.png',
+    image: '/flow.png',
     tech: ['MongoDB', 'Express', 'React', 'Node.js', 'TailwindCSS'],
     github: '#',
     demo: 'https://sonichealingapp.vercel.app/'
@@ -52,11 +52,7 @@ const projects = [
     id: '6',
     title: 'HNA Human Nature Athletica',
     description: 'An ecommerce platform built with MERN, TailwindCSS and Redux.',
-<<<<<<< HEAD:frontend/src/pages/ProjectDetail.jsx
-    image: '/hna.png',
-=======
-    image: '/hna-nature-bkground-.png',
->>>>>>> 4e8daef (updated HNA images):src/pages/ProjectDetail.jsx
+    image: '/hna-natureBundle.png',
     tech: ['React', 'Node.js', 'MongoDB', 'Redux', 'TailwindCSS'],
     github: '#',
     demo: 'https://business-app-template1.vercel.app/'
