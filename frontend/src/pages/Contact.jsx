@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaUser, FaPaperPlane, FaCalendar, FaDownload, FaLinkedin, FaTwitter, FaGithub, FaCheckCircle } from 'react-icons/fa';
+import { FaEnvelope, FaUser, FaPaperPlane, FaCalendar, FaDownload, FaLinkedin, FaTwitter, FaGithub, FaCheckCircle,  } from 'react-icons/fa';
+import { FaXTwitter } from "react-icons/fa6";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -74,7 +75,7 @@ const Contact = () => {
                 <div>
                   <div className="text-sm text-[#d9dae2]">Email</div>
                   <a href="mailto:invest@challegoinvest.com" className="text-white font-semibold hover:text-[#96b9c6] transition">
-                    invest@challegoinvest.com
+                    jcsoftwareengineer369@gmail.com
                   </a>
                 </div>
               </div>
@@ -117,14 +118,16 @@ const Contact = () => {
                 >
                   <FaLinkedin className="text-xl" />
                 </a>
+
                 <a
-                  href="https://x.com/IamTicaRey"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-[#96b9c6] hover:scale-110 transition-all duration-300"
-                >
-                  <FaTwitter className="text-xl" />
-                </a>
+                href="https://x.com/IamTicaRey"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-[#96b9c6] hover:scale-110 transition-all duration-300"
+              >
+                <FaXTwitter className="text-xl" />
+              </a>
+
               </div>
             </div>
 

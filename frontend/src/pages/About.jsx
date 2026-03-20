@@ -77,14 +77,14 @@ const About = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              {/* <a
+              <a
                 href="https://calendly.com/jessisoftwareengineer/meeting-with-jessi-aka-tica"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#32353b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#96b9c6] hover:scale-105 transition-all duration-300"
               >
                 📅 Schedule a Meeting
-              </a> */}
+              </a>
               <a
                 href="/jessi-resume-2026.pdf"
                 download="Jessi-Chavez-Resume-2026.pdf"
@@ -115,13 +115,13 @@ const About = () => {
                 <FaLinkedin />
               </a>
               <a
-                href="https://x.com/IamTicaRey"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-[#96b9c6] hover:scale-110 transition-all duration-300 text-xl"
-              >
-                <FaXTwitter />
-              </a>
+                             href="https://x.com/IamTicaRey"
+                             target="_blank"
+                             rel="noopener noreferrer"
+                             className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-[#96b9c6] hover:scale-110 transition-all duration-300"
+                           >
+                             <FaXTwitter className="text-xl" />
+                           </a>
             </div>
           </div>
         </div>
