@@ -202,12 +202,12 @@ const Shop = () => {
           </div>
           
           <h1 className="text-6xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white via-[#769eb5] to-blue-500 bg-clip-text text-transparent drop-shadow-2xl">
-            Founder Collections
+            Founders Collection
           </h1>
 
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-300 leading-relaxed">
-            Curated <span className="text-[#a9d0de] font-bold">sound packs</span>, 
-            <span className="text-purple-300 font-bold"> visual art</span>, and 
+            Curated <span className="text-[#a9d0de] font-bold">sound packs, apps</span>, 
+            <span className="text-[#83bad8] font-bold"> visual art</span>, and 
             <span className="text-[#a9d0de] font-bold"> limited editions</span> crafted by our Brands. 
           </p>
       
