@@ -23,8 +23,9 @@ const AboutSection = () => {
                 group-hover:opacity-50 transition duration-500"></div>
               <img
                 // src="https://res.cloudinary.com/ninjagrvl/image/upload/v1778135009/wdjih8nri7zs2w3vjyca.png"
-                 src="/tica2.jpg"
-                alt="Tica working"
+                src='https://res.cloudinary.com/ninjagrvl/image/upload/v1778891381/nl6awplmlb1soypsdsue.jpg'
+                //  src="/tica2.jpg"
+                alt="Tica business photo"
                 className="relative max-w-lg w-full mx-auto md:mx-0 rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
               />
             </div>

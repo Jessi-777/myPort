@@ -19,8 +19,10 @@ const About = () => {
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#96b9c6] to-[#335099] rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
               <img
-                src="/tica2.jpg"
-                alt="Tica working"
+                // src="/tica2.jpg"
+                src='https://res.cloudinary.com/ninjagrvl/image/upload/v1778891381/nl6awplmlb1soypsdsue.jpg'
+
+                alt="Tica business photo"
                 className="relative w-full max-w-lg mx-auto md:mx-0 rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
               />
             </div>
