@@ -114,7 +114,7 @@ export default function Hero() {
       {/* Sound Toggle Button */}
       <button
         onClick={toggleMute}
-        className="absolute top-5 right-5 z-20 bg-[#4d4d54] text-white px-4 py-2 rounded-lg shadow hover:bg-[#575a62] transition"
+        className="absolute bottom-8 right-5 z-20 bg-[#4d4d54be] text-white px-4 py-2 rounded-lg shadow hover:bg-[#575a62] transition"
       >
         {isMuted ? '🔇 Sound Off' : '🔊 Sound On'}
       </button>
