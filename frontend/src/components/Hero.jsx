@@ -78,7 +78,7 @@ export default function Hero() {
     const handleVisibilityChange = () => {
       if (document.hidden) {
         audio.pause();
-      } else if (!audio.paused && !audio.muted) {
+      } else if (audio.paused && !audio.muted) {
         audio.play().catch(() => {});
       }
     };
