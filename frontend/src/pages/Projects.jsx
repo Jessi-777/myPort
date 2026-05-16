@@ -17,9 +17,9 @@ const Projects = () => {
     },
     {
       id: '3',
-      title: 'Stay Fly Tech Store',
-      description: 'A fast, modern tech shop built with HTML, CSS, and JavaScript, featuring a clean UI and instant checkout for seamless, frictionless purchases.',
-      image: '/stayfly.png'
+      title: 'Set your Intentions',
+      description: 'A fast, modern affirmation home built with HTML, CSS, and JavaScript.',
+      image: '/intentions.png'
     },
     {
       id: '4',
@@ -29,9 +29,9 @@ const Projects = () => {
     },
     {
       id: '5',
-      title: 'Life Social Media App',
-      description: 'A social media platform built with MERN, TailwindCSS and Redux.',
-      image: '/life.jpg'
+      title: 'Layers of Reality',
+      description: 'Layers of Reality diagram, descrpition, and tests.',
+      image: '/layers.png'
     },
     {
       id: '6',

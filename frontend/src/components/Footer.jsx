@@ -22,15 +22,15 @@ const Footer = () => {
           <a href="https://pawfectplug.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
             Pawfect Plug
           </a>
-          <a href="https://challego.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
+          {/* <a href="https://challego.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
             Challego Online Marketplace platform
-          </a>
-          <a href="https://jessisoftwareengineer.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
+          </a> */}
+          <a href="" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
             HNA Human Nature Atheltica
           </a>
-           <a href="https://jessisoftwareengineer.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
+           {/* <a href="https://jessisoftwareengineer.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
             Farm App
-          </a>
+          </a> */}
           <a href="https://www.ticarey.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 text-sm">
             Tica Rey Music
           </a>
@@ -43,7 +43,7 @@ const Footer = () => {
 
       {/* Bottom copyright */}
       <div className="relative z-10 mt-6 text-center text-xs text-gray-300 border-t border-white/20 pt-4">
-        &copy; {new Date().getFullYear()}  All rights reserved. Built by TICA Systems with ❤️ using MERN & Tailwind CSS.
+        &copy; {new Date().getFullYear()}  All rights reserved. Built by TICA Global Systems with ❤️ using MERN & Tailwind CSS.
       </div>
     </footer>
   );

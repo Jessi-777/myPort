@@ -19,16 +19,16 @@ const projects = [
     image: '/challego1.png',
     tech: ['React', 'Express', 'MongoDB', 'Redux', 'TailwindCSS'],
     github: '#',
-    demo: 'https://challego.com/'
+    demo: 'https://my-port-jessi777s-projects.vercel.app/'
   },
   {
     id: '3',
-    title: 'Stay Fly Tech Store',
-    description: 'Led full-stack development and UI/UX design, building a scalable platform with a custom dynamic pricing engine that enables personalized, eco-conscious shopping with transparency at its core.',
-    image: '/stayfly.png',
-    tech: ['Stripe', 'JavaScript', 'HTML', 'CSS'],
+    title: 'Set Your Intentions',
+    description: 'Created tech for good by providing a safe space for anyone to set your intentions out into the universe with love ♥️ ',
+    image: '/intentions.png',
+    tech: ['JavaScript', 'HTML', 'CSS'],
     github: '#',
-    demo: 'https://stayfly.vercel.app/'
+    demo: 'https://jessi-777.github.io/Imagine-your-best-life/'
   },
    {
     id: '4',
@@ -40,13 +40,15 @@ const projects = [
     demo: 'https://sonichealingapp.vercel.app/'
   },
   {
-    id: '5',
-    title: 'Life Social Media App',
-    description: 'A social media platform built with MERN, TailwindCSS and Redux.',
-    image: '/life.jpg',
-    tech: ['React', 'Node.js', 'MongoDB', 'Redux', 'TailwindCSS'],
-    github: '#',
-    demo: 'https://life-platform.netlify.app/login'
+   
+  id: '5',
+  title: 'Layers of Reality',
+  description: 'An immersive interactive experience exploring the seven layers of existence through animated diagrams, cosmic interfaces, quizzes, reflections, and philosophical storytelling.',
+  image: '/layers.png',
+  tech: ['JavaScript', 'HTML', 'CSS'],
+  github: '#',
+  demo: 'https://jessi-777.github.io/layers_of_reality/'
+
   },
   {
     id: '6',
@@ -57,7 +59,18 @@ const projects = [
     github: '#',
     demo: 'https://business-app-template1.vercel.app/'
   },
-  //   {
+
+    {
+    id: '7',
+    title: 'Farm App',
+    description: 'A full-stack Farm Management Application built using React for the frontend and Django (REST Framework) for the backend. Features include real-time farm data tracking, secure authentication, role-based access control, and scalable API architecture designed for modern agricultural workflows.',
+    image: '../farm-app.png',
+    tech: ['React', 'Python, Django', 'POSTGRESQL', 'Redux', 'TailwindCSS'],
+    github: '#',
+    demo: 'https://jessi-777.github.io/Professional_travel_website_platform/'
+  },
+
+    // {
   //   id: '7',
   //   title: 'Farm App',
   //   description: 'A full-stack Farm Management Application built using React for the frontend and Django (REST Framework) for the backend. Features include real-time farm data tracking, secure authentication, role-based access control, and scalable API architecture designed for modern agricultural workflows.',
