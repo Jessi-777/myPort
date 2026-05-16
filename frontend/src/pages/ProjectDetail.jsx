@@ -153,14 +153,14 @@ const ProjectDetail = () => {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4">
-              <a
+              {/* <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#96b9c6] to-[#335099] text-white font-semibold rounded-lg shadow-lg hover:shadow-[#96b9c6]/50 hover:scale-105 transition-all duration-300"
               >
                 <FaGithub /> View Code
-              </a>
+              </a> */}
               <a
                 href={project.demo}
                 target="_blank"
