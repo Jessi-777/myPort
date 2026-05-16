@@ -65,7 +65,7 @@ const projects = [
     {
     id: '7',
     title: 'Travel Agency App',
-    description: 'A full-stack travel agency website built using HTML, CSS, and JavaScript. It features a responsive and interactive user interface designed to showcase travel destinations, services, and booking-style interactions, delivering a smooth and engaging user experience across all devices. Available in Full Stack. ',
+    description: 'A travel agency website built using HTML, CSS, and JavaScript. I would build this in full stack. It features a responsive and interactive user interface designed to showcase travel destinations, services, and booking-style interactions, delivering a smooth and engaging user experience across all devices. Available in Full Stack. ',
     image: '/travel.jpg',
     tech: ['HTML', 'CSS','Javascript', ],
     github: '#',
