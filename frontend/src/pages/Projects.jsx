@@ -4,16 +4,16 @@ import ProjectCard from '../components/ProjectCard';
 const Projects = () => {
   const projects = [
     {
-      id: '1',
-      title: 'Pawfect Plug SaaS Platform',
-      description:'Led full-stack development, UI/UX design, and built a custom dynamic pricing engine. Focused on sustainability, personalization, and scalable architecture.',
-      image: '/pawfect_plug.png',
+       id: '1',
+      title: 'Pura Vida Flow App',
+      description: 'A modern sound healing and meditation platform built with the MERN stack and TailwindCSS. Users can play relaxing nature sounds, healing frequencies, and set meditation timers in a beautiful, interactive UI. Designed to promote relaxation, mindfulness, and well-being through immersive audio experiences.',
+      image: '/flow.png'
     },
     {
       id: '2',
-      title: 'Challego online Market',
-      description: 'Led full-stack development, UI/UX design, and engineered a custom dynamic pricing engine to support personalized, budget-aware shopping. The platform emphasizes environmental impact, user transparency, and scalable architecture to grow with both small vendors and mindful buyers.',
-      image: '/challego1.png'
+      title: 'HNA Human Nature Athletica',
+      description: 'HNA is a modern eCommerce platform built with the MERN stack, TailwindCSS, and Redux, delivering a fast, responsive shopping experience with seamless state management and a clean, scalable UI.',
+      image: '/hna-natureBundle.png',
     },
     {
       id: '3',
@@ -23,21 +23,27 @@ const Projects = () => {
     },
     {
       id: '4',
-      title: 'Pura Vida Flow App',
-      description: 'A modern sound healing and meditation platform built with the MERN stack and TailwindCSS. Users can play relaxing nature sounds, healing frequencies, and set meditation timers in a beautiful, interactive UI. Designed to promote relaxation, mindfulness, and well-being through immersive audio experiences.',
-      image: '/flow.png'
+      title: 'Pawfect Plug SaaS Platform',
+      description:'Led full-stack development, UI/UX design, and built a custom dynamic pricing engine. Focused on sustainability, personalization, and scalable architecture.',
+      image: '/pawfect_plug.png',
     },
-    {
-      id: '5',
-      title: 'Layers of Reality',
-      description: 'Layers of Reality diagram, descrpition, and tests.',
-      image: '/layers.png'
-    },
+    // {
+    //   id: '5',
+    //   title: 'Layers of Reality',
+    //   description: 'Layers of Reality diagram, descrpition, and tests.',
+    //   image: '/layers.png'
+    // },
     {
       id: '6',
-      title: 'HNA Human Nature Athletica',
-      description: 'HNA is a modern eCommerce platform built with the MERN stack, TailwindCSS, and Redux, delivering a fast, responsive shopping experience with seamless state management and a clean, scalable UI.',
-      image: '/hna-natureBundle.png'
+      title: 'Challego online Market',
+      description: 'Led full-stack development, UI/UX design, and engineered a custom dynamic pricing engine to support personalized, budget-aware shopping. The platform emphasizes environmental impact, user transparency, and scalable architecture to grow with both small vendors and mindful buyers.',
+      image: '/challego1.png'
+    },
+     {
+      id: '7',
+      title: 'Travel Agency',
+      description: 'Happy Travels is a modern, responsive travel agency website built with HTML, CSS, and JavaScript. It showcases destinations, travel packages, and booking style interactions through a clean, user friendly interface designed for smooth navigation and an engaging browsing experience.',
+      image: '/travel.jpg'
     },
     
   ];

@@ -4,22 +4,24 @@ import { FaArrowLeft, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const projects = [
   {
-    id: '1',
-    title: 'Pawfect Plug SaaS Platform',
-    description: 'Led full-stack development, UI/UX design, and built a custom dynamic pricing engine. Focused on sustainability, personalization, and scalable architecture.',
-    image: '/pawfect_plug.png',
-    tech: ['React', 'Node.js', 'MongoDB', 'Stripe', 'TailwindCSS'],
+     id: '1',
+    title: 'Pura Vida Flow App',
+    description: 'A modern sound healing and meditation platform built with the MERN stack and TailwindCSS. Users can play relaxing nature sounds, healing frequencies, and set meditation timers in a beautiful, interactive UI. Designed to promote relaxation, mindfulness, and well-being through immersive audio experiences.',
+    image: '/flow.png',
+    tech: ['MongoDB', 'Express', 'React', 'Node.js', 'TailwindCSS'],
     github: '#',
-    demo: 'https://pawfectplug.com'
+    demo: 'https://sonichealingapp.vercel.app/'
   },
   {
-    id: '2',
-    title: 'Challego',
-    description: 'Led full-stack development, UI/UX design, and engineered a custom dynamic pricing engine to support personalized, eco shopping. The platform emphasizes environmental impact, user transparency, and scalable architecture to grow with both small vendors and mindful buyers.',
-    image: '/challego1.png',
-    tech: ['React', 'Express', 'MongoDB', 'Redux', 'TailwindCSS'],
+     id: '2',
+    title: 'HNA Human Nature Athletica',
+    description: 'An ecommerce platform built with MERN, TailwindCSS and Redux.',
+    image: '/hna-natureBundle.png',
+    tech: ['React', 'Node.js', 'MongoDB', 'Redux', 'TailwindCSS'],
     github: '#',
-    demo: 'https://my-port-jessi777s-projects.vercel.app/'
+    demo: 'https://business-app-template1.vercel.app/'
+
+    
   },
   {
     id: '3',
@@ -32,40 +34,40 @@ const projects = [
   },
    {
     id: '4',
-    title: 'Pura Vida Flow App',
-    description: 'A modern sound healing and meditation platform built with the MERN stack and TailwindCSS. Users can play relaxing nature sounds, healing frequencies, and set meditation timers in a beautiful, interactive UI. Designed to promote relaxation, mindfulness, and well-being through immersive audio experiences.',
-    image: '/flow.png',
-    tech: ['MongoDB', 'Express', 'React', 'Node.js', 'TailwindCSS'],
+    title: 'Pawfect Plug SaaS Platform',
+    description: 'Led full-stack development, UI/UX design, and built a custom dynamic pricing engine. Focused on sustainability, personalization, and scalable architecture.',
+    image: '/pawfect_plug.png',
+    tech: ['React', 'Node.js', 'MongoDB', 'Stripe', 'TailwindCSS'],
     github: '#',
-    demo: 'https://sonichealingapp.vercel.app/'
+    demo: 'https://pawfectplug.com'
   },
-  {
+  // {
    
-  id: '5',
-  title: 'Layers of Reality',
-  description: 'An immersive interactive experience exploring the seven layers of existence through animated diagrams, cosmic interfaces, quizzes, reflections, and philosophical storytelling.',
-  image: '/layers.png',
-  tech: ['JavaScript', 'HTML', 'CSS'],
-  github: '#',
-  demo: 'https://jessi-777.github.io/layers_of_reality/'
+  // id: '5',
+  // title: 'Layers of Reality',
+  // description: 'An immersive interactive experience exploring the seven layers of existence through animated diagrams, cosmic interfaces, quizzes, reflections, and philosophical storytelling.',
+  // image: '/layers.png',
+  // tech: ['JavaScript', 'HTML', 'CSS'],
+  // github: '#',
+  // demo: 'https://jessi-777.github.io/layers_of_reality/'
 
-  },
+  // },
   {
     id: '6',
-    title: 'HNA Human Nature Athletica',
-    description: 'An ecommerce platform built with MERN, TailwindCSS and Redux.',
-    image: '/hna-natureBundle.png',
-    tech: ['React', 'Node.js', 'MongoDB', 'Redux', 'TailwindCSS'],
+    title: 'Challego',
+    description: 'Led full-stack development, UI/UX design, and engineered a custom dynamic pricing engine to support personalized, eco shopping. The platform emphasizes environmental impact, user transparency, and scalable architecture to grow with both small vendors and mindful buyers.',
+    image: '/challego1.png',
+    tech: ['React', 'Express', 'MongoDB', 'Redux', 'TailwindCSS'],
     github: '#',
-    demo: 'https://business-app-template1.vercel.app/'
+    demo: 'https://my-port-jessi777s-projects.vercel.app/'
   },
 
     {
     id: '7',
-    title: 'Farm App',
-    description: 'A full-stack Farm Management Application built using React for the frontend and Django (REST Framework) for the backend. Features include real-time farm data tracking, secure authentication, role-based access control, and scalable API architecture designed for modern agricultural workflows.',
-    image: '../farm-app.png',
-    tech: ['React', 'Python, Django', 'POSTGRESQL', 'Redux', 'TailwindCSS'],
+    title: 'Travel Agency App',
+    description: 'A full-stack travel agency website built using HTML, CSS, and JavaScript. It features a responsive and interactive user interface designed to showcase travel destinations, services, and booking-style interactions, delivering a smooth and engaging user experience across all devices. Available in Full Stack. ',
+    image: '/travel.jpg',
+    tech: ['HTML', 'CSS','Javascript', ],
     github: '#',
     demo: 'https://jessi-777.github.io/Professional_travel_website_platform/'
   },
