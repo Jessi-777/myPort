@@ -45,6 +45,13 @@ const Projects = () => {
       description: 'Happy Travels is a modern, responsive travel agency website built with HTML, CSS, and JavaScript. It showcases destinations, travel packages, and booking style interactions through a clean, user friendly interface designed for smooth navigation and an engaging browsing experience.',
       image: '/travel.jpg'
     },
+
+    //  {
+    //   id: '8',
+    //   title: 'Currency Converter',
+    //   description: 'Currency Converter is a modern, responsive travel agency website built with HTML, CSS, and JavaScript. It showcases destinations, travel packages, and booking style interactions through a clean, user friendly interface designed for smooth navigation and an engaging browsing experience.',
+    //   image: '/currency.jpg'
+    // },
     
   ];
 

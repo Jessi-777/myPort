@@ -65,22 +65,23 @@ const projects = [
     {
     id: '7',
     title: 'Travel Agency App',
-    description: 'A travel agency website built using HTML, CSS, and JavaScript. I also build this as full stack. It features a responsive and interactive user interface designed to showcase travel destinations, services, and booking style interactions, delivering a smooth and engaging user experience across all devices.',
+    description: 'A travel agency website built using HTML, CSS, and JavaScript. Upon request, I also build this as full stack. It features a responsive and interactive user interface designed to showcase travel destinations, services, and booking style interactions, delivering a smooth and engaging user experience across all devices.',
     image: '/travel.jpg',
     tech: ['HTML', 'CSS','Javascript', ],
     github: '#',
     demo: 'https://jessi-777.github.io/Professional_travel_website_platform/'
   },
 
-    // {
-  //   id: '7',
-  //   title: 'Farm App',
+  //   {
+  //   id: '8',
+  //   title: 'Currency Conveter',
   //   description: 'A full-stack Farm Management Application built using React for the frontend and Django (REST Framework) for the backend. Features include real-time farm data tracking, secure authentication, role-based access control, and scalable API architecture designed for modern agricultural workflows.',
-  //   image: '../farm-app.png',
+  //   image: '../currency.jpg',
   //   tech: ['React', 'Python, Django', 'POSTGRESQL', 'Redux', 'TailwindCSS'],
   //   github: '#',
   //   demo: ''
-  // },
+  //   },
+
 ];
 
 const ProjectDetail = () => {
