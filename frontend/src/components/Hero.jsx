@@ -112,7 +112,7 @@ export default function Hero() {
     >
       {/* Ambient River Sound */}
       <audio ref={audioRef} preload="auto">
-        <source src="/river.wav" type="audio/wav" />
+        <source src="/river.wav" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
 
