@@ -39,12 +39,17 @@ export default function Hero() {
       fadeVolume(TARGET_VOL);
       setIsMuted(false);
     } else {
-      fadeVolume(0);
-      setTimeout(() => {
-        audio.muted = true;
-        setIsMuted(true);
-      }, FADE_MS);
-    }
+  fadeVolume(0);
+
+  setTimeout(() => {
+    audio.pause(); // actually stop playback
+    audio.currentTime = 0; // optional reset to beginning
+    audio.muted = true;
+    setIsMuted(true);
+  }, FADE_MS);
+}
+    
+
   };
 
   /** Auto-play after 6s with fade-in */
