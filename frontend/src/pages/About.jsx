@@ -79,14 +79,14 @@ const About = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <a
+              {/* <a
                 href="https://calendly.com/jessisoftwareengineer/meeting-with-jessi-aka-tica"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#32353b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#96b9c6] hover:scale-105 transition-all duration-300"
               >
                 📅 Schedule a Meeting
-              </a>
+              </a> */}
               {/* <a
                 href="/jessi-resume-2026.pdf"
                 download="Jessi-Chavez-Resume-2026.pdf"
