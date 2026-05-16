@@ -132,14 +132,14 @@ const Contact = () => {
             </div>
 
             {/* Download Pitch Deck */}
-            <a
+            {/* <a
               href="/pitch-deck.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-lg border-2 border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
             >
               <FaDownload /> Download Pitch Deck
-            </a>
+            </a> */}
 
           </div>
 
