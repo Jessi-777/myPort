@@ -23,15 +23,15 @@ const projects = [
 
     
   },
-  {
-    id: '3',
-    title: 'Set Your Intentions',
-    description: 'Created tech for good by providing a safe space for anyone to set your intentions out into the universe with love ♥️ ',
-    image: '/intentions.png',
-    tech: ['JavaScript', 'HTML', 'CSS'],
-    github: '#',
-    demo: 'https://jessi-777.github.io/Imagine-your-best-life/'
-  },
+  // {
+  //   id: '3',
+  //   title: 'Set Your Intentions',
+  //   description: 'Created tech for good by providing a safe space for anyone to set your intentions out into the universe with love ♥️ ',
+  //   image: '/intentions.png',
+  //   tech: ['JavaScript', 'HTML', 'CSS'],
+  //   github: '#',
+  //   demo: 'https://jessi-777.github.io/Imagine-your-best-life/'
+  // },
    {
     id: '4',
     title: 'Pawfect Plug SaaS Platform',
@@ -65,7 +65,7 @@ const projects = [
     {
     id: '7',
     title: 'Travel Agency App',
-    description: 'A travel agency website built using HTML, CSS, and JavaScript. I would build this in full stack. It features a responsive and interactive user interface designed to showcase travel destinations, services, and booking style interactions, delivering a smooth and engaging user experience across all devices. Available in Full Stack. ',
+    description: 'A travel agency website built using HTML, CSS, and JavaScript. I also build this as full stack. It features a responsive and interactive user interface designed to showcase travel destinations, services, and booking style interactions, delivering a smooth and engaging user experience across all devices.',
     image: '/travel.jpg',
     tech: ['HTML', 'CSS','Javascript', ],
     github: '#',

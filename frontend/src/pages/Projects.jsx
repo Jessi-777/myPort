@@ -15,12 +15,12 @@ const Projects = () => {
       description: 'HNA is a modern eCommerce platform built with the MERN stack, TailwindCSS, and Redux, delivering a fast, responsive shopping experience with seamless state management and a clean, scalable UI.',
       image: '/hna-natureBundle.png',
     },
-    {
-      id: '3',
-      title: 'Set your Intentions',
-      description: 'A fast, modern affirmation home built with HTML, CSS, and JavaScript.',
-      image: '/intentions.png'
-    },
+    // {
+    //   id: '3',
+    //   title: 'Set your Intentions',
+    //   description: 'A fast, modern affirmation home built with HTML, CSS, and JavaScript.',
+    //   image: '/intentions.png'
+    // },
     {
       id: '4',
       title: 'Pawfect Plug SaaS Platform',
