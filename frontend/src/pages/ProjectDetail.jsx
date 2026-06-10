@@ -79,7 +79,7 @@ const projects = [
      image: 'https://res.cloudinary.com/dk25jqckw/image/upload/v1781068505/travel_b8pr0n.png',
     tech: ['HTML', 'CSS','Javascript', ],
     github: '#',
-    demo: 'https://res.cloudinary.com/dk25jqckw/image/upload/v1781068505/travel_b8pr0n.png'
+    demo: 'https://jessi-777.github.io/Professional_travel_website_platform/'
   },
 
   //   {
