@@ -27,7 +27,8 @@ const projects = [
     id: '3',
     title: 'The Anchor Book',
     description: 'A short philosophical guide for creators, entrepreneurs, and multi passionate builders who want to create from authenticity true self.',
-    image: '/assets/entry-1.png',
+    // image: '/assets/entry-1.png',
+    image: 'https://res.cloudinary.com/dk25jqckw/image/upload/v1781060501/entry-1_fiikjt.png',
     tech: ['JavaScript', 'HTML', 'CSS'],
   //   features: [
   //   "Single-file architecture — no frameworks, no dependencies",
@@ -77,7 +78,7 @@ const projects = [
     image: '/assets/travel.jpg',
     tech: ['HTML', 'CSS','Javascript', ],
     github: '#',
-    demo: 'https://jessi-777.github.io/Professional_travel_website_platform/'
+    demo: 'https://res.cloudinary.com/dk25jqckw/image/upload/v1781068505/travel_b8pr0n.png'
   },
 
   //   {
