@@ -41,16 +41,15 @@ export default function Hero() {
     } else {
   fadeVolume(0);
 
-  setTimeout(() => {
+  fadeTimer.current = setTimeout(() => {
     audio.pause(); // actually stop playback
     audio.currentTime = 0; // optional reset to beginning
     audio.muted = true;
     setIsMuted(true);
   }, FADE_MS);
 }
-    
-
   };
+
 
   /** Auto-play after 6s with fade-in */
   useEffect(() => {
@@ -110,9 +109,11 @@ export default function Hero() {
           // "url('https://res.cloudinary.com/ninjagrvl/image/upload/v1772263768/a1pbrvr6kfqzqgsovfdb.jpg')",
       }}
     >
+      {/* "audio/mpeg"  */}
       {/* Ambient River Sound */}
       <audio ref={audioRef} preload="auto">
-        <source src="/river.wav" type="audio/mpeg" />
+        <source src="/music/river.wav" type="audio/wav" />
+         {/* <source src="/music/river.wav" type="audio/mpeg" /> */}
         Your browser does not support the audio element.
       </audio>
 

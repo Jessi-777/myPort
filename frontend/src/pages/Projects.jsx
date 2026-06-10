@@ -15,6 +15,13 @@ const Projects = () => {
       description: 'HNA is a modern eCommerce platform built with the MERN stack, TailwindCSS, and Redux, delivering a fast, responsive shopping experience with seamless state management and a clean, scalable UI.',
       image: '/hna-natureBundle.png',
     },
+     {
+      id: '3',
+      title: 'The Anchor Book',
+      description: 'A standalone HTML book experience built for the authentic builder. Nine motivational entries, cinematic ocean blue and gold design, 12 language translation support, and zero dependencies. One file. Runs anywhere.',
+      image: '/the-anchor.png'
+    },
+
     // {
     //   id: '3',
     //   title: 'Set your Intentions',
@@ -46,8 +53,15 @@ const Projects = () => {
       image: '/travel.jpg'
     },
 
-    //  {
+     //  {
     //   id: '8',
+    //   title: 'The Anchor Book',
+    //   description: 'Currency Converter is a modern, responsive travel agency website built with HTML, CSS, and JavaScript. It showcases destinations, travel packages, and booking style interactions through a clean, user friendly interface designed for smooth navigation and an engaging browsing experience.',
+    //   image: '/currency.jpg'
+    // },
+
+    //  {
+    //   id: '9',
     //   title: 'Currency Converter',
     //   description: 'Currency Converter is a modern, responsive travel agency website built with HTML, CSS, and JavaScript. It showcases destinations, travel packages, and booking style interactions through a clean, user friendly interface designed for smooth navigation and an engaging browsing experience.',
     //   image: '/currency.jpg'

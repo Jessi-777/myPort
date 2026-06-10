@@ -23,15 +23,23 @@ const projects = [
 
     
   },
-  // {
-  //   id: '3',
-  //   title: 'Set Your Intentions',
-  //   description: 'Created tech for good by providing a safe space for anyone to set your intentions out into the universe with love ♥️ ',
-  //   image: '/intentions.png',
-  //   tech: ['JavaScript', 'HTML', 'CSS'],
-  //   github: '#',
-  //   demo: 'https://jessi-777.github.io/Imagine-your-best-life/'
-  // },
+  {
+    id: '3',
+    title: 'The Anchor Book',
+    description: 'A short philosophical guide for creators, entrepreneurs, and multi passionate builders who want to create from authenticity instead of pressure.',
+    image: '/entry-1.png',
+    tech: ['JavaScript', 'HTML', 'CSS'],
+  //   features: [
+  //   "Single-file architecture — no frameworks, no dependencies",
+  //   "Cinematic chapter-by-chapter reading experience",
+  //   "Responsive design optimized for mobile and desktop",
+  //   "Built-in 12-language inline translation engine",
+  //   "Deep ocean blue and gold UI with custom animations",
+  //   "Zero build process — deploys anywhere with one file upload"
+  // ],
+    github: '#',
+    demo: 'https://jessi-777.github.io/book-one/'
+  },
    {
     id: '4',
     title: 'Pawfect Plug SaaS Platform',
@@ -211,6 +219,8 @@ const ProjectDetail = () => {
                 </li>
               </ul>
             </div>
+
+            
           </div>
         </div>
       </div>
