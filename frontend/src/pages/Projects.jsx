@@ -19,7 +19,7 @@ const Projects = () => {
       id: '3',
       title: 'The Anchor Book',
       description: 'A standalone HTML book experience built for the authentic builder. Nine motivational entries, cinematic ocean blue and gold design, 12 language translation support, and zero dependencies. One file. Runs anywhere.',
-      image: '/the-anchor.png'
+      image: '/assets/the-anchor.png'
     },
 
     // {
@@ -50,7 +50,7 @@ const Projects = () => {
       id: '7',
       title: 'Travel Agency',
       description: 'Happy Travels is a modern, responsive travel agency website built with HTML, CSS, and JavaScript. It showcases destinations, travel packages, and booking style interactions through a clean, user friendly interface designed for smooth navigation and an engaging browsing experience.',
-      image: '/travel.jpg'
+      image: '/assets/travel.jpg'
     },
 
      //  {

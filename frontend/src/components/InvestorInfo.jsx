@@ -5,7 +5,7 @@ const InvestorInfo = () => {
   return (
     <section
       className="relative min-h-screen w-full bg-center bg-contain bg-no-repeat py-20 overflow-hidden"
-  style={{ backgroundImage: "url('b-logo.png')" }}
+  style={{ backgroundImage: "url('blogo.png')" }}
     >
       
       {/* Dark gradient overlay - reduced opacity to show background */}
@@ -59,6 +59,7 @@ const InvestorInfo = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-[#96b9c6] to-[#335099] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 overflow-hidden">
               <img 
                 src="/pawfect_plug_white.png" 
+                
                 alt="Pawfect Plug Logo" 
                 className="w-20 h-20 object-contain"
               />
