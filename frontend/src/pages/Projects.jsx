@@ -94,7 +94,7 @@ const Projects = () => {
           </h1>
 
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-300 leading-relaxed">
-            Built <span className="text-[#a9d0de] font-bold">full-stack SaaS platforms</span> designed to scale, connect APIs seamlessly, and deliver smooth, intuitive user experiences. Crafted with precision, creativity, and performance in mind.
+            Built <span className="text-[#a9d0de] font-bold">Full-Stack SaaS Platforms </span> designed to scale, connect APIs seamlessly, and deliver smooth, intuitive user experiences. Also Included <span className="text-[#a9d0de] font-bold"> HTML, CSS and Javascript Projects </span> Crafted with precision, creativity, and performance in mind.
           </p>
         </div>
 
