@@ -74,7 +74,7 @@ const projects = [
     id: '7',
     title: 'Travel Agency App',
     description: 'A travel agency website built using HTML, CSS, and JavaScript. Upon request, I also build this as full stack. It features a responsive and interactive user interface designed to showcase travel destinations, services, and booking style interactions, delivering a smooth and engaging user experience across all devices.',
-    image: '/travel.jpg',
+    image: '/public/travel.jpg',
     tech: ['HTML', 'CSS','Javascript', ],
     github: '#',
     demo: 'https://jessi-777.github.io/Professional_travel_website_platform/'
