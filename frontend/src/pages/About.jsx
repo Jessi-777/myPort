@@ -60,8 +60,13 @@ const About = () => {
 {/* I design and build systems so they feel inevitable—clear, intentional, and easy to trust. */}
            <div className="space-y-4 text-lg text-[#d9dae2] leading-relaxed mb-8">
             <p>
-              <span className="text-white font-semibold">I build platforms with intention</span>, focusing on clarity, usability, and long-term reliability.
-              My work is rooted in thoughtful engineering designing systems that are easy to understand, operate, and trust.
+              <span className="text-white font-semibold">I build platforms with intention</span>, focusing on clarity, usability, and long-term reliability. My work is rooted in thoughtful engineering and designing systems that are easy to understand, operate, and trust.
+
+I approach each project by aligning strategy, architecture, and interface design to create exceptional user experiences. This allows me to build scalable full-stack systems and refined interfaces that feel effortless from the inside out.
+
+Whether developing full-scale applications, SaaS products, or e-commerce platforms, I bring a balanced perspective that combines technical depth, design sensibility, and strategic thinking to create digital products built to last.
+
+From architecture and backend systems to responsive interfaces and production deployment, I take ownership of the full product lifecycle.
             </p>
             <p>
               I approach each project by aligning strategy, architecture, and interface designs for the best UX/UI user experience.

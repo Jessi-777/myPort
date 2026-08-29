@@ -42,7 +42,7 @@ const AboutSection = () => {
             </h2>
 
             <h3 className="text-xl lg:text-2xl font-semibold text-[#96b9c6] mb-6">
-              Software Engineer • Developer • Designer • Founder 
+              FULL-STACK SOFTWARE ENGINEER • PRODUCT BUILDER • CREATIVE TECHNOLOGIST
             </h3>
 
             {/* Stats Grid */}
