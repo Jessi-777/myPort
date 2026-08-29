@@ -32,7 +32,7 @@ const Projects = () => {
       id: '4',
       title: 'Pawfect Plug SaaS Platform',
       description:'Led full-stack development, UI/UX design, and built a custom dynamic pricing engine. Focused on sustainability, personalization, and scalable architecture.',
-      image: '/pawfect_plug.png',
+      image: 'https://res.cloudinary.com/dk25jqckw/image/upload/v1787974671/Screenshot_2026-08-28_at_8.37.47_PM_ze4n4r.png',
     },
     // {
     //   id: '5',

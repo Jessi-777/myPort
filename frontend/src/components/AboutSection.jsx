@@ -64,7 +64,7 @@ const AboutSection = () => {
             <p className="text-[#d9dae2] text-lg leading-relaxed mb-8 max-w-2xl mx-auto md:mx-0">
               <span className="text-white font-semibold">I'm a builder at heart</span>, an engineer who designs with intention and creates with purpose. 
               From <span className="text-[#96b9c6]">scalable architecture</span> to <span className="text-[#96b9c6]">pixel-perfect interfaces</span>, 
-              I design and develop every layer with care and clarity.
+              I design and build digital products from concept to production combining software engineering, UI/UX, and creative technology.
             </p>
 
             <Link
@@ -82,7 +82,7 @@ const AboutSection = () => {
             <div className="w-12 h-12 bg-[#335099]/20 rounded-lg flex items-center justify-center mb-4">
               <FaCode className="text-2xl text-[#96b9c6]" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Full Stack Development</h3>
+            <h3 className="text-xl font-bold text-white mb-2">FULL-STACK SOFTWARE ENGINEER • PRODUCT BUILDER • CREATIVE TECHNOLOGIST</h3>
             <p className="text-[#d9dae2]">React, Node.js, MongoDB, Express, REST APIs</p>
           </div>
 
