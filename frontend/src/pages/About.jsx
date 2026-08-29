@@ -1,5 +1,13 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaCode, FaPalette, FaRocket, FaDownload } from 'react-icons/fa';
+import {
+  FaGithub,
+  FaLinkedin,
+  FaCode,
+  FaPalette,
+  FaRocket,
+  FaFilm,
+  FaMusic,
+} from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const About = () => {
@@ -8,160 +16,340 @@ const About = () => {
       className="relative py-20 bg-center bg-cover bg-no-repeat"
       style={{ backgroundImage: "url('/black.jpg')" }}
     >
-      {/* Dark overlay for better text readability */}
+      {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#1a1d23]/95 to-[#2e333a]/90 z-0"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Main Content */}
-        <div className="flex flex-col md:flex-row items-center gap-12 mb-16">
-          {/* Image Left with hover effect */}
+
+        {/* =========================
+            INTRO
+        ========================== */}
+        <div className="flex flex-col md:flex-row items-center gap-16 mb-20">
+
+          {/* Image */}
           <div className="flex-1 mb-10 md:mb-0">
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#96b9c6] to-[#335099] rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
-              <img
-                // src="/tica2.jpg"
-                src='https://res.cloudinary.com/ninjagrvl/image/upload/v1778891381/nl6awplmlb1soypsdsue.jpg'
 
-                alt="Tica business photo"
-                className="relative w-full max-w-lg mx-auto md:mx-0 rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
+              <div
+                className="
+                  absolute -inset-1
+                  bg-gradient-to-r
+                  from-[#96b9c6]
+                  to-[#335099]
+                  rounded-2xl
+                  blur
+                  opacity-25
+                  group-hover:opacity-50
+                  transition
+                  duration-500
+                "
+              ></div>
+
+              <img
+                src="https://res.cloudinary.com/ninjagrvl/image/upload/v1778891381/nl6awplmlb1soypsdsue.jpg"
+                alt="Jessi Chavez — full-stack software engineer and product builder"
+                className="
+                  relative
+                  w-full
+                  max-w-lg
+                  mx-auto
+                  md:mx-0
+                  rounded-2xl
+                  shadow-2xl
+                  transform
+                  group-hover:scale-105
+                  transition
+                  duration-500
+                "
               />
             </div>
           </div>
 
-          {/* Text Right */}
+          {/* Intro Text */}
           <div className="flex-1 text-center md:text-left">
-            {/* <div className="inline-block px-2 py-2 bg-[#96b9c6]/20 rounded-full mb-4">
-              <span className="text-[#96b9c6] text-sm font-semibold">✨ Open to Opportunities</span>
-            </div> */}
-            
+
+            <div className="inline-block px-4 py-2 bg-[#96b9c6]/20 backdrop-blur-sm rounded-full mb-4 border border-[#96b9c6]/30">
+              <span className="text-[#96b9c6] text-sm font-semibold">
+                ✨ Open to Opportunities
+              </span>
+            </div>
+
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
-              Tica aka Jessi
+              T!CA aka Jessi Chavez
             </h1>
-            
-            <h2 className="text-2xl md:text-3xl font-semibold text-[#96b9c6] mb-6">
-              Software Engineer • Developer • Designer • Founder 
+
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#96b9c6] mb-8">
+              FULL-STACK SOFTWARE ENGINEER
+              <br />
+              PRODUCT BUILDER • CREATIVE TECHNOLOGIST
             </h2>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mb-8 py-6 border-y border-[#96b9c6]/20">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white">5+</div>
-                <div className="text-sm text-[#d9dae2]">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white">5+</div>
-                <div className="text-sm text-[#d9dae2]">Projects Built</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white">∞</div>
-                <div className="text-sm text-[#d9dae2]">Ideas Created</div>
-              </div>
-            </div>
-{/* I design and build systems so they feel inevitable—clear, intentional, and easy to trust. */}
-           <div className="space-y-4 text-lg text-[#d9dae2] leading-relaxed mb-8">
-            <p>
-              <span className="text-white font-semibold">I build platforms with intention</span>, focusing on clarity, usability, and long-term reliability. My work is rooted in thoughtful engineering and designing systems that are easy to understand, operate, and trust.
+            <div className="space-y-6 text-lg text-[#d9dae2] leading-relaxed">
 
-I approach each project by aligning strategy, architecture, and interface design to create exceptional user experiences. This allows me to build scalable full-stack systems and refined interfaces that feel effortless from the inside out.
+              <p>
+                <span className="text-white font-semibold">
+                  I build platforms with intention
+                </span>
+                , focusing on clarity, usability, and long term reliability.
+                My work is rooted in thoughtful engineering and designing
+                systems that are easy to understand, operate, and trust.
+              </p>
 
-Whether developing full-scale applications, SaaS products, or e-commerce platforms, I bring a balanced perspective that combines technical depth, design sensibility, and strategic thinking to create digital products built to last.
+              <p>
+                I approach each project by aligning{' '}
+                <span className="text-white font-semibold">
+                  strategy, architecture, and interface design
+                </span>{' '}
+                to create exceptional user experiences. This allows me to build
+                scalable full-stack systems and refined interfaces that feel
+                effortless from the inside out.
+              </p>
 
-From architecture and backend systems to responsive interfaces and production deployment, I take ownership of the full product lifecycle.
-            </p>
-            <p>
-              I approach each project by aligning strategy, architecture, and interface designs for the best UX/UI user experience.
-              This allows me to build scalable full stack systems and refined interfaces that feel effortless from the inside out.
-            </p>
-            <p>
-              Whether developing full scale applications or ecommerce platforms, I bring a balanced perspective combining
-              <span className="text-white font-semibold"> technical depth</span>,
-              <span className="text-white font-semibold"> design sensibility</span>, and
-              <span className="text-white font-semibold"> strategic thinking</span> to create platforms built to last.
-            </p>
-          </div>
+              <p>
+                Whether developing full-scale applications, SaaS products, or
+                e-commerce platforms, I bring a balanced perspective that
+                combines{' '}
+                <span className="text-white font-semibold">
+                  technical depth
+                </span>
+                ,{' '}
+                <span className="text-white font-semibold">
+                  design sensibility
+                </span>
+                , and{' '}
+                <span className="text-white font-semibold">
+                  strategic thinking
+                </span>{' '}
+                to create digital products built to last.
+              </p>
 
+              <p>
+                <span className="text-white font-semibold">
+                  From architecture and backend systems to responsive interfaces
+                  and production deployment, I take ownership of the full
+                  product lifecycle.
+                </span>
+              </p>
 
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              {/* <a
-                href="https://calendly.com/jessisoftwareengineer/meeting-with-jessi-aka-tica"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#32353b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#96b9c6] hover:scale-105 transition-all duration-300"
-              >
-                📅 Schedule a Meeting
-              </a> */}
-              {/* <a
-                href="/jessi-resume-2026.pdf"
-                download="Jessi-Chavez-Resume-2026.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-white/10 text-white font-semibold rounded-lg border-2 border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
-              >
-                <FaDownload /> Download Resume
-              </a> */}
             </div>
 
-            {/* Social Icons */}
-            <div className="flex justify-center md:justify-start gap-4">
+            {/* Social Links */}
+            <div className="flex justify-center md:justify-start gap-4 mt-8">
+
               <a
                 href="https://github.com/Jessi-777"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-[#96b9c6] hover:scale-110 transition-all duration-300 text-xl"
+                aria-label="GitHub"
+                className="
+                  w-12 h-12
+                  flex items-center justify-center
+                  rounded-full
+                  bg-white/10
+                  text-white
+                  hover:bg-[#96b9c6]
+                  hover:scale-110
+                  transition-all
+                  duration-300
+                  text-xl
+                "
               >
                 <FaGithub />
               </a>
+
               <a
                 href="https://www.linkedin.com/in/jessi-chavez-aka-tica-rey-33270231/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-[#96b9c6] hover:scale-110 transition-all duration-300 text-xl"
+                aria-label="LinkedIn"
+                className="
+                  w-12 h-12
+                  flex items-center justify-center
+                  rounded-full
+                  bg-white/10
+                  text-white
+                  hover:bg-[#96b9c6]
+                  hover:scale-110
+                  transition-all
+                  duration-300
+                  text-xl
+                "
               >
                 <FaLinkedin />
               </a>
+
               <a
-                             href="https://x.com/IamTicaRey"
-                             target="_blank"
-                             rel="noopener noreferrer"
-                             className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-[#96b9c6] hover:scale-110 transition-all duration-300"
-                           >
-                             <FaXTwitter className="text-xl" />
-                           </a>
+                href="https://x.com/IamTicaRey"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X"
+                className="
+                  w-12 h-12
+                  flex items-center justify-center
+                  rounded-full
+                  bg-white/10
+                  text-white
+                  hover:bg-[#96b9c6]
+                  hover:scale-110
+                  transition-all
+                  duration-300
+                "
+              >
+                <FaXTwitter className="text-xl" />
+              </a>
+
             </div>
           </div>
         </div>
 
-        {/* Skills Section */}
-        <div className="grid md:grid-cols-3 gap-6 mt-16">
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:transform hover:scale-105">
-            <div className="w-12 h-12 bg-[#335099]/20 rounded-lg flex items-center justify-center mb-4">
-              <FaCode className="text-2xl text-[#96b9c6]" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-2">Full Stack Development</h3>
-            <p className="text-[#d9dae2]">React, Node.js, MongoDB, Express, REST APIs, GraphQL, Python, Django , PostgreSQL</p>
+        {/* =========================
+            CORE CAPABILITIES
+        ========================== */}
+
+        <div className="mb-20">
+
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              Core Capabilities
+            </h2>
+
+            <p className="text-[#d9dae2] mt-3 max-w-2xl mx-auto">
+              I combine engineering, design, and product thinking to build
+              complete digital experiences.
+            </p>
           </div>
 
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:transform hover:scale-105">
-            <div className="w-12 h-12 bg-[#335099]/20 rounded-lg flex items-center justify-center mb-4">
-              <FaPalette className="text-2xl text-[#96b9c6]" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-2">UI/UX Design</h3>
-            <p className="text-[#d9dae2]">Figma, Adobe Suite, Responsive Design, User Research</p>
-          </div>
+          <div className="grid md:grid-cols-3 gap-6">
 
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:transform hover:scale-105">
-            <div className="w-12 h-12 bg-[#335099]/20 rounded-lg flex items-center justify-center mb-4">
-              <FaRocket className="text-2xl text-[#96b9c6]" />
+            {/* Engineering */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:scale-105">
+
+              <div className="w-12 h-12 bg-[#335099]/20 rounded-lg flex items-center justify-center mb-4">
+                <FaCode className="text-2xl text-[#96b9c6]" />
+              </div>
+
+              <h3 className="text-xl font-bold text-white mb-3">
+                Full-Stack Engineering
+              </h3>
+
+              <p className="text-[#d9dae2] leading-relaxed">
+                React, JavaScript, Node.js, Express, MongoDB, PostgreSQL,
+                REST APIs, authentication, RBAC, Stripe, webhooks,
+                third-party integrations, and cloud deployment.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Product Thinking</h3>
-            <p className="text-[#d9dae2]">MVP Strategy, Agile, User Stories, Growth Mindset</p>
+
+            {/* Design */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:scale-105">
+
+              <div className="w-12 h-12 bg-[#335099]/20 rounded-lg flex items-center justify-center mb-4">
+                <FaPalette className="text-2xl text-[#96b9c6]" />
+              </div>
+
+              <h3 className="text-xl font-bold text-white mb-3">
+                UI/UX & Visual Design
+              </h3>
+
+              <p className="text-[#d9dae2] leading-relaxed">
+                Figma, responsive design, visual systems, interaction design,
+                branding, digital experiences, and translating concepts into
+                polished interfaces.
+              </p>
+            </div>
+
+            {/* Product */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#96b9c6]/50 transition-all duration-300 hover:scale-105">
+
+              <div className="w-12 h-12 bg-[#335099]/20 rounded-lg flex items-center justify-center mb-4">
+                <FaRocket className="text-2xl text-[#96b9c6]" />
+              </div>
+
+              <h3 className="text-xl font-bold text-white mb-3">
+                Product Thinking
+              </h3>
+
+              <p className="text-[#d9dae2] leading-relaxed">
+                Product strategy, MVP development, architecture, user
+                workflows, SaaS, e-commerce, business systems, and
+                end-to-end product ownership.
+              </p>
+            </div>
+
           </div>
         </div>
+
+        {/* =========================
+            CREATIVE TECHNOLOGY
+        ========================== */}
+
+        <div>
+
+          <div className="text-center mb-10">
+
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              Creative Technology
+            </h2>
+
+            <p className="text-[#d9dae2] mt-3 max-w-2xl mx-auto">
+              My engineering work is complemented by years of experience
+              creating across film, music, audio, and visual media.
+            </p>
+
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+
+            {/* Film */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+
+              <div className="flex items-center gap-4 mb-4">
+
+                <div className="w-12 h-12 bg-[#335099]/20 rounded-lg flex items-center justify-center">
+                  <FaFilm className="text-2xl text-[#96b9c6]" />
+                </div>
+
+                <h3 className="text-xl font-bold text-white">
+                  Film & Video
+                </h3>
+
+              </div>
+
+              <p className="text-[#d9dae2] leading-relaxed">
+                Filming, production, editing, visual storytelling, promotional
+                content, and creative direction.
+              </p>
+
+            </div>
+
+            {/* Music */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+
+              <div className="flex items-center gap-4 mb-4">
+
+                <div className="w-12 h-12 bg-[#335099]/20 rounded-lg flex items-center justify-center">
+                  <FaMusic className="text-2xl text-[#96b9c6]" />
+                </div>
+
+                <h3 className="text-xl font-bold text-white">
+                  Music & Audio
+                </h3>
+
+              </div>
+
+              <p className="text-[#d9dae2] leading-relaxed">
+                Music production, recording, sound engineering, mixing,
+                mastering, and audio post-production.
+              </p>
+
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
   );
 };
 
 export default About;
+
