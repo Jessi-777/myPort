@@ -6,13 +6,16 @@ const fs = require("fs");
 const path = require("path");
 const dotenv = require("dotenv");
 
+const adminRoutes = require("./routes/admin");
+const analyticsRoutes = require("./routes/analytics");
+
 // Load local .env only for development
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 const stripeWebhook = require("./webhook/stripeWebhook");
 const checkoutRoutes = require("./routes/checkout");
 const downloadRoutes = require("./routes/downloads");
-const adminRoutes = require("./routes/admin");
+
 const adminProductsRoutes = require("./routes/adminProducts");
 const productsPublic = require("./routes/productsPublic");
 const usersRoutes = require("./routes/users.Routes");
@@ -97,6 +100,7 @@ app.use("/api/admin/products", adminProductsRoutes);
 app.use("/api/products", productsPublic);
 app.use("/api/users", usersRoutes);
 // app.use("/api/printify", printifyRoutes);
+app.use("/api/analytics", analyticsRoutes);
 
 app.use("/api/email-capture", require("./routes/emailCapture"));
 
