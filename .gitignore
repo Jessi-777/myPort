@@ -161,3 +161,6 @@ vite.config.ts.timestamp-*
 /public/
 
 
+
+# Notes
+notes.Notes.md
