@@ -143,8 +143,8 @@ const InvestorInfo = () => {
             
             <div className="border-t border-white/10 pt-4">
               <div className="flex justify-between items-center">
-                {/* <span className="text-sm text-[#d9dae2]">Investment Goal</span> */}
-                {/* <span className="text-2xl font-bold text-[#96b9c6]">$725K</span> */}
+                <span className="text-sm text-[#d9dae2]">Investment Goal</span> 
+               <span className="text-2xl font-bold text-[#96b9c6]">$175k</span> 
               </div>
             </div>
           </div>
@@ -173,8 +173,8 @@ const InvestorInfo = () => {
             
             <div className="border-t border-white/10 pt-4">
               <div className="flex justify-between items-center">
-                {/* <span className="text-sm text-[#d9dae2]">Investment Goal</span> */}
-                {/* <span className="text-2xl font-bold text-[#96b9c6]">$450K</span> */}
+                <span className="text-sm text-[#d9dae2]">Investment Goal</span>
+                <span className="text-2xl font-bold text-[#96b9c6]">$450K</span>
               </div>
             </div>
           </div>

@@ -1,219 +1,391 @@
-// backend/routes/checkout.js (CommonJS)
+// backend/routes/checkout.js
+
 const express = require("express");
 const Stripe = require("stripe");
+
 const Product = require("../models/Product");
 const Order = require("../models/Order");
 
 const router = express.Router();
 
-// Stripe server SDK with SECRET key - lazy init
 let stripe;
+
 function getStripe() {
   if (!stripe) {
-    stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: "2024-06-20",
-    });
+    if (!process.env.STRIPE_SECRET_KEY) {
+      throw new Error(
+        "STRIPE_SECRET_KEY is not configured"
+      );
+    }
+
+    stripe = new Stripe(
+      process.env.STRIPE_SECRET_KEY
+    );
   }
+
   return stripe;
 }
 
-/**
- * POST /api/checkout
- * Create checkout session for digital products (using priceId)
- */
+/*
+|--------------------------------------------------------------------------
+| POST /api/checkout
+|
+| DIGITAL PRODUCT
+|
+| Expects:
+|
+| {
+|   priceId: "price_xxxxx"
+| }
+|--------------------------------------------------------------------------
+*/
+
 router.post("/", async (req, res) => {
   try {
     const { priceId } = req.body;
 
     if (!priceId) {
-      return res.status(400).json({ error: "Missing priceId" });
+      return res.status(400).json({
+        error: "Missing Stripe priceId",
+      });
     }
 
-    const session = await getStripe().checkout.sessions.create({
-      mode: "payment",
-      payment_method_types: ["card"],
-      line_items: [
-        {
-          price: priceId,
-          quantity: 1,
-        },
-      ],
-      success_url: `${process.env.CLIENT_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.CLIENT_URL}/cancel`,
-    });
-
-    return res.json({ url: session.url });
-  } catch (err) {
-    console.error("❌ Stripe error:", err);
-    return res.status(500).json({ error: "Failed to create checkout session" });
-  }
-});
-
-/**
- * POST /api/checkout/printify
- * Create checkout session for physical products (Printify)
- * Body: { items: [{productId, variantId, quantity}] }
- */
-router.post("/printify", async (req, res) => {
-  try {
-    const { items } = req.body;
-
-    if (!items || items.length === 0) {
-      return res.status(400).json({ error: "No items in cart" });
+    if (
+      typeof priceId !== "string" ||
+      !priceId.startsWith("price_")
+    ) {
+      return res.status(400).json({
+        error: `Invalid Stripe Price ID: ${priceId}`,
+      });
     }
 
-    // Fetch product details from DB
-    const lineItems = [];
-    let totalPrice = 0;
+    const stripeClient = getStripe();
 
-    for (const item of items) {
-      const product = await Product.findById(item.productId);
+    /*
+     * Verify the Stripe Price actually exists.
+     * This prevents confusing invalid-response errors.
+     */
+    const stripePrice =
+      await stripeClient.prices.retrieve(priceId);
 
-      if (!product) {
-        return res.status(404).json({ error: `Product ${item.productId} not found` });
-      }
+    if (!stripePrice || !stripePrice.active) {
+      return res.status(400).json({
+        error:
+          "This Stripe Price does not exist or is inactive.",
+      });
+    }
 
-      if (product.productType !== "physical") {
-        return res.status(400).json({ error: "Invalid product type" });
-      }
+    const session =
+      await stripeClient.checkout.sessions.create({
+        mode: "payment",
 
-      // Use product price or variant price if available
-      const price = product.price;
+        payment_method_types: ["card"],
 
-      lineItems.push({
-        price_data: {
-          currency: "usd",
-          product_data: {
-            name: product.title,
-            description: product.description,
-            images: product.imageUrl ? [product.imageUrl] : [],
+        line_items: [
+          {
+            price: priceId,
+            quantity: 1,
           },
-          unit_amount: Math.round(price),
-        },
-        quantity: item.quantity || 1,
+        ],
+
+        success_url:
+          `${process.env.CLIENT_URL}/success` +
+          `?session_id={CHECKOUT_SESSION_ID}`,
+
+        cancel_url:
+          `${process.env.CLIENT_URL}/cancel`,
+
+        billing_address_collection: "auto",
       });
 
-      totalPrice += price * (item.quantity || 1);
-    }
+    console.log(
+      "✅ Digital Stripe session created:",
+      session.id
+    );
 
-    // Create Stripe session
-    const session = await getStripe().checkout.sessions.create({
-      mode: "payment",
-      payment_method_types: ["card"],
-      line_items: lineItems,
-      shipping_address_collection: {
-        allowed_countries: ["US", "CA", "GB", "AU"],
-      },
-      success_url: `${process.env.CLIENT_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.CLIENT_URL}/cancel`,
-      // Store cart items for order creation later
-      metadata: {
-        cartItems: JSON.stringify(items),
-      },
-    });
-
-    // Create Order record in DB (status: pending)
-    const order = await Order.create({
-      stripeSessionId: session.id,
-      items: items.map(item => ({
-        productId: item.productId,
-        variantId: item.variantId,
-        quantity: item.quantity || 1,
-      })),
-      status: "pending",
-    });
-
-    return res.json({ 
+    return res.json({
+      success: true,
       url: session.url,
-      orderId: order._id,
       sessionId: session.id,
     });
-  } catch (err) {
-    console.error("❌ Stripe/Printify error:", err);
-    return res.status(500).json({ error: "Failed to create checkout session" });
+  } catch (error) {
+    console.error(
+      "❌ Digital Stripe checkout error:"
+    );
+
+    console.error(error);
+
+    return res.status(500).json({
+      error:
+        error?.raw?.message ||
+        error?.message ||
+        "Failed to create Stripe checkout session",
+    });
   }
 });
 
-/**
- * GET /api/checkout/session/:sessionId
- * Get checkout session details
- */
-router.get("/session/:sessionId", async (req, res) => {
-  try {
-    const session = await getStripe().checkout.sessions.retrieve(req.params.sessionId);
-    res.json(session);
-  } catch (err) {
-    console.error("❌ Session retrieval error:", err);
-    return res.status(500).json({ error: "Failed to retrieve session" });
+/*
+|--------------------------------------------------------------------------
+| POST /api/checkout/printify
+|
+| PHYSICAL PRODUCTS
+|
+| Expects:
+|
+| {
+|   items: [
+|     {
+|       productId: "...",
+|       variantId: "...",
+|       quantity: 1
+|     }
+|   ]
+| }
+|--------------------------------------------------------------------------
+*/
+
+router.post(
+  "/printify",
+  async (req, res) => {
+    try {
+      const { items } = req.body;
+
+      if (
+        !Array.isArray(items) ||
+        items.length === 0
+      ) {
+        return res.status(400).json({
+          error: "No items in cart",
+        });
+      }
+
+      const lineItems = [];
+      const normalizedItems = [];
+
+      for (const item of items) {
+        if (!item.productId) {
+          return res.status(400).json({
+            error: "Missing productId",
+          });
+        }
+
+        const product =
+          await Product.findById(
+            item.productId
+          );
+
+        if (!product) {
+          return res.status(404).json({
+            error:
+              `Product ${item.productId} not found`,
+          });
+        }
+
+        /*
+         * Physical checkout only.
+         */
+        if (
+          product.productType !==
+          "physical"
+        ) {
+          return res.status(400).json({
+            error:
+              `${product.title} is not a physical product`,
+          });
+        }
+
+        if (product.isFree) {
+          return res.status(400).json({
+            error:
+              `${product.title} is marked as free`,
+          });
+        }
+
+        if (
+          !Number.isFinite(product.price) ||
+          product.price <= 0
+        ) {
+          return res.status(400).json({
+            error:
+              `${product.title} does not have a valid price`,
+          });
+        }
+
+        const quantity = Math.max(
+          1,
+          Number.parseInt(
+            item.quantity,
+            10
+          ) || 1
+        );
+
+        const productImage =
+          product.imageUrl ||
+          product.printifyData?.images?.[0]
+            ?.src ||
+          undefined;
+
+        const productData = {
+          name: product.title,
+          description:
+            product.description ||
+            "Physical product",
+        };
+
+        if (productImage) {
+          productData.images = [
+            productImage,
+          ];
+        }
+
+        lineItems.push({
+          price_data: {
+            currency: "usd",
+
+            product_data:
+              productData,
+
+            /*
+             * Product.price is already cents.
+             */
+            unit_amount:
+              Math.round(product.price),
+          },
+
+          quantity,
+        });
+
+        normalizedItems.push({
+          productId:
+            product._id.toString(),
+
+          variantId:
+            item.variantId || null,
+
+          quantity,
+        });
+      }
+
+      const stripeClient = getStripe();
+
+      const session =
+        await stripeClient.checkout.sessions.create(
+          {
+            mode: "payment",
+
+            payment_method_types: [
+              "card",
+            ],
+
+            line_items: lineItems,
+
+            shipping_address_collection: {
+              allowed_countries: [
+                "US",
+                "CA",
+                "GB",
+                "AU",
+              ],
+            },
+
+            success_url:
+              `${process.env.CLIENT_URL}/success` +
+              `?session_id={CHECKOUT_SESSION_ID}`,
+
+            cancel_url:
+              `${process.env.CLIENT_URL}/cancel`,
+
+            metadata: {
+              cartItems:
+                JSON.stringify(
+                  normalizedItems
+                ),
+            },
+          }
+        );
+
+      /*
+       * Only create the order after Stripe
+       * successfully creates the session.
+       */
+      const order =
+        await Order.create({
+          stripeSessionId:
+            session.id,
+
+          items:
+            normalizedItems,
+
+          status: "pending",
+        });
+
+      console.log(
+        "✅ Physical Stripe session created:",
+        session.id
+      );
+
+      return res.json({
+        success: true,
+        url: session.url,
+        orderId: order._id,
+        sessionId: session.id,
+      });
+    } catch (error) {
+      console.error(
+        "❌ Physical Stripe checkout error:"
+      );
+
+      console.error(error);
+
+      return res.status(500).json({
+        error:
+          error?.raw?.message ||
+          error?.message ||
+          "Failed to create physical checkout session",
+      });
+    }
   }
-});
+);
+
+/*
+|--------------------------------------------------------------------------
+| GET /api/checkout/session/:sessionId
+|--------------------------------------------------------------------------
+*/
+
+router.get(
+  "/session/:sessionId",
+  async (req, res) => {
+    try {
+      const { sessionId } =
+        req.params;
+
+      if (!sessionId) {
+        return res.status(400).json({
+          error: "Missing session ID",
+        });
+      }
+
+      const session =
+        await getStripe().checkout.sessions.retrieve(
+          sessionId
+        );
+
+      return res.json(session);
+    } catch (error) {
+      console.error(
+        "❌ Session retrieval error:",
+        error
+      );
+
+      return res.status(500).json({
+        error:
+          error?.raw?.message ||
+          error?.message ||
+          "Failed to retrieve Stripe session",
+      });
+    }
+  }
+);
 
 module.exports = router;
-
-
-
-
-// // routes/checkout.js
-// const express = require('express');
-// const router = express.Router();
-// const dotenv = require('dotenv');
-
-// // Load environment variables
-// dotenv.config();
-
-// // Check that Stripe secret key exists
-// if (!process.env.STRIPE_SECRET_KEY) {
-//   console.error('');
-//   process.exit(1); // Stop the app if key is missing
-// }
-
-// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-
-// router.post('/', async (req, res) => {
-//   const { priceId } = req.body;
-
-//   try {
-//     const session = await stripe.checkout.sessions.create({
-//       payment_method_types: ['card'],
-//       line_items: [{ price: priceId, quantity: 1 }],
-//       mode: 'payment',
-//       success_url: 'http://localhost:3000/success',
-//       cancel_url: 'http://localhost:3000/cancel',
-//     });
-
-//     res.json({ url: session.url });
-//   } catch (err) {
-//     console.error('❌ Stripe error:', err);
-//     res.status(500).json({ error: err.message });
-//   }
-// });
-
-// module.exports = router;
-
-
-
-
-// const express = require('express');
-// const router = express.Router();
-// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-
-// router.post('/', async (req, res) => {
-//   const { priceId } = req.body;
-
-//   try {
-//     const session = await stripe.checkout.sessions.create({
-//       payment_method_types: ['card'],
-//       line_items: [{
-//         price: priceId,
-//         quantity: 1,
-//       }],
-//       mode: 'payment',
-//       success_url: 'https://yourdomain.com/success',
-//       cancel_url: 'https://yourdomain.com/cancel',
-//     });
-
-//     res.json({ url: session.url });
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// });

@@ -2,111 +2,174 @@ const mongoose = require("mongoose");
 
 const ProductSchema = new mongoose.Schema(
   {
-    title: { 
-      type: String, 
+    title: {
+      type: String,
       required: true,
       trim: true,
     },
 
-    description: { 
-      type: String, 
+    description: {
+      type: String,
       default: "",
       trim: true,
     },
 
-    // Option 1: Digital products with Stripe
-    priceId: { 
-      type: String, // Stripe price ID (for digital products)
-      default: null
+    /*
+     * Stripe Price ID.
+     *
+     * Used for paid DIGITAL products when a Stripe
+     * Price already exists.
+     *
+     * Example:
+     * price_1ABC123...
+     */
+    priceId: {
+      type: String,
+      default: null,
+      trim: true,
     },
 
-    fileKey: { 
-      type: String,  // S3 key for digital product file
-      default: null
+    /*
+     * Digital download location.
+     *
+     * This can be a Cloudinary URL, storage URL,
+     * or another protected/public file location.
+     */
+    fileKey: {
+      type: String,
+      default: null,
+      trim: true,
     },
 
-    // Option 2: Physical products from Printify
+    /*
+     * Printify information.
+     *
+     * These fields are preserved for physical products.
+     */
     printifyProductId: {
       type: String,
-      default: null
+      default: null,
+      trim: true,
     },
 
     printifyShopId: {
       type: String,
-      default: null
+      default: null,
+      trim: true,
     },
 
-    // Product type: 'digital' or 'physical'
+    /*
+     * Product type.
+     */
     productType: {
       type: String,
-      enum: ['digital', 'physical'],
-      default: 'digital'
+      enum: ["digital", "physical"],
+      default: "digital",
+      required: true,
     },
 
-    // Pricing (both digital and physical can use this)
+    /*
+     * PRICE IS ALWAYS STORED IN CENTS.
+     *
+     * Example:
+     * $19.99 -> 1999
+     * $2.05  -> 205
+     * $0.00  -> 0
+     */
     price: {
-      type: Number, // in cents (e.g., 1999 = $19.99)
-      required: true
+      type: Number,
+      required: true,
+      min: 0,
     },
 
-    // Free download flag
+    /*
+     * Free products.
+     *
+     * A free digital product can exist without
+     * requiring Stripe checkout.
+     */
     isFree: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
-    imageUrl: { 
-      type: String, 
-      default: "" 
+    /*
+     * Product image.
+     */
+    imageUrl: {
+      type: String,
+      default: "",
+      trim: true,
     },
 
-    visible: { 
-      type: Boolean, 
-      default: true 
+    /*
+     * Store visibility.
+     */
+    visible: {
+      type: Boolean,
+      default: true,
     },
 
-    // Printify-specific metadata
+    /*
+     * Printify product information.
+     */
     printifyData: {
       variants: [
         {
-          variantId: String,
-          title: String,
-          price: Number,
-          available: Boolean,
-        }
+          variantId: {
+            type: String,
+            default: null,
+          },
+
+          title: {
+            type: String,
+            default: "",
+          },
+
+          price: {
+            type: Number,
+            default: 0,
+          },
+
+          available: {
+            type: Boolean,
+            default: true,
+          },
+        },
       ],
+
       images: [
         {
-          src: String,
-          position: Number,
-        }
-      ]
+          src: {
+            type: String,
+            default: "",
+          },
+
+          position: {
+            type: Number,
+            default: 0,
+          },
+        },
+      ],
     },
 
-    tags: [String],
-    category: String,
+    /*
+     * Product organization.
+     */
+    tags: {
+      type: [String],
+      default: [],
+    },
+
+    category: {
+      type: String,
+      default: "",
+      trim: true,
+    },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
 module.exports = mongoose.model("Product", ProductSchema);
-
-
-
-
-// const mongoose = require("mongoose");
-
-// const ProductSchema = new mongoose.Schema(
-//   {
-//     title: { type: String, required: true },
-//     description: { type: String, default: "" },
-//     priceId: { type: String, required: true },   // Stripe Price ID
-//     imageUrl: { type: String, default: "" },     // public image (CDN/S3)
-//     fileKey: { type: String, required: true },   // private S3 key for download
-//     visible: { type: Boolean, default: true },
-//   },
-//   { timestamps: true }
-// );
-
-// module.exports = mongoose.model("Product", ProductSchema);
-

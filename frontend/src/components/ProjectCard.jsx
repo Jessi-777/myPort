@@ -38,7 +38,7 @@ return (
    "
  >
 {/* Project Image */}
-<div className="relative w-full px-5 pt-5">
+<div className="relative w-full px-4 pt-4">
 <div
        className="
          relative
@@ -163,7 +163,7 @@ return (
         gap-2
         w-full
         px-5
-        py-3
+        py-5
         rounded-lg
         bg-gradient-to-r
         from-[#96b9c6]

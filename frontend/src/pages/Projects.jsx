@@ -43,7 +43,7 @@ const Projects = () => {
     {
       id: '1',
       title: 'Pura Vida Flow',
-      category: 'Audio Platform • MERN',
+      category: 'Digital Product • Full-Stack',
       description:
         'Interactive sound-healing and meditation platform combining audio experiences, responsive UI, user-focused workflows, and full-stack application architecture.',
       image: '/flow.png',
@@ -57,22 +57,22 @@ const Projects = () => {
       ],
     },
 
-    {
-      id: '6',
-      title: 'Challego Online Market',
-      category: 'E-Commerce • Full-Stack',
-      description:
-        'E-commerce marketplace concept focused on personalized, budget-aware shopping with dynamic pricing, vendor workflows, product management, and scalable architecture.',
-      image: '/challego1.png',
-      tech: [
-        'React',
-        'Node.js',
-        'Express',
-        'MongoDB',
-        'REST APIs',
-        'TailwindCSS',
-      ],
-    },
+    // {
+    //   id: '6',
+    //   title: 'Challego Online Market',
+    //   category: 'E-Commerce • Full-Stack',
+    //   description:
+    //     'E-commerce marketplace concept focused on personalized, budget-aware shopping with dynamic pricing, vendor workflows, product management, and scalable architecture.',
+    //   image: '/challego1.png',
+    //   tech: [
+    //     'React',
+    //     'Node.js',
+    //     'Express',
+    //     'MongoDB',
+    //     'REST APIs',
+    //     'TailwindCSS',
+    //   ],
+    // },
 
     {
       id: '3',

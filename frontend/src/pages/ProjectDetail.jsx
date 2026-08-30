@@ -61,15 +61,15 @@ const projects = [
   // demo: 'https://jessi-777.github.io/layers_of_reality/'
 
   // },
-  {
-    id: '6',
-    title: 'Challego',
-    description: 'Led full-stack development, UI/UX design, and engineered a custom dynamic pricing engine to support personalized, eco shopping. The platform emphasizes environmental impact, user transparency, and scalable architecture to grow with both small vendors and mindful buyers.',
-    image: '/challego1.png',
-    tech: ['React', 'Express', 'MongoDB', 'Redux', 'TailwindCSS'],
-    github: '#',
-    demo: 'https://my-port-jessi777s-projects.vercel.app/'
-  },
+  // {
+  //   id: '6',
+  //   title: 'Challego',
+  //   description: 'Led full-stack development, UI/UX design, and engineered a custom dynamic pricing engine to support personalized, eco shopping. The platform emphasizes environmental impact, user transparency, and scalable architecture to grow with both small vendors and mindful buyers.',
+  //   image: '/challego1.png',
+  //   tech: ['React', 'Express', 'MongoDB', 'Redux', 'TailwindCSS'],
+  //   github: '#',
+  //   demo: 'https://my-port-jessi777s-projects.vercel.app/'
+  // },
 
     {
     id: '7',
