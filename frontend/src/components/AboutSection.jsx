@@ -83,14 +83,14 @@ const AboutSection = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 mb-8 py-6 border-y border-[#96b9c6]/20">
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">5+</div>
+                <div className="text-3xl font-bold text-white">6+</div>
                 <div className="text-sm text-[#d9dae2]">
                   Years Building
                 </div>
               </div>
 
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">5+</div>
+                <div className="text-3xl font-bold text-white">6+</div>
                 <div className="text-sm text-[#d9dae2]">
                   Projects Built
                 </div>
