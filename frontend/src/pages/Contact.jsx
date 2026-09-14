@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaUser, FaPaperPlane, FaCalendar, FaDownload, FaLinkedin, FaTwitter, FaGithub, FaCheckCircle,  } from 'react-icons/fa';
+import { FaEnvelope, FaUser, FaPaperPlane, FaCalendar, FaFileAlt, FaDownload, FaLinkedin, FaTwitter, FaGithub, FaCheckCircle,  } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
 
 const Contact = () => {
@@ -94,8 +94,30 @@ const Contact = () => {
                   >
                     Book a Meeting
                   </a>
+  
                 </div>
               </div>
+
+              <div className="group flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-[#96b9c6]/50 hover:bg-white/10 transition-all duration-300">
+                <div className="w-12 h-12 bg-[#335099]/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <FaFileAlt className="text-xl text-[#96b9c6]" />
+                </div>
+                <div>
+                  <div className="text-sm text-[#d9dae2]">Resume</div>
+                  <a
+                    href="/Jessica_Chavez_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-xl  font-semibold transition"
+                  >
+                    Download Resume
+                  </a>
+  
+                </div>
+              </div>
+
+
+
             </div>
 
             {/* Social Links */}
