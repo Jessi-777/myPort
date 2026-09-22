@@ -1,7 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 export default function Success() {
+  const [searchParams] = useSearchParams();
+  const sessionId = searchParams.get("session_id");
+
   return (
     <section className="min-h-screen bg-[#07090d] text-white flex items-center justify-center px-6">
       <div className="w-full max-w-xl text-center">
@@ -23,6 +26,15 @@ export default function Success() {
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
+          {sessionId && (
+            <Link
+              to={`/downloads?session_id=${sessionId}`}
+              className="px-6 py-3 rounded-xl bg-emerald-400 text-black font-bold hover:bg-emerald-300 transition"
+            >
+              Download Your Files
+            </Link>
+          )}
+
           <Link
             to="/shop"
             className="px-6 py-3 rounded-xl bg-[#a9d0de] text-black font-bold hover:bg-[#8fc2d5] transition"

@@ -35,44 +35,59 @@ function getStripe() {
 | Expects:
 |
 | {
-|   priceId: "price_xxxxx"
+|   productId: "..."
 | }
 |--------------------------------------------------------------------------
 */
 
 router.post("/", async (req, res) => {
   try {
-    const { priceId } = req.body;
+    const { productId } = req.body;
 
-    if (!priceId) {
+    if (!productId) {
       return res.status(400).json({
-        error: "Missing Stripe priceId",
+        error: "Missing productId",
+      });
+    }
+
+    const product = await Product.findById(productId);
+
+    if (!product) {
+      return res.status(404).json({
+        error: `Product ${productId} not found`,
+      });
+    }
+
+    if (product.productType !== "digital") {
+      return res.status(400).json({
+        error: `${product.title} is not a digital product`,
+      });
+    }
+
+    if (product.isFree) {
+      return res.status(400).json({
+        error: `${product.title} is marked as free`,
       });
     }
 
     if (
-      typeof priceId !== "string" ||
-      !priceId.startsWith("price_")
+      !Number.isFinite(product.price) ||
+      product.price <= 0
     ) {
       return res.status(400).json({
-        error: `Invalid Stripe Price ID: ${priceId}`,
+        error: `${product.title} does not have a valid price`,
       });
     }
 
     const stripeClient = getStripe();
 
-    /*
-     * Verify the Stripe Price actually exists.
-     * This prevents confusing invalid-response errors.
-     */
-    const stripePrice =
-      await stripeClient.prices.retrieve(priceId);
+    const productData = {
+      name: product.title,
+      description: product.description || "Digital product",
+    };
 
-    if (!stripePrice || !stripePrice.active) {
-      return res.status(400).json({
-        error:
-          "This Stripe Price does not exist or is inactive.",
-      });
+    if (product.imageUrl) {
+      productData.images = [product.imageUrl];
     }
 
     const session =
@@ -83,7 +98,16 @@ router.post("/", async (req, res) => {
 
         line_items: [
           {
-            price: priceId,
+            price_data: {
+              currency: "usd",
+              product_data: productData,
+
+              /*
+               * Product.price is already cents.
+               */
+              unit_amount: Math.round(product.price),
+            },
+
             quantity: 1,
           },
         ],
@@ -96,6 +120,10 @@ router.post("/", async (req, res) => {
           `${process.env.CLIENT_URL}/cancel`,
 
         billing_address_collection: "auto",
+
+        metadata: {
+          productId: product._id.toString(),
+        },
       });
 
     console.log(

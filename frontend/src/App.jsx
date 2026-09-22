@@ -19,6 +19,7 @@ import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
+import Downloads from "./pages/Downloads";
 import Admin from "./pages/Admin";
 
 import "animate.css";
@@ -88,6 +89,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
 
           <Route path="/success" element={<Success />} />
+
+          <Route path="/downloads" element={<Downloads />} />
 
           <Route path="/cancel" element={<Cancel />} />
         </Route>

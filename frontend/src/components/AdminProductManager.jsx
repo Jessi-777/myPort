@@ -1316,7 +1316,7 @@ export default function AdminProductManager() {
                       </div>
                     </Field>
 
-                    <Field label="Stripe Price ID">
+                    <Field label="Stripe Price ID (optional)">
                       <input
                         type="text"
                         name="priceId"
@@ -1331,8 +1331,9 @@ export default function AdminProductManager() {
                       />
 
                       <p className="mt-2 text-xs leading-5 text-white/35">
-                        Keep the Stripe Price ID here when your checkout
-                        uses Stripe price IDs.
+                        Not required. Checkout price is set by the Price
+                        field above — this is only for legacy products
+                        tied to an existing Stripe Price.
                       </p>
                     </Field>
                   </div>

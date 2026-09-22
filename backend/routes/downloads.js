@@ -9,35 +9,45 @@ function getStripe() {
   }
   return stripe;
 }
-const generateSignedUrl = require("../utils/s3");
+
+const Product = require("../models/Product");
 
 router.get("/", async (req, res) => {
   const sessionId = req.query.session_id;
 
+  if (!sessionId) {
+    return res.status(400).json({ error: "Missing session_id" });
+  }
+
   try {
     const session = await getStripe().checkout.sessions.retrieve(sessionId);
 
-    const lineItems = await getStripe().checkout.sessions.listLineItems(sessionId);
-
-    const priceToFile = {
-      "price_fullmoon": "fullmoon.zip",
-      "price_uiuxpack": "uiux_pack.zip",
-      "price_peacemixtape": "peace_mixtape.zip",
-    };
-
-    const items = [];
-    for (const item of lineItems.data) {
-      const priceId = item.price.id;
-      const key = priceToFile[priceId];
-      if (key) {
-        const url = await generateSignedUrl(key);
-        items.push({ name: item.description, url });
-      }
+    if (session.payment_status !== "paid") {
+      return res.status(403).json({ error: "Payment not completed" });
     }
 
-    res.json({ items });
+    const productId = session.metadata?.productId;
+
+    if (!productId) {
+      return res.json({ items: [] });
+    }
+
+    const product = await Product.findById(productId);
+
+    if (!product || !product.fileKey) {
+      return res.json({ items: [] });
+    }
+
+    return res.json({
+      items: [
+        {
+          name: product.title,
+          url: product.fileKey,
+        },
+      ],
+    });
   } catch (err) {
-    console.error(err);
+    console.error("❌ Downloads error:", err);
     res.status(400).json({ error: "Invalid session" });
   }
 });

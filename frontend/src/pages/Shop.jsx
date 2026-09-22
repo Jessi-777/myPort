@@ -480,19 +480,16 @@ const Shop = () => {
         "digital"
       ) {
         if (
-          typeof product.priceId !==
-            "string" ||
-          !product.priceId.startsWith(
-            "price_"
-          )
+          !Number.isFinite(product.price) ||
+          product.price <= 0
         ) {
           throw new Error(
-            "This digital product does not have a valid Stripe Price ID."
+            "This digital product does not have a valid price."
           );
         }
 
         await handleCheckout(
-          product.priceId
+          product._id
         );
 
         return;
@@ -1184,7 +1181,7 @@ const Shop = () => {
                           "
                         >
                           <FaDownload className="text-xs" />
-                          Get Free Song
+                          Get Free {product.tags?.includes("app") ? "App" : "Song"}
                         </button>
                       ) : (
                         <button
@@ -1390,11 +1387,11 @@ const Shop = () => {
                         mb-2
                       "
                     >
-                      Free Music
+                      {freeDownloadProduct?.tags?.includes("app") ? "Free App" : "Free Music"}
                     </span>
 
                     <h3 className="text-2xl font-bold text-white">
-                      Get Your Free Song
+                      Get Your Free {freeDownloadProduct?.tags?.includes("app") ? "App" : "Song"}
                     </h3>
 
                     <p className="mt-2 text-sm text-gray-400 leading-6">
@@ -1597,7 +1594,7 @@ const Shop = () => {
                         ) : (
                           <>
                             <FaDownload />
-                            Get Free Song
+                            Get Free {freeDownloadProduct?.tags?.includes("app") ? "App" : "Song"}
                           </>
                         )}
                       </button>

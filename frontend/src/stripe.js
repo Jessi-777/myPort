@@ -2,19 +2,10 @@ const API = (
   import.meta.env.VITE_API_URL || ""
 ).replace(/\/$/, "");
 
-export const handleCheckout = async (priceId) => {
-  if (!priceId) {
+export const handleCheckout = async (productId) => {
+  if (!productId) {
     throw new Error(
-      "Missing Stripe Price ID."
-    );
-  }
-
-  if (
-    typeof priceId !== "string" ||
-    !priceId.startsWith("price_")
-  ) {
-    throw new Error(
-      `Invalid Stripe Price ID: ${priceId}`
+      "Missing product ID."
     );
   }
 
@@ -34,7 +25,7 @@ export const handleCheckout = async (priceId) => {
       },
 
       body: JSON.stringify({
-        priceId,
+        productId,
       }),
     }
   );

@@ -60,6 +60,7 @@ const allowedOrigins = [
   "http://127.0.0.1:5176",
   'http://localhost:5173',
   "https://my-port-git-main-jessi777s-projects.vercel.app",
+  "https://my-port-jessi777s-projects.vercel.app",
 
   // 'https://my-port-quejf6t9u-jessi777s-projects.vercel.app',
   // 'https://jcsoftwareengineer.com',      // ADD THIS
