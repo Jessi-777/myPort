@@ -36,6 +36,7 @@ const Shop = () => {
   const audioRef = useRef(null);
   const fadeTimer = useRef(null);
   const delayTimer = useRef(null);
+  const userToggledRef = useRef(false);
 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -115,6 +116,8 @@ const Shop = () => {
 
     if (!audio) return;
 
+    userToggledRef.current = true;
+
     if (audio.muted || isMuted) {
       audio.muted = false;
 
@@ -185,11 +188,14 @@ const Shop = () => {
     audio.muted = true;
 
     delayTimer.current = setTimeout(() => {
+      if (userToggledRef.current) return;
+
       audio.muted = false;
 
       audio
         .play()
         .then(() => {
+          if (userToggledRef.current) return;
           fadeVolume(TARGET_VOL);
           setIsMuted(false);
         })

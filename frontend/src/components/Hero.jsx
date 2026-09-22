@@ -9,6 +9,7 @@ export default function Hero() {
   const audioRef        = useRef(null);
   const fadeIntervalRef = useRef(null);
   const delayTimer      = useRef(null);
+  const userToggledRef  = useRef(false);
   const [isMuted, setIsMuted] = useState(true);
 
   // ── Fade volume from current → `to`, then call onComplete ──
@@ -38,8 +39,12 @@ export default function Hero() {
     const audio = audioRef.current;
     if (!audio) return;
 
+    userToggledRef.current = true;
+
     if (isMuted) {
       // Turn sound ON
+      audio.muted = false;
+
       if (audio.paused) {
         audio.play().catch(() => {});
       }
@@ -69,8 +74,11 @@ export default function Hero() {
 
     // After 3s unmute and fade in
     delayTimer.current = setTimeout(() => {
+      if (userToggledRef.current) return;
+
       audio.muted = false;
       fadeVolume(TARGET_VOL, () => {
+        if (userToggledRef.current) return;
         setIsMuted(false);
       });
     }, 3000);
