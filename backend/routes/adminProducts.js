@@ -359,6 +359,7 @@ router.put("/:id", async (req, res) => {
       category,
       tags,
       isFree,
+      comingSoon,
     } = req.body;
 
     console.log("🎯 UPDATE PRODUCT:", id);
@@ -470,6 +471,10 @@ router.put("/:id", async (req, res) => {
       updates.isFree = Boolean(isFree);
     }
 
+    if (comingSoon !== undefined) {
+      updates.comingSoon = Boolean(comingSoon);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Keep productType immutable
@@ -563,6 +568,53 @@ router.patch(
       return res.status(500).json({
         error:
           "Failed to toggle product visibility",
+      });
+    }
+  }
+);
+
+/*
+|--------------------------------------------------------------------------
+| PATCH /api/admin/products/:id/toggle-coming-soon
+|--------------------------------------------------------------------------
+*/
+
+router.patch(
+  "/:id/toggle-coming-soon",
+  async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      const product =
+        await Product.findById(id);
+
+      if (!product) {
+        return res.status(404).json({
+          error: "Product not found",
+        });
+      }
+
+      product.comingSoon = !product.comingSoon;
+
+      await product.save();
+
+      return res.json({
+        message: `✓ Product marked ${
+          product.comingSoon
+            ? "coming soon"
+            : "available"
+        }`,
+        comingSoon: product.comingSoon,
+      });
+    } catch (error) {
+      console.error(
+        "❌ Error toggling coming soon:",
+        error
+      );
+
+      return res.status(500).json({
+        error:
+          "Failed to toggle coming soon status",
       });
     }
   }

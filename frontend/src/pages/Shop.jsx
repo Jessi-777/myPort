@@ -445,6 +445,10 @@ const Shop = () => {
       return;
     }
 
+    if (product.comingSoon) {
+      return;
+    }
+
     /*
      * FREE PRODUCTS
      *
@@ -1157,7 +1161,30 @@ const Shop = () => {
 
                       {/* ACTION */}
 
-                      {product.isFree ? (
+                      {product.comingSoon ? (
+                        <button
+                          type="button"
+                          disabled
+                          className="
+                            inline-flex
+                            items-center
+                            justify-center
+                            gap-2
+                            px-4
+                            py-2.5
+                            rounded-lg
+                            bg-white/5
+                            border
+                            border-white/10
+                            text-white/40
+                            text-sm
+                            font-semibold
+                            cursor-not-allowed
+                          "
+                        >
+                          🔜 Coming Soon
+                        </button>
+                      ) : product.isFree ? (
                         <button
                           type="button"
                           onClick={() =>

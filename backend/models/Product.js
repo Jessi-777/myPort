@@ -94,6 +94,17 @@ const ProductSchema = new mongoose.Schema(
     },
 
     /*
+     * Coming soon.
+     *
+     * Product is visible in the shop but purchasing
+     * is disabled (e.g. fulfillment isn't set up yet).
+     */
+    comingSoon: {
+      type: Boolean,
+      default: false,
+    },
+
+    /*
      * Product image.
      */
     imageUrl: {

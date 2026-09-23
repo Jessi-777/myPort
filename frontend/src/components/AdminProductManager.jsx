@@ -756,6 +756,60 @@ export default function AdminProductManager() {
     }
   };
 
+  const handleToggleComingSoon = async (
+    id,
+    currentComingSoon
+  ) => {
+    const token = getToken();
+
+    if (!token) {
+      setError(
+        "No admin token found. Please log in again."
+      );
+      return;
+    }
+
+    clearMessages();
+
+    try {
+      const response = await axios.patch(
+        `${API}/api/admin/products/${id}/toggle-coming-soon`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setMessage(
+        response.data?.message ||
+          `Product marked ${
+            currentComingSoon
+              ? "available"
+              : "coming soon"
+          } successfully.`
+      );
+
+      await Promise.all([
+        loadProducts(),
+        loadStats(),
+      ]);
+    } catch (err) {
+      console.error(
+        "Product coming-soon error:",
+        err
+      );
+
+      setError(
+        getErrorMessage(
+          err,
+          "Failed to update coming-soon status."
+        )
+      );
+    }
+  };
+
   const handleToggleVisibility = async (
     id,
     currentVisible
@@ -1591,6 +1645,12 @@ export default function AdminProductManager() {
                                   ? "Visible"
                                   : "Hidden"}
                               </span>
+
+                              {product.comingSoon && (
+                                <span className="rounded-full px-2.5 py-1 text-[10px] font-black uppercase tracking-wider bg-amber-400/10 text-amber-300">
+                                  Coming Soon
+                                </span>
+                              )}
                             </div>
 
                             <h3 className="mt-3 text-2xl font-black tracking-tight">
@@ -1719,6 +1779,21 @@ export default function AdminProductManager() {
                             {visible
                               ? "🙈 Hide"
                               : "👁️ Show"}
+                          </button>
+
+                          <button
+                            type="button"
+                            onClick={() =>
+                              handleToggleComingSoon(
+                                product._id,
+                                product.comingSoon
+                              )
+                            }
+                            className="rounded-lg border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-bold text-white transition hover:bg-white/[0.08]"
+                          >
+                            {product.comingSoon
+                              ? "✅ Mark Available"
+                              : "🔜 Mark Coming Soon"}
                           </button>
 
                           <button
