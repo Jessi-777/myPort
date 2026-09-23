@@ -5,6 +5,7 @@ const Product = require("../models/Product");
 const FreeDownloadSubscriber = require(
   "../models/FreeDownloadSubscriber"
 );
+const sendEmail = require("../utils/sendEmail");
 
 const router = express.Router();
 
@@ -154,6 +155,22 @@ router.post("/:id/free-download", async (req, res) => {
         setDefaultsOnInsert: true,
       }
     );
+
+    // ----------------------------------------------
+    // SEND DOWNLOAD EMAIL
+    // ----------------------------------------------
+
+    const isApp = product.tags?.includes("app");
+
+    await sendEmail({
+      to: normalizedEmail,
+      subject: `Your Free ${isApp ? "App" : "Song"} Is Ready 🎵✨`,
+      html: `
+        <h2>Thanks for grabbing ${product.title}!</h2>
+        <p>Your free ${isApp ? "app" : "download"} is ready:</p>
+        <a href="${product.fileKey}">Access Your ${isApp ? "App" : "Download"}</a>
+      `,
+    });
 
     // ----------------------------------------------
     // RESPONSE
