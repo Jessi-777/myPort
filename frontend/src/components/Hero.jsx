@@ -76,6 +76,18 @@ export default function Hero() {
     audio.muted = true;
     audio.play().catch(() => {});
 
+    // Some browsers still block even muted autoplay until the user
+    // interacts with the page at all. Retry once on the first
+    // interaction so playback actually starts instead of staying
+    // silently paused forever.
+    const resumeOnInteraction = () => {
+      if (audio.paused) {
+        audio.play().catch(() => {});
+      }
+    };
+    document.addEventListener('pointerdown', resumeOnInteraction, { once: true });
+    document.addEventListener('keydown', resumeOnInteraction, { once: true });
+
     // After 3s unmute and fade in
     delayTimer.current = setTimeout(() => {
       if (userToggledRef.current) return;
@@ -103,6 +115,8 @@ export default function Hero() {
       clearInterval(fadeIntervalRef.current);
       clearTimeout(delayTimer.current);
       document.removeEventListener('visibilitychange', handleVisibility);
+      document.removeEventListener('pointerdown', resumeOnInteraction);
+      document.removeEventListener('keydown', resumeOnInteraction);
       audio.pause();
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -118,7 +132,7 @@ export default function Hero() {
     >
       {/* Ambient River Sound */}
       <audio ref={audioRef} preload="auto">
-        <source src="/music/river.wav" type="audio/wav" />
+        <source src="/river.wav" type="audio/wav" />
         Your browser does not support the audio element.
       </audio>
 
