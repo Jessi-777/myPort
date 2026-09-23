@@ -10,6 +10,7 @@ export default function Hero() {
   const fadeIntervalRef = useRef(null);
   const delayTimer      = useRef(null);
   const userToggledRef  = useRef(false);
+  const isMutedRef      = useRef(true);
   const [isMuted, setIsMuted] = useState(true);
 
   // ── Fade volume from current → `to`, then call onComplete ──
@@ -43,19 +44,22 @@ export default function Hero() {
 
     if (isMuted) {
       // Turn sound ON
+      isMutedRef.current = false;
+      setIsMuted(false);
       audio.muted = false;
 
       if (audio.paused) {
         audio.play().catch(() => {});
       }
       fadeVolume(TARGET_VOL);
-      setIsMuted(false);
     } else {
       // Turn sound OFF — fade out then pause
+      isMutedRef.current = true;
+      setIsMuted(true);
       fadeVolume(0, () => {
         audio.pause();
         audio.currentTime = 0;
-        setIsMuted(true);
+        audio.muted = true;
       });
     }
   };
@@ -77,6 +81,7 @@ export default function Hero() {
       if (userToggledRef.current) return;
 
       audio.muted = false;
+      isMutedRef.current = false;
       fadeVolume(TARGET_VOL, () => {
         if (userToggledRef.current) return;
         setIsMuted(false);
@@ -87,7 +92,7 @@ export default function Hero() {
     const handleVisibility = () => {
       if (document.hidden) {
         audio.pause();
-      } else if (audio.paused && !audio.muted) {
+      } else if (audio.paused && !isMutedRef.current) {
         audio.play().catch(() => {});
       }
     };
