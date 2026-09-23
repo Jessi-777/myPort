@@ -369,14 +369,7 @@ const Shop = () => {
       return;
     }
 
-    if (!marketingConsent) {
-      setFreeDownloadError(
-        "Please check the box to receive updates."
-      );
-      return;
-    }
-
-    if (!freeDownloadProduct?.fileKey) {
+    if (!freeDownloadProduct?._id) {
       setFreeDownloadError(
         "This free song is not available for download yet."
       );
@@ -386,21 +379,12 @@ const Shop = () => {
     try {
       setFreeDownloadStatus("loading");
 
-      /*
-       * ------------------------------------------------
-       * FRONTEND-ONLY FOR NOW
-       * ------------------------------------------------
-       *
-       * We are NOT sending the email anywhere yet.
-       *
-       * This temporary delay lets us test the complete
-       * UI flow before connecting your backend.
-       *
-       * Backend/email integration comes next.
-       */
-
-      await new Promise((resolve) =>
-        setTimeout(resolve, 800)
+      const { data } = await axios.post(
+        `${API}/api/products/${freeDownloadProduct._id}/free-download`,
+        {
+          email,
+          marketingConsent,
+        }
       );
 
       setFreeDownloadStatus("success");
@@ -412,7 +396,7 @@ const Shop = () => {
 
       setTimeout(() => {
         window.location.assign(
-          freeDownloadProduct.fileKey
+          data.downloadUrl
         );
       }, 900);
     } catch (error) {
@@ -424,7 +408,8 @@ const Shop = () => {
       setFreeDownloadStatus("error");
 
       setFreeDownloadError(
-        "Something went wrong. Please try again."
+        error?.response?.data?.error ||
+          "Something went wrong. Please try again."
       );
     }
   };
@@ -1397,7 +1382,7 @@ const Shop = () => {
                   </h3>
 
                   <p className="text-gray-400 text-sm leading-6">
-                    Your free song is ready.
+                    Your free {freeDownloadProduct?.tags?.includes("app") ? "app" : "song"} is ready.
                     Your download will begin
                     in just a moment.
                   </p>
