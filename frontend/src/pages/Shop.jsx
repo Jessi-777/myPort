@@ -1012,6 +1012,54 @@ const Shop = () => {
                           }
                         />
                       </button>
+
+                      {/* MUSIC PREVIEW (free tracks only) */}
+
+                      {isMusic && product.isFree && product.fileKey && (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            togglePreview(product._id)
+                          }
+                          className="
+                            absolute
+                            bottom-4
+                            left-4
+                            w-11
+                            h-11
+                            rounded-full
+                            bg-white
+                            text-black
+                            flex
+                            items-center
+                            justify-center
+                            shadow-xl
+                            transition-transform
+                            hover:scale-110
+                          "
+                          aria-label={
+                            playingPreview === product._id
+                              ? "Pause preview"
+                              : "Play preview"
+                          }
+                        >
+                          {playingPreview === product._id ? (
+                            <FaPause />
+                          ) : (
+                            <FaPlay className="ml-0.5" />
+                          )}
+
+                          <audio
+                            ref={(el) => {
+                              previewRefs.current[product._id] = el;
+                            }}
+                            src={product.fileKey}
+                            onEnded={() =>
+                              setPlayingPreview(null)
+                            }
+                          />
+                        </button>
+                      )}
                     </div>
                   </div>
 
