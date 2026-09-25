@@ -4,8 +4,15 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const AnalyticsEvent = require("../models/AnalyticsEvent");
 const Order = require("../models/Order");
+const { trackEvent } = require("../controllers/analyticsController");
 
 const router = express.Router();
+
+/* ============================================================
+   TRACK (public — called by site visitors, no admin auth)
+============================================================ */
+
+router.post("/track", trackEvent);
 
 /* ============================================================
    ADMIN AUTH
