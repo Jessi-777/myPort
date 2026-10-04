@@ -127,6 +127,7 @@ export default function Hero() {
       className="w-full h-screen relative bg-cover bg-center overflow-hidden flex flex-col justify-center items-center text-white"
       style={{
         backgroundImage:
+          // "url('https://res.cloudinary.com/ninjagrvl/image/upload/v1770699492/jh4qmpefsevkiftotewa.jpg')",
           "url('https://res.cloudinary.com/ninjagrvl/image/upload/v1770699492/jh4qmpefsevkiftotewa.jpg')",
       }}
     >

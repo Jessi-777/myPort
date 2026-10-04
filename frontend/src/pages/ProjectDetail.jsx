@@ -70,7 +70,25 @@ const projects = [
   //   github: '#',
   //   demo: 'https://my-port-jessi777s-projects.vercel.app/'
   // },
-
+     {
+      id: '6',
+      title: 'Reencarnados Grupo Teatro',
+      category: 'Ticketing Platform • Full-Stack',
+      description:
+        'Bilingual (ES/EN) ticketing platform for a Las Vegas nonprofit theatre group, with live seat counts, secure online checkout, QR code tickets, email confirmations, and an admin dashboard for managing productions and performances.',
+      image: '/reencarnados-1.png',
+      tech: [
+        'React',
+        'Vite',
+        'Node.js',
+        'Express',
+        'MongoDB',
+        'Stripe',
+        'Cloudinary',
+        'Resend',
+      ],
+      demo: 'https://reencarnadosteatro.com/',
+    },
     {
     id: '7',
     title: 'Travel Agency App',

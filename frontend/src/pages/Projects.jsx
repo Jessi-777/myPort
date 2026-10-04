@@ -5,6 +5,41 @@ import ProjectCard from '../components/ProjectCard';
 
 const Projects = () => {
   const projects = [
+
+      {
+      id: '1',
+      title: 'Pura Vida Flow',
+      category: 'Digital Product • Full-Stack',
+      description:
+        'Interactive sound-healing and meditation platform combining audio experiences, responsive UI, user-focused workflows, and full-stack application architecture.',
+      image: '/flow.png',
+      tech: [
+        'React',
+        'Node.js',
+        'Express',
+        'MongoDB',
+        'TailwindCSS',
+        'Audio',
+      ],
+    },
+
+     {
+      id: '2',
+      title: 'HNA — Human Nature Athletica',
+      category: 'E-Commerce • Full-Stack',
+      description:
+        'Full-stack e-commerce platform designed around scalable product management, responsive shopping experiences, state management, and modern digital commerce workflows.',
+      image: '/hna-natureBundle.png',
+      tech: [
+        'React',
+        'Node.js',
+        'Express',
+        'MongoDB',
+        'Redux',
+        'TailwindCSS',
+      ],
+    },
+
     {
       id: '4',
       title: 'Pawfect Plug SaaS Platform',
@@ -23,58 +58,9 @@ const Projects = () => {
       ],
     },
 
-    {
-      id: '2',
-      title: 'HNA — Human Nature Athletica',
-      category: 'E-Commerce • Full-Stack',
-      description:
-        'Full-stack e-commerce platform designed around scalable product management, responsive shopping experiences, state management, and modern digital commerce workflows.',
-      image: '/hna-natureBundle.png',
-      tech: [
-        'React',
-        'Node.js',
-        'Express',
-        'MongoDB',
-        'Redux',
-        'TailwindCSS',
-      ],
-    },
+   
 
-    {
-      id: '1',
-      title: 'Pura Vida Flow',
-      category: 'Digital Product • Full-Stack',
-      description:
-        'Interactive sound-healing and meditation platform combining audio experiences, responsive UI, user-focused workflows, and full-stack application architecture.',
-      image: '/flow.png',
-      tech: [
-        'React',
-        'Node.js',
-        'Express',
-        'MongoDB',
-        'TailwindCSS',
-        'Audio',
-      ],
-    },
-
-    // {
-    //   id: '6',
-    //   title: 'Challego Online Market',
-    //   category: 'E-Commerce • Full-Stack',
-    //   description:
-    //     'E-commerce marketplace concept focused on personalized, budget-aware shopping with dynamic pricing, vendor workflows, product management, and scalable architecture.',
-    //   image: '/challego1.png',
-    //   tech: [
-    //     'React',
-    //     'Node.js',
-    //     'Express',
-    //     'MongoDB',
-    //     'REST APIs',
-    //     'TailwindCSS',
-    //   ],
-    // },
-
-    {
+   {
       id: '3',
       title: 'The Anchor Book',
       category: 'Digital Product • JavaScript',
@@ -92,8 +78,27 @@ const Projects = () => {
     },
 
     {
+      id: '6',
+      title: 'Reencarnados Theatre Group',
+      category: 'Ticketing Platform • Full-Stack',
+      description:
+        'Bilingual (ES/EN) ticketing platform for a Las Vegas nonprofit theatre group, with live seat counts, secure Stripe Checkout, QR code tickets, email confirmations, and an admin dashboard for managing productions and performances.',
+      image: '/reencarnados-1.png',
+      tech: [
+        'React',
+        'Vite',
+        'Node.js',
+        'Express',
+        'MongoDB',
+        'Stripe',
+        'Cloudinary',
+        'Resend',
+      ],
+    },
+ 
+    {
       id: '7',
-      title: 'Happy Travels',
+      title: 'Reencarnados',
       category: 'Web Application • Frontend',
       description:
         'Responsive travel experience featuring destination discovery, travel packages, booking-style interactions, and a user-focused interface built for smooth navigation.',
@@ -107,6 +112,24 @@ const Projects = () => {
         'UX Design',
       ],
     },
+
+      // {
+    //   id: '8',
+    //   title: 'Challego Online Market',
+    //   category: 'E-Commerce • Full-Stack',
+    //   description:
+    //     'E-commerce marketplace concept focused on personalized, budget-aware shopping with dynamic pricing, vendor workflows, product management, and scalable architecture.',
+    //   image: '/challego1.png',
+    //   tech: [
+    //     'React',
+    //     'Node.js',
+    //     'Express',
+    //     'MongoDB',
+    //     'REST APIs',
+    //     'TailwindCSS',
+    //   ],
+    // },
+    
   ];
 
   return (

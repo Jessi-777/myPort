@@ -190,14 +190,14 @@ const InvestorInfo = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            {/* <a
               href="https://calendly.com/jessisoftwareengineer/meeting-with-jessi-aka-tica"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#96b9c6] to-[#335099] text-white font-semibold rounded-lg shadow-lg hover:shadow-[#96b9c6]/50 hover:scale-105 transition-all duration-300"
             >
               <FaCalendar /> Schedule a Meeting
-            </a>
+            </a> */}
             <a
               href="mailto:jcsoftwareengineer369@gmail.com"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-semibold rounded-lg border-2 border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
