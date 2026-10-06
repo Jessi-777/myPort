@@ -98,7 +98,7 @@ const Projects = () => {
  
     {
       id: '7',
-      title: 'Reencarnados',
+      title: 'Travel Agency App',
       category: 'Web Application • Frontend',
       description:
         'Responsive travel experience featuring destination discovery, travel packages, booking-style interactions, and a user-focused interface built for smooth navigation.',
